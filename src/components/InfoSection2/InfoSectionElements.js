@@ -117,6 +117,12 @@ text-align: start;
 justify-content: flex-start;
 margin-top: 10px;
 margin-left: 7rem;
+
+@media screen and (max-width: 768px) {
+        font-size: 1.5rem;
+        text-align: left;
+        margin-left: 2.2rem;
+    }
 `
 export const Elipse = styled.div`
   justify-content: center;
