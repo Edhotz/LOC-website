@@ -8,7 +8,7 @@ export const homeObjOne = {
     headline: 'Sediada em Luanda ',
     description: 'pela empresa de direito Angolano Invesparso, a Luanda Office Center é uma empresa orientada para para o mercado empresarial angolano, que cria e implementa soluções que visão potenciar as vendas e a notariedade de imagem das empresas',
     buttonLabel: 'Contacto',
-    imgStart: false,
+    imgStart1: false,
    //img: require('../../images/Invesparsobg.png'),
     //alt: 'Car',
     dark: true,
@@ -49,3 +49,4 @@ export const homeObjThree = {
     primary: false,
     darkText: true,
 }
+
