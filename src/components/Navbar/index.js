@@ -36,7 +36,7 @@ const Navbar = ({ toggle }) => {
                         <img src={logo} alt="imagem de logo"  width={140} height={70}/>	
                     </NavLogo>
                     <MobileIcon onClick={toggle} >
-                        <FaBars size={38}/>
+                        <FaBars size={38} color="gray"/>
                     </MobileIcon>
                     <NavMenu>
                         <NavItem>
