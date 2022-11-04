@@ -49,8 +49,9 @@ export const MobileIcon = styled.div`
     top: 0;
     right: 0;
     transform: translate(-100%, 60%);
-    font-size: 2rem;
+    font-size: 1.8rem;
     cursor: pointer;
+    background-color: #0184BA;
   }
 `;
 
