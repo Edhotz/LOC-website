@@ -4,9 +4,8 @@ export const Section3 = styled.div`
     display: flex;
     height: 90vh;
     width: 100%;
-    margin-top: -13rem;
+    margin-top: -10rem;
     margin-bottom: 30px;
-    background: #101522;
     align-items: center;
     justify-content: space-around;
     button {
@@ -42,7 +41,6 @@ export const Section3 = styled.div`
     margin: 20px;
     height: 500px;
     width: 550px;
-    background: #101522;
     justify-content: space-between;
     border-radius: 10px;
     padding: 25px;
@@ -59,12 +57,14 @@ export const Section3 = styled.div`
 export const SubCard = styled.div`
 display: flex;
 flex-wrap: wrap;
-gap: 10px;
+gap: 20px;
+margin-top: 200px;
+width: 730px;
 div {
   margin: 10px;
   background: #20A6DA;
   border-radius: 5px;
-  padding: 10px 15px;
+  padding: 10px 25px;
   border: none;
   color: #f2f2f2;
   text-align: center;

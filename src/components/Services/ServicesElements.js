@@ -1,12 +1,13 @@
 import styled from "styled-components";
 
 export const ServicesContainer = styled.div`
-    height: 800px;
+    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background: #20A6DA;
+    
 
     @media screen and (max-width: 768px) {
         height: 1100px;
@@ -29,8 +30,11 @@ export const ServicesWrapper = styled.div`
     margin-bottom: 120px;
     align-items: center;
     justify-content: center;
+    gap: 40px;
 
     @media screen and (max-width: 768px) {
+        max-height: 125vh;
+        margin-bottom: 20px;
         grid-template-columns: 1fr 1fr;
         grid-gap: 60px;
 
@@ -53,10 +57,11 @@ export const ServicesCard = styled.div`
     height: 360px;
     width: 370px;
     padding: 30px;
-    box-shadow: 0 2px 6px rgba(0, 1, 0, 0.4);
+    box-shadow: 0 2px 6px rgba(0, 1, 1, 0.6);
     transition: all 0.2s ease-in-out;
-    margin-top: -20px;
+
     flex-wrap: nowrap;
+    gap: 20px;
     &:hover {
         transform: scale(1.02);
         transform-origin: all 0.2 ease-in-out;
@@ -66,6 +71,7 @@ export const ServicesCard = styled.div`
     @media screen and (max-width: 768px) {
         height: 350px;
         width: 290px;
+        gap: 5px;
     }
 `
 
@@ -76,12 +82,13 @@ export const ServicesIcon = styled.img`
 `
 
 export const ServicesH1 = styled.h1`
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     color: #fff;
     margin-bottom: 64px;
 
     @media screen and (max-width: 768px) {
         font-size: 1.5rem;
+        
     }
 `
 

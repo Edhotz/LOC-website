@@ -5,6 +5,12 @@ export const Article = styled.div`
   width: 100%;
   padding: 40px;
   margin-top: -140px;
+  margin-bottom: 100px;
+
+  @media screen and (max-width: 768px) {
+        margin-top: -160px;
+        z-index: 999;
+      }
  
   boxs {
     display: flex;
@@ -18,6 +24,7 @@ export const Article = styled.div`
       background: #20A6DA;
       border-radius: 50px 50px 50px 50px;
       transform: matrix(1, 0, 0, 1, 0, 1);
+      cursor: pointer;
       h3 {
         position: absolute;
         top: 120px;
@@ -34,6 +41,7 @@ export const Article = styled.div`
       @media screen and (max-width: 768px) {
         width: 280px;
         height: 242.77px;
+        cursor: pointer;
         p {
           margin-top: -10px;
           font-size: 12px;
@@ -126,16 +134,17 @@ export const Article = styled.div`
   `
 
 export const Text1 = styled.div`
-font-size: 2.5rem;
-text-align: start;
+font-size: 2.0rem;
+font-weight: 600;
+text-align: center;
 justify-content: flex-start;
 margin-top: 10px;
-margin-left: 7rem;
+margin-bottom: 40px;
+color: #20A6DA;
 
 @media screen and (max-width: 768px) {
         font-size: 1.5rem;
-        text-align: left;
-        margin-left: 2.2rem;
+        text-align: center;
     }
 `
 export const Elipse = styled.div`

@@ -6,12 +6,13 @@ align-items: center;
 justify-content: center;
 
 height: 100vh;
-margin-top: 50px;
+margin-top: -30px;
 
 gap: 20px;
 
 @media screen and (max-width: 768px) {
     flex-direction: column;
+   
 }
 
 `
@@ -26,9 +27,16 @@ export const Content = styled.div`
  span {
     display: flex;
     align-items: center;
+    text-decoration: none;
     
     gap: 10px;
  }
+
+ @media screen and (max-width: 768px) {
+    margin-top: 10px;
+    gap: 5px;
+    
+}
 `
 
 
@@ -44,8 +52,8 @@ padding: 30px;
     cursor: pointer;
 
     @media screen and (max-width: 768px) {
-        max-height: 300px;
-        max-width: 200px;
+        min-height: 300px;
+        min-width: 200px;
     }
 }
 `
@@ -59,6 +67,11 @@ padding: 20px;
 background-color: #20A6DA;
 color: #FFFFFF;
 
+
+@media screen and (max-width: 768px) {
+        max-height: 800px;
+        max-width: 900px;
+    }
 
 
  fieldset {
@@ -108,8 +121,8 @@ color: #FFFFFF;
     }
 
     textarea {
-        min-height: 100px;
-        min-width: 390px;
+        min-height: 110px;
+        min-width: 700px;
         
         border-radius: 5px;
         border: #20A6DA 1px solid;
@@ -119,6 +132,11 @@ color: #FFFFFF;
 
         box-sizing: border-box;
         font-weight: 400;
+        
+        @media screen and (max-width: 768px) {
+        max-height: 110px;
+        min-width: 250px;
+      }
     }
     
     button {
@@ -129,13 +147,17 @@ color: #FFFFFF;
         border: none;
         color: #20A6DA;
     
-        margin-left: 40rem;
+        margin-left: 45rem;
         :hover {
           transition: all .3s;
           filter: brightness(0.9);
           background-color: #048abf;
           color: #f2f2f2;
         }
+
+        @media screen and (max-width: 768px) {
+            margin-left: 178px;
+    }
       }
 }
 :hover {
@@ -213,6 +235,10 @@ color: #FFFFFF;
 export const Social = styled.div`
     div {
         margin-top: 150px;
+
+        a {
+            text-decoration: none;
+        }
     }
 
 `

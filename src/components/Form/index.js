@@ -32,16 +32,16 @@ export default function Form({title, children}) {
                     <Social>
                         <div>
                             <a href="/">
-                                <AiOutlineLinkedin size={50} />
+                                <AiOutlineLinkedin size={50} color="#fff"/>
                             </a>
                             <a href="https://www.instagram.com/luanda_office_center">
-                                <AiOutlineInstagram size={50} />
+                                <AiOutlineInstagram size={50} color="#fff" />
                             </a>
                             <a href="https://wa.me/244953529112">
-                                <AiOutlineWhatsApp size={50} />
+                                <AiOutlineWhatsApp size={50} color="#fff" />
                             </a>
                             <a href="/">
-                                <AiOutlineGithub size={50} />
+                                <AiOutlineGithub size={50} color="#fff" />
                             </a>
                         </div>
                     </Social>
@@ -68,7 +68,7 @@ export default function Form({title, children}) {
                 
                     <div>
                         <label>Mensagem</label>
-                        <textarea placeholder="Escreva aqui a sua mensagem" />
+                        <textarea name="message" id=""  placeholder="Escreva aqui a sua mensagem" />
                     </div>
                     <button>Enviar</button>
                 </fieldset>
