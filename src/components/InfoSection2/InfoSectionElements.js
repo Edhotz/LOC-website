@@ -30,12 +30,23 @@ export const Article = styled.div`
         left: 40px;
         color: #FFFFFF;
       }
+
+      @media screen and (max-width: 768px) {
+        width: 280px;
+        height: 242.77px;
+        p {
+          margin-top: -10px;
+          font-size: 12px;
+      }
+  }
+
       
     } box1:hover {
       background-color: #049dbf;
       transition: all .3s;
-
+      
     }
+    
     box2 {
     box-sizing: border-box;
     width: 320px;
@@ -67,6 +78,9 @@ export const Article = styled.div`
       p {
         color: #FFFFFF;
       }
+
+      
+      
       
     }
     box3 {
