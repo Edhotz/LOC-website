@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import Footer from '../components/Footer'
-import Form from '../components/Form'
 import HeroSection from '../components/HeroSection'
 import InfoSection from '../components/InfoSection'
-import { homeObjOne, homeObjTwo, homeObjThree } from '../components/InfoSection/Data'
+import { homeObjOne, homeObjThree } from '../components/InfoSection/Data'
 import { InfoSection2 } from '../components/InfoSection2'
 import Navbar from '../components/Navbar'
 import { Services } from '../components/Services'
@@ -28,7 +27,6 @@ export const Home = () => {
     <Services />
     <ServiceSection />
     <InfoSection { ...homeObjThree } />
-    <Form />
     <Footer />
     </>
   )

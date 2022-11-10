@@ -73,7 +73,7 @@ const Navbar = ({ toggle }) => {
                         </NavItem>
                     </NavMenu>
                     <NavBtn>
-                        <NavBtnLink to="contact"><IoLogoWhatsapp size={30} /><p>Mensagem</p></NavBtnLink>
+                        <NavBtnLink to="https://wa.me/244924676351"><IoLogoWhatsapp size={30} /><p>Mensagem</p></NavBtnLink>
                     </NavBtn>
                 </NavbarContainer>
             </Nav>

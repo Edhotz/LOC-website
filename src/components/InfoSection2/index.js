@@ -20,7 +20,7 @@ export const InfoSection2 = () => {
               </Elipse>
               <h3>Serviços de Qualidade</h3>
               <p>Serviços de qualidade aliados <br/> ao comprimisso com cliente, <br/>
-              alargando um leque de serviços para agregando a sua empresa.
+              alargando um leque de serviços <br/> para agregar mais valor a sua empresa.
               </p>
             </box1>
             <box2>
@@ -37,7 +37,7 @@ export const InfoSection2 = () => {
               <img src={Design}  alt="ilustração de Design"/>
               <h3>Trabalho Criativo</h3>
               <p>Serviços de qualidade aliados <br/> ao comprimisso com cliente, <br/>
-              alargando um leque de serviços para agregando a sua empresa.
+              alargando um leque de serviços <br/> para agregar cada vez mais valor <br />a sua empresa a sua empresa.
               </p>
 
               </Elipse3>
