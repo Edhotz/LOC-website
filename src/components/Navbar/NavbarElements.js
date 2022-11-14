@@ -97,7 +97,7 @@ export const NavBtn = styled.nav`
   }
 `
 
-export const NavBtnLink = styled(LinkR)`
+export const NavBtnLink = styled.a`
   display: flex;
   border-radius: 50px;
   background: #20A6DA;

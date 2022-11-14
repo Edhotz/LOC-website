@@ -23,7 +23,6 @@ const Footer = () => {
                             <FooterLink to="about">Como Trabalhamos</FooterLink>
                             <FooterLink to="/signin">Testemunhos</FooterLink>
                             <FooterLink to="/signin">Carreras</FooterLink>
-                            <FooterLink to="/signin">Investors</FooterLink>
                             <FooterLink to="/signin">Termos de serviços</FooterLink>
                         </FooterLinkItems>
 
@@ -31,7 +30,6 @@ const Footer = () => {
                             <FooterLinkTitle>Contacte-nos</FooterLinkTitle>
                             <FooterLink to="/signin">Contacto</FooterLink>
                             <FooterLink to="/signin">Suporte</FooterLink>
-                            <FooterLink to="/signin">Reclamações</FooterLink>
                             <FooterLink to="/signin">Portfólio</FooterLink>
                         </FooterLinkItems>
 
