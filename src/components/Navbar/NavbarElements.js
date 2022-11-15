@@ -112,10 +112,12 @@ export const NavBtnLink = styled.a`
   cursor: pointer;
   
   p {
+      font-size: 1.2rem;
+      margin-left: 5px;
 
   }
 
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
   text-decoration: none; 
 
 

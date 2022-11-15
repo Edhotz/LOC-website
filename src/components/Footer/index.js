@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa'
 
 import { animateScroll as scroll } from 'react-scroll'
 
@@ -22,13 +22,12 @@ const Footer = () => {
                             <FooterLinkTitle>Sobre Nos</FooterLinkTitle>
                             <FooterLink to="about">Como Trabalhamos</FooterLink>
                             <FooterLink to="/signin">Testemunhos</FooterLink>
-                            <FooterLink to="/signin">Carreras</FooterLink>
                             <FooterLink to="/signin">Termos de serviços</FooterLink>
                         </FooterLinkItems>
 
                         <FooterLinkItems>
                             <FooterLinkTitle>Contacte-nos</FooterLinkTitle>
-                            <FooterLink to="/signin">Contacto</FooterLink>
+                            <FooterLink to="/signin">Carreras</FooterLink>
                             <FooterLink to="/signin">Suporte</FooterLink>
                             <FooterLink to="/signin">Portfólio</FooterLink>
                         </FooterLinkItems>
@@ -36,10 +35,9 @@ const Footer = () => {
 
                         <FooterLinkItems>
                             <FooterLinkTitle>Redes Sociais</FooterLinkTitle>
-                            <FooterLink to="/signin"> Instagram </FooterLink>
+                            <FooterLink href='https://instagram.com/luanda_office_center?igshid=YmMyMTA2M2Y=' target={'_blank'}> Instagram </FooterLink>
                             <FooterLink to="/signin">Facebook</FooterLink>
-                            <FooterLink to="/signin">Youtube</FooterLink>
-                            <FooterLink to="/signin">Twitter</FooterLink>
+                            <FooterLink href='https://www.linkedin.com/in/luanda-office-center-loc-23763495/?originalSubdomain=ao' target="_blank">Linkedin</FooterLink>
                         </FooterLinkItems>
 
                     </FooterLinksWrapper>
@@ -54,16 +52,13 @@ const Footer = () => {
                             <SocialIconLink href="/" target="_blank" aria-label="Facebook">
                                 <FaFacebook />
                             </SocialIconLink>
-                            <SocialIconLink href="/" target="_blank" aria-label="Instagram">
+                            <SocialIconLink href="https://instagram.com/luanda_office_center?igshid=YmMyMTA2M2Y=" target="_blank" aria-label="Instagram">
                                 <FaInstagram />
-                            </SocialIconLink>
-                                <SocialIconLink href="/" target="_blank" aria-label="Youtube">
-                                <FaYoutube/>
                             </SocialIconLink>
                                 <SocialIconLink href="/" target="_blank" aria-label="Twitter">
                                 <FaTwitter />
                             </SocialIconLink>
-                            <SocialIconLink href="/" target="_blank" aria-label="Linkdin">
+                            <SocialIconLink href="https://www.linkedin.com/in/luanda-office-center-loc-23763495/?originalSubdomain=ao" target="_blank" aria-label="Linkedin">
                                 <FaLinkedin />
                             </SocialIconLink>
                         </SocialIcons>
