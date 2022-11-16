@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ServicesContainer = styled.div`
-  height: 100vh;
+  height: 165vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -9,7 +9,9 @@ export const ServicesContainer = styled.div`
   background: #20a6da;
 
   @media screen and (max-width: 768px) {
-    height: 174vh;
+    margin-top: 100rem;
+    margin-bottom: 40rem;
+    height: 355vh;
   }
 
   @media screen and (max-width: 480px) {
@@ -119,7 +121,7 @@ export const ServicesH1 = styled.h1`
 export const ServicesH2 = styled.h2`
   text-align: center;
   font-size: 1.4rem;
-  margin-top: 10px;
+  margin-top: 12px;
 
   @media screen and (max-width: 768px) {
     font-size: 1.2rem;
@@ -154,6 +156,18 @@ export const ServicesP2 = styled.p`
   font-size: 0.9rem;
   text-align: justify;
   margin-top: 40px;
+  font-weight: 500;
+
+  @media screen and (max-width: 768px) {
+    margin-top: 0px;
+    font-size: 0.8rem;
+  }
+`;
+
+export const ServicesP3 = styled.p`
+  font-size: 0.9rem;
+  text-align: justify;
+  margin-top: -20px;
   font-weight: 500;
 
   @media screen and (max-width: 768px) {
