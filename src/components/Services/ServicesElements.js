@@ -9,13 +9,11 @@ export const ServicesContainer = styled.div`
   background: #20a6da;
 
   @media screen and (max-width: 768px) {
-    margin-top: 100rem;
-    margin-bottom: 40rem;
-    height: 355vh;
+    height: 555vh;
   }
 
   @media screen and (max-width: 480px) {
-    height: 140vh;
+    height: 390vh;
   }
 `;
 
