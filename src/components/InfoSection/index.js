@@ -50,7 +50,7 @@ const InfoSection = ({
                   <NavBtnLink>
                     <NavBtnLink href="https://wa.me/244924676351">
                       <IoLogoWhatsapp size={30} color="#fff" />
-                      <p>Fale Conosco</p>
+                      <p>Faça já o seu orçamento</p>
                     </NavBtnLink>
                   </NavBtnLink>
                 </BtnWrap>
