@@ -54,7 +54,7 @@ export const Services = () => {
           <ServicesP2>
             Soluções de marketing e comunicação com vista a gerar valor
             acrescentando as empresas e a transmitir uma imagem de excelência e
-            competência no mercado
+            competência no mercado.
           </ServicesP2>
         </ServicesCard>
 
