@@ -142,7 +142,7 @@ export const ServicesP1 = styled.p`
 export const ServicesP = styled.p`
   font-size: 0.9rem;
   text-align: justify;
-  margin-top: 10px;
+  margin-top: 15px;
   font-weight: 500;
 
   @media screen and (max-width: 768px) {
@@ -167,7 +167,7 @@ export const ServicesP2 = styled.p`
 export const ServicesP3 = styled.p`
   font-size: 0.9rem;
   text-align: justify;
-  margin-top: -20px;
+  margin-top: -10px;
   font-weight: 500;
 
   @media screen and (max-width: 768px) {
