@@ -37,7 +37,7 @@ export const InfoSection2 = () => {
               <img src={Design}  alt="ilustração de Design"/>
               <h3>Trabalho Criativo</h3>
               <p>Serviços de qualidade aliados <br/> ao comprimisso com cliente, <br/>
-              alargando um leque de serviços <br/> para agregar cada vez mais valor <br />a sua empresa a sua empresa.
+              alargando um leque de serviços <br/> para agregar cada vez mais valor <br />a sua empresa.
               </p>
 
               </Elipse3>
