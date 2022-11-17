@@ -30,7 +30,7 @@ export const Services = () => {
           <ServicesIcon src={formation} alt="imagem de formação" />
           <ServicesH2>Formação</ServicesH2>
           <ServicesP1>
-            O Nosso comprimisso é dotar os colaboradores das empresas, de
+            O Nosso compromisso é dotar os colaboradores das empresas, de
             conhecimentos práticas e atitudes necessárias ao desenvolvimento da
             actividade profissional, é um factor de diminuição de riscos e de
             aumento da satisfação interna dos trabalhadores.

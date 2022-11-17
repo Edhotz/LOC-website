@@ -44,10 +44,6 @@ export const Article = styled.div`
         }
       }
     }
-    box1:hover {
-      filter: brightness(0.8);
-      transition: all 0.3s ease;
-    }
 
     box2 {
       box-sizing: border-box;
@@ -71,10 +67,7 @@ export const Article = styled.div`
         color: #fff;
       }
     }
-    box2:hover {
-      filter: brightness(0.8);
-      transition: all 0.3s;
-      h3 {
+          h3 {
         color: #ffffff;
       }
       p {
@@ -104,16 +97,7 @@ export const Article = styled.div`
       color: #fff;
     }
   }
-  box3:hover {
-    filter: brightness(0.8);
-    transition: all 0.3s;
-    h3 {
-      color: #ffffff;
-    }
-    p {
-      color: #ffffff;
-    }
-  }
+
 
   @media screen and (max-width: 768px) {
     boxs {

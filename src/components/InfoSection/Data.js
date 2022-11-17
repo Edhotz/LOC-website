@@ -6,7 +6,7 @@ export const homeObjOne = {
     lightTextDesc: false,
     topLine: 'Quem Somos',
     headline: 'Sediada em Luanda ',
-    description: 'Pela Sociedade de direito Angolano Invesparso, a Luanda Office Center é uma empresa orientada para o mercado empresarial angolano, que cria e implementa soluções que visam potencializar as vendas e a notariedade de imagem das empresas',
+    description: 'Registrada Pela Sociedade de direito Angolano Invesparso, a Luanda Office Center é uma empresa orientada para o mercado empresarial angolano, que cria e implementa soluções que visam potencializar as vendas e a notariedade de imagem das empresas',
     buttonLabel: 'Contacto',
     imgStart: false,
     img: require('../../images/sede.png'),

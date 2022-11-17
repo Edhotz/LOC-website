@@ -17,29 +17,33 @@ const Footer = () => {
             <FooterWrap>
                 <FooterLinksContainer>
                     <FooterLinksWrapper>
-
+{/* 
                         <FooterLinkItems>
                             <FooterLinkTitle>Sobre nós</FooterLinkTitle>
                             <FooterLink to="about">Como Trabalhamos</FooterLink>
                             <FooterLink to="/signin">Testemunhos</FooterLink>
                             <FooterLink to="/signin">Termos e serviços</FooterLink>
-                        </FooterLinkItems>
-
-                        <FooterLinkItems>
-                            <FooterLinkTitle>Contacte-nos</FooterLinkTitle>
-                            <FooterLink to="/signin">Carreiras</FooterLink>
-                            <FooterLink to="/signin">Suporte</FooterLink>
-                            <FooterLink to="/signin">Portfólio</FooterLink>
-                        </FooterLinkItems>
+                        </FooterLinkItems> */}
 
 
                         <FooterLinkItems>
                             <FooterLinkTitle>Redes sociais</FooterLinkTitle>
                             <FooterLink href='https://instagram.com/luanda_office_center?igshid=YmMyMTA2M2Y=' target={'_blank'}> Instagram </FooterLink>
-                            <FooterLink to="/signin">Facebook</FooterLink>
+                            <FooterLink href="https://www.facebook.com/profile.php?id=100073874147707">Facebook</FooterLink>
                             <FooterLink href='https://www.linkedin.com/in/luanda-office-center-loc-23763495/?originalSubdomain=ao' target="_blank">Linkedin</FooterLink>
                         </FooterLinkItems>
 
+
+                        <FooterLinkItems>
+                            <FooterLinkTitle>Contactos</FooterLinkTitle>
+                            <FooterLink>+244 924 676 351</FooterLink>
+                            <FooterLink href='mailto:geral.invesparso@gmail.com' >geral.invesparso@gmail.com</FooterLink>
+                        </FooterLinkItems>
+                        <FooterLinkItems>
+                            <FooterLinkTitle>Localização</FooterLinkTitle>
+                            <FooterLink  href='https://goo.gl/maps/9yTTTTezyAdrVURy9' target="_blank">AutoEstrada Circular, Residencial Jardim de Rosas, Luanda - Angola</FooterLink>
+                        </FooterLinkItems>
+                            
                     </FooterLinksWrapper>
                 </FooterLinksContainer>
                 <SocialMedia>
@@ -49,14 +53,11 @@ const Footer = () => {
                         </SocialLogo>
                         <WebsiteRights>Luanda Office Center &copy; {new Date().getFullYear()} All rigths reserved</WebsiteRights>
                         <SocialIcons>
-                            <SocialIconLink href="/" target="_blank" aria-label="Facebook">
+                            <SocialIconLink href="https://www.facebook.com/profile.php?id=100073874147707" target="_blank" aria-label="Facebook">
                                 <FaFacebook />
                             </SocialIconLink>
                             <SocialIconLink href="https://instagram.com/luanda_office_center?igshid=YmMyMTA2M2Y=" target="_blank" aria-label="Instagram">
                                 <FaInstagram />
-                            </SocialIconLink>
-                                <SocialIconLink href="/" target="_blank" aria-label="Twitter">
-                                <FaTwitter />
                             </SocialIconLink>
                             <SocialIconLink href="https://www.linkedin.com/in/luanda-office-center-loc-23763495/?originalSubdomain=ao" target="_blank" aria-label="Linkedin">
                                 <FaLinkedin />

@@ -44,7 +44,7 @@ export const FooterLinkItems = styled.div`
     align-items: flex-start;
     margin: 16px;
     text-align: left;
-    width: 160px;
+    width: 260px;
     box-sizing: border-box;
     color: #fff;
     
@@ -68,8 +68,10 @@ export const FooterLink = styled.a`
     &:hover {
         color: #20A6DA;
         transition: 0.3 ease-out;
+        cursor: pointer;
     }
 `
+
 export const SocialMedia = styled.section`
     max-width: 1000px;
     width: 100%;
@@ -80,7 +82,7 @@ export const SocialMediaWrap = styled.div`
     justify-content: space-between;
     align-items: center;
     max-width: 1100px;
-    margin: 40px auto 0 auto;
+    margin: 20px auto 0 auto;
 
     @media screen and (max-width: 820px) {
         flex-direction: column;
