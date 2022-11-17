@@ -53,7 +53,7 @@ export const Article = styled.div`
       box-sizing: border-box;
       width: 320px;
       height: 342.77px;
-
+      background-color: #20a6da;
       border: 2px solid #20a6da;
       border-radius: 50px 50px 50px 50px;
       transform: matrix(1, 0, 0, 1, 0, 0);
@@ -62,17 +62,17 @@ export const Article = styled.div`
         position: absolute;
         top: 120px;
         left: 90px;
-        color: #20a6da;
+        color: #fff;
       }
       p {
         position: absolute;
         top: 160px;
         left: 20px;
-        color: #20a6da;
+        color: #fff;
       }
     }
     box2:hover {
-      background-color: #20a6da;
+      filter: brightness(0.8);
       transition: all 0.3s;
       h3 {
         color: #ffffff;
@@ -86,7 +86,7 @@ export const Article = styled.div`
 
       width: 320px;
       height: 342.77px;
-
+      background-color: #20a6da;
       border: 2px solid #82c9d9;
       border-radius: 50px 50px 50px 50px;
       transform: matrix(1, 0, 0, 1, 0, 0);
@@ -95,17 +95,17 @@ export const Article = styled.div`
       position: absolute;
       top: 120px;
       left: 90px;
-      color: #20a6da;
+      color: #fff;
     }
     p {
       position: absolute;
       top: 160px;
       left: 40px;
-      color: #20a6da;
+      color: #fff;
     }
   }
   box3:hover {
-    background-color: #20a6da;
+    filter: brightness(0.8);
     transition: all 0.3s;
     h3 {
       color: #ffffff;

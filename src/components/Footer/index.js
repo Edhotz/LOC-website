@@ -19,22 +19,22 @@ const Footer = () => {
                     <FooterLinksWrapper>
 
                         <FooterLinkItems>
-                            <FooterLinkTitle>Sobre Nos</FooterLinkTitle>
+                            <FooterLinkTitle>Sobre nós</FooterLinkTitle>
                             <FooterLink to="about">Como Trabalhamos</FooterLink>
                             <FooterLink to="/signin">Testemunhos</FooterLink>
-                            <FooterLink to="/signin">Termos de serviços</FooterLink>
+                            <FooterLink to="/signin">Termos e serviços</FooterLink>
                         </FooterLinkItems>
 
                         <FooterLinkItems>
                             <FooterLinkTitle>Contacte-nos</FooterLinkTitle>
-                            <FooterLink to="/signin">Carreras</FooterLink>
+                            <FooterLink to="/signin">Carreiras</FooterLink>
                             <FooterLink to="/signin">Suporte</FooterLink>
                             <FooterLink to="/signin">Portfólio</FooterLink>
                         </FooterLinkItems>
 
 
                         <FooterLinkItems>
-                            <FooterLinkTitle>Redes Sociais</FooterLinkTitle>
+                            <FooterLinkTitle>Redes sociais</FooterLinkTitle>
                             <FooterLink href='https://instagram.com/luanda_office_center?igshid=YmMyMTA2M2Y=' target={'_blank'}> Instagram </FooterLink>
                             <FooterLink to="/signin">Facebook</FooterLink>
                             <FooterLink href='https://www.linkedin.com/in/luanda-office-center-loc-23763495/?originalSubdomain=ao' target="_blank">Linkedin</FooterLink>

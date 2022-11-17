@@ -45,7 +45,7 @@ const Navbar = ({ toggle }) => {
                             duration={500}
                             spy={true} exact='true' offset={-80}
                             activeClass="active"
-                            >Sobre Nós</NavLinks>
+                            >Sobre nós</NavLinks>
                         </NavItem>
                         <NavItem>
                             <NavLinks to="discover"
@@ -69,7 +69,7 @@ const Navbar = ({ toggle }) => {
                             duration={500}
                             spy={true} exact='true' offset={-80}
                             activeClass="active"
-                            >Entre em Contacto</NavLinks>
+                            >Entre em contacto</NavLinks>
                         </NavItem>
                     </NavMenu>
                     <NavBtn>

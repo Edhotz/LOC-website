@@ -21,8 +21,7 @@ const HeroSection = () => {
             <HeroP>
             pretende iniciar um novo
             conceito de prestação de serviços necessarios para o sucesso
-            profissional e pessoal fundamental para o desenvolvimento de
-            qualquer país... <br />
+            profissional, pessoal e fundamental para o desenvolvimento.<br />
             </HeroP>
             <HeroBtnWrapper>
                 <Button to="about" 

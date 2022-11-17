@@ -24,7 +24,7 @@ import {
 export const Services = () => {
   return (
     <ServicesContainer id="services">
-      <ServicesH1>Nossos Serviços</ServicesH1>
+      <ServicesH1>Nossos serviços</ServicesH1>
       <ServicesWrapper>
         <ServicesCard>
           <ServicesIcon src={formation} alt="imagem de formação" />
@@ -32,7 +32,7 @@ export const Services = () => {
           <ServicesP1>
             O Nosso comprimisso é dotar os colaboradores das empresas, de
             conhecimentos práticas e atitudes necessárias ao desenvolvimento da
-            actividade profissional é um factor de diminuição de riscos e de
+            actividade profissional, é um factor de diminuição de riscos e de
             aumento da satisfação interna dos trabalhadores.
           </ServicesP1>
         </ServicesCard>
@@ -41,7 +41,7 @@ export const Services = () => {
           <ServicesIcon src={newspaper} />
           <ServicesH2>Relações Publicas e Comunicação</ServicesH2>
           <ServicesP>
-            A LOC é especializada em diagnóstico, definição, implementação e
+            A LOC é especializada em diagnósticos, definição, implementação e
             monitoramento de estratégias integradas de comunicação empresarial.
             Com visão ampliada, procuramos o alinhamento da comunicação com a
             estrategia geral das empresas.
@@ -60,9 +60,9 @@ export const Services = () => {
 
         <ServicesCard>
           <ServicesIcon src={handshake} alt="imagem de formação" />
-          <ServicesH2>Legalizações de Imoveis</ServicesH2>
+          <ServicesH2>Legalizações de Imóveis</ServicesH2>
           <ServicesP1>
-            A Loc é especializada em atender as necessidades de Legalização de diversos tipos de imóveis,
+            A Loc é especializada em atender as necessidades de Legalizações de diversos tipos de imóveis,
             aliados ao conhecimento e profissionalismo para a gestão das informações e serviços, proporcionando aos 
             clientes facilidade, agilidade, comodidade e segurança nos procedimentos adequados á regurarização de seu imóvel.
           </ServicesP1>
@@ -73,8 +73,8 @@ export const Services = () => {
           <ServicesH2>Desenvolvimento de Websites Modernos</ServicesH2>
           <ServicesP>
             Ter um site profissional, com visual e conteúdos de qualidade, vai
-            ajudar o seu negócio a mostrar que é confiável. Alem disso seu
-            negocio vai estar disponivel 24/24 para todo o mundo.
+            proporcionar maior confiablidade ao seu negócio, Além disso seu
+            negócio vai estar disponivel 24/7 para o mundo todo.
           </ServicesP>
         </ServicesCard>
 
@@ -84,8 +84,8 @@ export const Services = () => {
             Desenvolvimento de Aplicativos e Sistemas para Android e IOS
           </ServicesH2>
           <ServicesP3>
-            Com o crescimento do uso de smartphones e do acesso movel a internet
-            é muito importante marcar cada vez mais presença no digital e
+            Com o crescimento do uso de smartphones e o acesso móvel a internet
+            é de capital importância marcar cada vez mais presença no digital e
             apostar em um aplicativo que atenda as necessidades do seu negócio.
           </ServicesP3>
         </ServicesCard>

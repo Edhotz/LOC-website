@@ -11,7 +11,7 @@ export const InfoSection2 = () => {
   return (
         <Article id="discover">
           <Text1>
-            Porque escolher-nos ?
+            Porquê escolher-nos ?
           </Text1>
           <boxs>
             <box1>
@@ -28,7 +28,7 @@ export const InfoSection2 = () => {
               <img src={Support}  alt="ilustração de serviços"/>
               <h3>Suporte ao cliente</h3>
               <p>Provemos serviços de suporte ao cliente 
-                customizados para resolução de problemas, mantendo a excelência dos serviços
+                customizados para resolução de problemas, mantendo a excelência dos serviços.
               </p>
               </Elipse2>
             </box2>
