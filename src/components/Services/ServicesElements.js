@@ -23,7 +23,7 @@ export const ServicesWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
-  grid-gap: 16px;
+  grid-gap: 14px;
   padding: 0 50px;
   margin-bottom: 120px;
   align-items: center;
@@ -33,13 +33,18 @@ export const ServicesWrapper = styled.div`
   @media screen and (max-width: 768px) {
     margin-top: 10px;
     margin-bottom: 20px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     grid-gap: 60px;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1180px) {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 360px) {
     grid-template-columns: 1fr;
-    grid-gap: 60px;
+    grid-gap: 40px;
     padding: 0 20px;
   }
 `;
@@ -49,7 +54,7 @@ export const ServicesCard = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border: solid #FFF ;
+  border: solid #fff;
   border-radius: 30px 30px 30px 30px;
   height: 560px;
   width: 370px;
@@ -74,20 +79,18 @@ export const ServicesCard = styled.div`
   }
 `;
 
-
 export const ServicesIcon = styled.img`
   max-height: 460px;
   max-width: 364px;
   margin-top: -30px;
   border-radius: 30px 30px 0px 0px;
-  transition: all 0.2s ;
+  transition: all 0.2s;
 
   @media screen and (max-width: 768px) {
     height: 350px;
     width: 287px;
     gap: 5px;
   }
-
 `;
 
 export const ServicesIcon1 = styled.img`
@@ -95,14 +98,13 @@ export const ServicesIcon1 = styled.img`
   max-width: 364px;
   margin-top: -30px;
   border-radius: 30px 30px 0px 0px;
-  transition: all 0.2s ;
+  transition: all 0.2s;
 
   @media screen and (max-width: 768px) {
     height: 350px;
     width: 287px;
     gap: 5px;
   }
-
 `;
 
 export const ServicesH1 = styled.h1`
@@ -149,7 +151,6 @@ export const ServicesP = styled.p`
   }
 `;
 
-
 export const ServicesP2 = styled.p`
   font-size: 0.9rem;
   text-align: justify;
@@ -173,4 +174,3 @@ export const ServicesP3 = styled.p`
     font-size: 0.8rem;
   }
 `;
-

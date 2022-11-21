@@ -62,9 +62,11 @@ export const Services = () => {
           <ServicesIcon src={handshake} alt="imagem de formação" />
           <ServicesH2>Legalizações de Imóveis</ServicesH2>
           <ServicesP1>
-            A Loc é especializada em atender as necessidades de Legalizações de diversos tipos de imóveis,
-            aliados ao conhecimento e profissionalismo para a gestão das informações e serviços, proporcionando aos 
-            clientes facilidade, agilidade, comodidade e segurança nos procedimentos adequados á regurarização de seu imóvel.
+            A Loc é especializada em atender as necessidades de Legalizações de
+            diversos tipos de imóveis, aliados ao conhecimento e
+            profissionalismo para a gestão das informações e serviços,
+            proporcionando aos clientes facilidade, agilidade, comodidade e
+            segurança nos procedimentos adequados á regurarização de seu imóvel.
           </ServicesP1>
         </ServicesCard>
 

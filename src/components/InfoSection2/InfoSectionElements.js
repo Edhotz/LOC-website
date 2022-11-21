@@ -40,7 +40,7 @@ export const Article = styled.div`
         color: #ffffff;
       }
 
-     
+
         }
       }
     }
@@ -99,10 +99,11 @@ export const Article = styled.div`
   }
 
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 820px) {
     boxs {
       flex-direction: column;
       padding: 40px;
+      margin-top: -220px;
     }
   }
 `;

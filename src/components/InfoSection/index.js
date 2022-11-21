@@ -1,8 +1,7 @@
 import React from "react";
 import { Button } from "../ButtonElement";
 import { NavBtnLink } from "../Navbar/NavbarElements";
-import { IoLogoWhatsapp } from 'react-icons/io'
-
+import { IoLogoWhatsapp } from "react-icons/io";
 
 import {
   Column2,
