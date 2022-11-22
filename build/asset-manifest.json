@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.e161e34a.css",
+    "main.js": "/static/js/main.31012350.js",
+    "static/media/Video.mp4": "/static/media/Video.5de106d084f30f567992.mp4",
+    "static/media/apps.jpg": "/static/media/apps.c03ed0e651142db65a55.jpg",
+    "static/media/webdesign.jpg": "/static/media/webdesign.8be0ea3c0799cfab269f.jpg",
+    "static/media/formation.jpg": "/static/media/formation.864c4382596d8c55d956.jpg",
+    "static/media/handshake.jpg": "/static/media/handshake.378fdb4caae8b299f888.jpg",
+    "static/media/design.jpg": "/static/media/design.c521e15b90812564f834.jpg",
+    "static/media/newspaper.jpg": "/static/media/newspaper.45f36c7cc2b510cf592a.jpg",
+    "static/media/logo.png": "/static/media/logo.d9dde439399a21331a46.png",
+    "static/media/png1.png": "/static/media/png1.77ff139dea1cffd09847.png",
+    "static/media/sede.png": "/static/media/sede.c327d108889887918a27.png",
+    "static/media/pngM.png": "/static/media/pngM.14975e57140c3882d106.png",
+    "index.html": "/index.html",
+    "static/media/design.svg": "/static/media/design.9cf8f3795d1070e503cf79ec18fb8299.svg",
+    "static/media/support.svg": "/static/media/support.7f2b20d391e3dafffff025cb97960e58.svg",
+    "static/media/quality.svg": "/static/media/quality.ddff7052023e4dd5aa7da84bb5999840.svg",
+    "main.e161e34a.css.map": "/static/css/main.e161e34a.css.map",
+    "main.31012350.js.map": "/static/js/main.31012350.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e161e34a.css",
+    "static/js/main.31012350.js"
+  ]
+}

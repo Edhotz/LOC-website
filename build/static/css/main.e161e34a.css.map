@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.e161e34a.css","mappings":"AAAA,EACI,qBAAsB,CAItB,mBAAsB,CADtB,cAAe,CAFf,QAAS,CACT,SAGJ","sources":["App.css"],"sourcesContent":["* {\r\n    box-sizing: border-box;\r\n    margin: 0;\r\n    padding: 0;\r\n    font-size: 14px;\r\n    font-family: 'Poppins'; \r\n}"],"names":[],"sourceRoot":""}
