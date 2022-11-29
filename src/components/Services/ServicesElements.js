@@ -55,7 +55,7 @@ export const ServicesWrapper = styled.div`
     grid-template-columns: 1fr;
     grid-gap: 40px;
     padding: 0 20px;
-    margin-bottom: -20rem;
+    margin-bottom: -1rem;
   }
 `;
 export const ServicesCard = styled.div`
@@ -88,10 +88,11 @@ export const ServicesCard = styled.div`
     gap: 5px;
   }
   @media screen and (max-width: 460px) {
-    margin-top: -2rem;
     height: 410px;
     width: 290px;
     gap: 5px;
+    margin-top: -2rem;
+    margin-bottom: 1rem;
   }
 `;
 
