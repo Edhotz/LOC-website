@@ -78,7 +78,7 @@ export const TopLine = styled.p`
 export const Heading = styled.h1`
   margin-bottom: 24px;
   font-size: 38px;
-  line-height: 1.1;
+  line-height: 2rem;
   font-weight: 600;
   color: ${({ lightText }) => (lightText ? "#f7f8fa" : "#010606")};
 
@@ -88,10 +88,10 @@ export const Heading = styled.h1`
 `;
 
 export const Subtitle = styled.p`
-  max-width: 440px;
+  max-width: 340px;
   margin-bottom: 35px;
   font-size: 16px;
-  line-height: 12px;
+  line-height: 22px;
   color: ${({ darkText }) => (darkText ? "#010606" : "#fff")};
 
   @media screen and(max-width: 320px) {

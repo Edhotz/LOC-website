@@ -39,7 +39,7 @@ export const homeObjThree = {
     lightText: false,
     lightTextDesc: false,
     topLine: 'Entre em contato connosco',
-    headline: 'Envie uma mensagem para a nossa equipe para mais informações',
+    headline: 'Envie uma mensagem a nossa equipe para mais informações',
     description: 'receba qualquer informação que pretenda por email ou ligue-nos',
     buttonLabel: 'Mensagem',
     imgStart: false,

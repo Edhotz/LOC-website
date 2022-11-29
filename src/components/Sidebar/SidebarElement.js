@@ -70,7 +70,7 @@ export const SidebarBtnWrap = styled.div`
     justify-content: center;
 `
 
-export const SidebarRoute = styled(LinkR)`
+export const SidebarRoute = styled.a`
     display: flex;
     border-radius: 50px;
     background: #0184BA;

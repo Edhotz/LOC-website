@@ -27,7 +27,7 @@ const Sidebar = ({ isOpen, toggle }) => {
                     </SidebarLink>
                 </SidebarMenu>
                     <SidebarBtnWrap>
-                        <SidebarRoute to="/"><IoLogoWhatsapp size={30} />Mensagem</SidebarRoute>
+                        <SidebarRoute hre="https://wa.me/244924676351"><IoLogoWhatsapp size={30} />Mensagem</SidebarRoute>
                     </SidebarBtnWrap>
             </SidebarWrapper>
         </SidebarContainer>
