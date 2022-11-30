@@ -28,18 +28,21 @@ export const Article = styled.div`
       border-radius: 50px 50px 50px 50px;
       transform: matrix(1, 0, 0, 1, 0, 1);
       cursor: pointer;
+
       h3 {
         position: absolute;
         top: 120px;
         left: 75px;
         color: #ffffff;
       }
+
       p {
         position: absolute;
         top: 160px;
         left: 50px;
         color: #ffffff;
       }
+
       @media screen and (max-width: 460px) {
         width: 220px;
         height: 242.77px;
@@ -59,6 +62,7 @@ export const Article = styled.div`
         }
       }
     }
+  }
 
     box2 {
       box-sizing: border-box;
