@@ -4,7 +4,8 @@ export const Article = styled.div`
   max-height: 100vh;
   width: 100%;
   padding: 40px;
-  margin-top: -140px;
+  margin-top: -40px;
+  margin-bottom: 80px;
 
   @media screen and (max-width: 460px) {
     height: 150vh;
@@ -21,8 +22,8 @@ export const Article = styled.div`
     cursor: pointer;
 
     box1 {
-      max-width: 320px;
-      max-height: 342.77px;
+      width: 320px;
+      height: 342.77px;
       background: #20a6da;
       border-radius: 50px 50px 50px 50px;
       transform: matrix(1, 0, 0, 1, 0, 1);
@@ -142,7 +143,6 @@ export const Article = styled.div`
         }
       }
     }
-
     @media screen and (max-width: 460px) {
       flex-direction: column;
     }
