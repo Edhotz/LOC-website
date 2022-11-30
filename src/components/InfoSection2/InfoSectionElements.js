@@ -62,7 +62,6 @@ export const Article = styled.div`
         }
       }
     }
-  }
 
     box2 {
       box-sizing: border-box;
