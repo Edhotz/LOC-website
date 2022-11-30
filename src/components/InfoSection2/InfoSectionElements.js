@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Article = styled.div`
-  max-height: 100vh;
+  height: 100vh;
   width: 100%;
   padding: 40px;
   margin-top: -40px;
@@ -13,6 +13,12 @@ export const Article = styled.div`
     margin-bottom: 760px;
   }
 
+  @media screen and (max-width: 320px) {
+    height: 150vh;
+    margin-top: -360px;
+    margin-bottom: 1200px;
+  }
+
   box {
     display: flex;
     gap: 60px;
@@ -21,7 +27,11 @@ export const Article = styled.div`
     margin-top: 30px;
     cursor: pointer;
 
-    box1 {
+    @media screen and (max-width: 460px) {
+      flex-direction: column;
+    }
+
+    box4 {
       width: 320px;
       height: 342.77px;
       background: #20a6da;
@@ -145,9 +155,6 @@ export const Article = styled.div`
           color: #ffffff;
         }
       }
-    }
-    @media screen and (max-width: 460px) {
-      flex-direction: column;
     }
   }
 `;

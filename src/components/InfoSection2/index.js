@@ -17,7 +17,7 @@ export const InfoSection2 = () => {
     <Article id="discover">
       <Text1>Porquê escolher-nos ?</Text1>
       <box>
-        <box1>
+        <box4>
           <Elipse>
             <img src={Quality} alt="imagem qualidade de serviços" />
           </Elipse>
@@ -28,7 +28,7 @@ export const InfoSection2 = () => {
             alargando um leque de serviços <br /> para agregar mais valor a sua
             empresa.
           </p>
-        </box1>
+        </box4>
         <box2>
           <Elipse2>
             <img src={Support} alt="ilustração de serviços" />
