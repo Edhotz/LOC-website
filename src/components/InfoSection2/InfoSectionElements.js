@@ -13,7 +13,7 @@ export const Article = styled.div`
     margin-bottom: 760px;
   }
 
-  boxs {
+  box {
     display: flex;
     gap: 60px;
     align-items: center;

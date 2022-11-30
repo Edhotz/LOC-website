@@ -16,7 +16,7 @@ export const InfoSection2 = () => {
   return (
     <Article id="discover">
       <Text1>Porquê escolher-nos ?</Text1>
-      <boxs>
+      <box>
         <box1>
           <Elipse>
             <img src={Quality} alt="imagem qualidade de serviços" />
@@ -51,7 +51,7 @@ export const InfoSection2 = () => {
             </p>
           </Elipse3>
         </box3>
-      </boxs>
+      </box>
     </Article>
   );
 };
