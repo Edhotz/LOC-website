@@ -9,8 +9,8 @@ export const Article = styled.div`
 
   @media screen and (max-width: 460px) {
     height: 150vh;
-    margin-top: -360px;
-    margin-bottom: 760px;
+    margin-top: -260px;
+    margin-bottom: -20px;
   }
 
   @media screen and (max-width: 320px) {

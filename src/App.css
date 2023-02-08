@@ -5,3 +5,35 @@
     font-size: 14px;
     font-family: 'Poppins'; 
 }
+
+.App {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  
+  .inner {
+    display: flex;
+  }
+  
+  .item{
+    min-width: 200px;
+    min-height: 400px;
+    padding: 14px;
+  }
+  
+  .item img {
+    width: 100%;
+    height: 90%;
+    border-radius: 12px;
+    pointer-events: none;
+  }
+  
+  .carousel{
+    cursor: grab;
+    overflow: hidden;
+  }
