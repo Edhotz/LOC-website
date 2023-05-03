@@ -49,10 +49,13 @@ export const ServicesWrapper = styled.div`
   }
   @media screen and (max-width: 460px) {
     display: flex;
+    flex-direction: column;
     height: 60vh;
     grid-gap: 40px;
     padding: 40px;
-    margin-bottom: 10rem;
+    padding: 50px;
+    margin-top: 90rem;
+    margin-bottom: 65rem;
   }
 `;
 export const ServicesCard = styled.div`
@@ -124,8 +127,7 @@ export const ServicesIcon1 = styled.img`
 export const ServicesH1 = styled.h1`
   font-size: 2rem;
   color: #fff;
-  margin-top: 100px;
-  margin-bottom: 64px;
+  margin-bottom: 100px;
 
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;

@@ -23,15 +23,10 @@ import {
 } from "./ServicesElements";
 
 export const Services = () => {
-  const carousel = useRef();
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
-  }, []);
 
   return (
           <ServicesWrapper>
+            <ServicesH1>Serviços</ServicesH1>
             <ServicesCard>
               <ServicesIcon src={formation} alt="imagem de formação" />
               <ServicesH2>Formação</ServicesH2>

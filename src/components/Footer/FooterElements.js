@@ -6,7 +6,7 @@ export const FooterContainer = styled.footer`
     background-color: #101522;
 
     @media screen and (max-width: 768px) {
-        margin-top: 200px;
+        margin-top: -150px;
     }
 `
 
