@@ -31,19 +31,8 @@ export const Services = () => {
   }, []);
 
   return (
-    <motion.div className="App" ref={carousel} whileTap={{ cursor: "grabbing" }}>
-      <ServicesContainer id="services" className="carousel">
-        <ServicesH1>Nossos Serviços</ServicesH1>
-        <motion.div
-          className="inner"
-          drag="x"
-          dragConstraints={{ right: 0, left: - width }}
-          initial={{ x: 0 }}
-          animate={{ x: 1000 }}
-          transition={{ duration: "0.9" }}
-        >
           <ServicesWrapper>
-            <ServicesCard style={{minHeight: '800', minWidth: '800', padding: '10'}}>
+            <ServicesCard>
               <ServicesIcon src={formation} alt="imagem de formação" />
               <ServicesH2>Formação</ServicesH2>
               <ServicesP1>
@@ -107,8 +96,6 @@ export const Services = () => {
               </ServicesP3>
             </ServicesCard>
           </ServicesWrapper>
-        </motion.div>
-      </ServicesContainer>
-    </motion.div>
+      
   );
 };
