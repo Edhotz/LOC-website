@@ -9,7 +9,7 @@ import webdesign from "../../images/webdesign.jpg";
 import apps from "../../images/apps.jpg";
 
 import {
-  ServicesContainer,
+  cdServicesContainer,
   ServicesH1,
   ServicesWrapper,
   ServicesCard,
@@ -70,18 +70,11 @@ export const Services = () => {
               </ServicesP1>
             </ServicesCard>
             <ServicesCard>
-              <ServicesIcon src={webdesign} height="240" width="405" />
-              <ServicesH2>Desenvolvimento de Websites Modernos</ServicesH2>
-              <ServicesP>
-                Ter um site profissional, com visual e conteúdos de qualidade,
-                vai proporcionar maior confiablidade ao seu negócio, Além disso
-                seu negócio vai estar disponivel 24/7 para o mundo todo.
-              </ServicesP>
-            </ServicesCard>
-            <ServicesCard>
               <ServicesIcon1 src={apps} height="240" width="405" />
               <ServicesH2>
-                Desenvolvimento de Aplicativos e Sistemas para Android e IOS
+                Desenvolvimento de Sistemas (Sites & Apps)
+                <br />
+                <br />
               </ServicesH2>
               <ServicesP3>
                 Com o crescimento do uso de smartphones e o acesso móvel a
