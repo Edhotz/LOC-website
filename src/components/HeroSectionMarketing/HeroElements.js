@@ -46,7 +46,7 @@ export const VideoBg = styled.video`
   background: #232a34;
   filter: brightness(0.5);
 `;
-export const ImageBg = styled.image`
+export const ImageBg = styled.img`
   width: 100%;
   height: 100%;
 
