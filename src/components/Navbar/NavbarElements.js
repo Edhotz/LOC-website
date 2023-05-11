@@ -14,6 +14,13 @@ export const Nav = styled.nav`
   top: 0;
   z-index: 10;
 
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  -webkit-backdrop-filter: blur(40px);
+  backdrop-filter: blur(40px);
+  transition: all ease 0.3s;
+  padding: 1rem;
+
   @media screen and (max-width: 960px) {
     transition: 0.8s all ease;
   }
@@ -72,7 +79,7 @@ export const NavItem = styled.li`
 `;
 
 export const NavLinks = styled(LinkS)`
-  color: ${({ scrollNav }) => (scrollNav ? '#f2f2f2' : '#000')};
+  color: ${({ scrollNav }) => (scrollNav ? "#f2f2f2" : "#000")};
   display: flex;
   align-items: center;
   text-decoration: none;
