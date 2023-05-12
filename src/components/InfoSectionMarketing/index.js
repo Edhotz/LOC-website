@@ -16,7 +16,7 @@ import { FaHandHoldingWater } from "react-icons/fa";
 export const InfoSectionMarketing = () => {
   return (
     <>
-      <InfoSectionMarketingContainer>
+      <InfoSectionMarketingContainer id="about">
         <Card>
           <ImageBg src={MarketingImage1} alt="Marketing image1"></ImageBg>
         </Card>
@@ -34,7 +34,7 @@ export const InfoSectionMarketing = () => {
         </h2>
       </InfoSectionMarketingContainer>
 
-      <SubTitleMarketingPage>
+      <SubTitleMarketingPage id="services">
         Os Serviços da Agência de design da Luanda Office Center estão
         estruturados em duas areas: <strong>Active Design</strong> e{" "}
         <strong>Active Web</strong>

@@ -14,13 +14,10 @@ import { FaBars } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
 
 import { IconContext } from "react-icons/lib";
-import { scrollToTop } from "react-scroll/modules/mixins/animate-scroll";
 
 import logo from "../../images/logo.png";
-import { Link, NavLink, Route, Router, Switch } from "react-router-dom";
-import { MarketingPage } from "../../pages/MarketingPage";
 
-const Navbar = ({ toggle }) => {
+const NavbarComponents = ({ toggle }) => {
   const [scrollNav, setScrollNav] = useState(false);
 
   const changeNav = () => {
@@ -52,26 +49,26 @@ const Navbar = ({ toggle }) => {
             </MobileIcon>
             <NavMenu>
               <NavItem>
-                <NavLinks
-                  to="about"
-                  smooth={true}
-                  duration={500}
-                  spy={true}
-                  exact="true"
-                  offset={-80}
-                  activeClass="active"
-                >
-                  Sobre nós
-                </NavLinks>
+                <li>
+                  <a
+                    href="/"
+                    style={{
+                      color: "#000",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Home
+                  </a>
+                </li>
               </NavItem>
               <NavItem>
                 <NavLinks
-                  to="discover"
+                  to="about"
                   smooth={true}
-                  duration={500}
+                  duration={900}
                   spy={true}
                   exact="true"
-                  offset={-80}
+                  offset={-100}
                   activeClass="active"
                 >
                   Porque escolher-nos
@@ -80,10 +77,10 @@ const Navbar = ({ toggle }) => {
               <NavItem>
                 <li>
                   <a
-                    href="/marketing"
                     style={{
                       color: "#000",
                       textDecoration: "none",
+                      cursor: "pointer",
                     }}
                   >
                     Marketing
@@ -130,4 +127,4 @@ const Navbar = ({ toggle }) => {
   );
 };
 
-export default Navbar;
+export default NavbarComponents;

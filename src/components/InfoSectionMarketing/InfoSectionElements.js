@@ -22,7 +22,7 @@ export const InfoSectionMarketingContainer = styled.div`
     width: 100%;
     height: 100%;
     padding: 20rem;
-    gap: 4rem;
+    gap: 2rem;
     margin-top: -10rem;
     margin-bottom: -10rem;
 
@@ -48,7 +48,7 @@ export const InfoSectionMarketingContainer = styled.div`
 export const MarketingServices = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 0rem 3rem;
+  padding: 0rem 5rem;
   gap: 1rem;
   margin-bottom: 10rem;
   .container {
@@ -57,7 +57,7 @@ export const MarketingServices = styled.div`
   }
 
   .container .box {
-    width: 9.875em;
+    width: 8.875em;
     height: 12.875em;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.074);
@@ -383,6 +383,7 @@ export const SubTitleMarketingPage = styled.h2`
   text-align: justify;
   padding: 4rem;
   font-size: 1rem;
+  font-weight: 400;
 
   strong {
     color: #20a6da;
@@ -394,7 +395,7 @@ export const SubTitleMarketingPage = styled.h2`
     width: 100%;
     height: 100%;
     text-align: center;
-    padding: 0rem 30rem;
+    padding: 0rem 25rem;
     font-size: 1.5rem;
     margin-top: 15rem;
     margin-bottom: 15rem;

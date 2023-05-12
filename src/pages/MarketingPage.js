@@ -1,13 +1,11 @@
 import React, { useState } from "react";
 import Footer from "../components/Footer";
-import HeroSection from "../components/HeroSection";
-import { homeObjOne, homeObjThree } from "../components/InfoSection/Data";
-import Navbar from "../components/Navbar";
-import { Services } from "../components/Services";
+import { homeObjThree } from "../components/InfoSection/Data";
 import Sidebar from "../components/Sidebar";
 import HeroSectionMarketing from "../components/HeroSectionMarketing";
 import { InfoSectionMarketing } from "../components/InfoSectionMarketing";
 import InfoSection from "../components/InfoSection";
+import NavbarComponents from "../components/NavbarComponents";
 
 export const MarketingPage = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +17,7 @@ export const MarketingPage = () => {
   return (
     <>
       <Sidebar isOpen={isOpen} toggle={toggle} />
-      <Navbar toggle={toggle} />
+      <NavbarComponents toggle={toggle} />
       <HeroSectionMarketing />
       <InfoSectionMarketing />
       <InfoSection {...homeObjThree} />
