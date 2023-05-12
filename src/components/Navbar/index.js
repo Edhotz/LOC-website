@@ -78,19 +78,6 @@ const Navbar = ({ toggle }) => {
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <li>
-                  <a
-                    href="/marketing"
-                    style={{
-                      color: "#000",
-                      textDecoration: "none",
-                    }}
-                  >
-                    Marketing
-                  </a>
-                </li>
-              </NavItem>
-              <NavItem>
                 <NavLinks
                   to="services"
                   smooth={true}
@@ -115,6 +102,19 @@ const Navbar = ({ toggle }) => {
                 >
                   Entre em contacto
                 </NavLinks>
+              </NavItem>
+              <NavItem>
+                <li>
+                  <a
+                    href="/marketing"
+                    style={{
+                      color: "#000",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Marketing & Publicidade
+                  </a>
+                </li>
               </NavItem>
             </NavMenu>
             <NavBtn>

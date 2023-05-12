@@ -75,19 +75,6 @@ const NavbarComponents = ({ toggle }) => {
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <li>
-                  <a
-                    style={{
-                      color: "#000",
-                      textDecoration: "none",
-                      cursor: "pointer",
-                    }}
-                  >
-                    Marketing
-                  </a>
-                </li>
-              </NavItem>
-              <NavItem>
                 <NavLinks
                   to="services"
                   smooth={true}
@@ -112,6 +99,19 @@ const NavbarComponents = ({ toggle }) => {
                 >
                   Entre em contacto
                 </NavLinks>
+              </NavItem>
+              <NavItem>
+                <li>
+                  <a
+                    style={{
+                      color: "#000",
+                      textDecoration: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    Marketing e publicidade
+                  </a>
+                </li>
               </NavItem>
             </NavMenu>
             <NavBtn>

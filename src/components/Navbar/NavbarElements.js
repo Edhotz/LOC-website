@@ -78,7 +78,7 @@ export const NavItem = styled.li`
   height: 80px;
   li {
     margin-top: 30px;
-    padding: 0px 20px;
+    padding: 0px 10px;
   }
 `;
 
@@ -100,6 +100,7 @@ export const NavLinks = styled(LinkS)`
 export const NavBtn = styled.nav`
   display: flex;
   align-items: center;
+  margin-left: 10px;
 
   @media screen and (max-width: 768px) {
     display: none;
