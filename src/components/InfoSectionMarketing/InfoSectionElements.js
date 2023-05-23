@@ -51,6 +51,8 @@ export const MarketingServices = styled.div`
   padding: 0rem 5rem;
   gap: 1rem;
   margin-bottom: 10rem;
+  justify-content: center;
+  align-items: center;
   .container {
     position: relative;
     font-family: sans-serif;
@@ -61,7 +63,7 @@ export const MarketingServices = styled.div`
     height: 12.875em;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.074);
-    border: 1px solid rgba(255, 255, 255, 0.222);
+    border: 2px solid rgba(000, 000, 255, 10);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
     border-radius: 0.7rem;

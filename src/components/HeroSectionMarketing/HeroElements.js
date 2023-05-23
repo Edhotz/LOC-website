@@ -50,8 +50,8 @@ export const ImageBg = styled.img`
   width: 100%;
   height: 100%;
 
-  min-height: 20vh;
-  min-width: 17vh;
+  min-height: 30vh;
+  min-width: 23vw;
 
   -o-object-fit: cover;
   object-fit: cover;

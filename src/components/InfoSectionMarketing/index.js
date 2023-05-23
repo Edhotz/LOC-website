@@ -9,9 +9,7 @@ import {
 } from "./InfoSectionElements";
 
 import MarketingImage1 from "../../images/MarketingImage1.jpg";
-import CorporativeM from "../../images/CorporativeM.jpg";
 import { ImageBg } from "../HeroSectionMarketing/HeroElements";
-import { FaHandHoldingWater } from "react-icons/fa";
 
 export const InfoSectionMarketing = () => {
   return (
@@ -114,7 +112,6 @@ export const InfoSectionMarketing = () => {
         transparência, complementaridade e integração entre os serviços (tanto
         em suportes físicos, como digitais) são o nosso compromisso com a sua
         empresa! " <br /> <br />
-        <strong>Celso Arsénio, Director Geral Luanda Office Center</strong>
       </SubTitleMarketingPage>
     </>
   );
