@@ -8,7 +8,7 @@ export const Article = styled.div`
   margin-bottom: 80px;
 
   @media screen and (max-width: 460px) {
-    height: 150vh;
+    height: 154vh;
     margin-top: -260px;
     margin-bottom: -20px;
   }
@@ -55,10 +55,10 @@ export const Article = styled.div`
 
       @media screen and (max-width: 460px) {
         width: 220px;
-        height: 242.77px;
+        height: 255.80px;
         p {
           position: absolute;
-          top: 160px;
+          top: 150px;
           left: 34px;
           font-size: 9.5px;
           color: #ffffff;

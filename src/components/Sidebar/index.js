@@ -21,7 +21,7 @@ const Sidebar = ({ isOpen, toggle }) => {
       <SidebarBtnWrap>
         <SidebarRoute href="/">
           {" "}
-          <FaHome size={30} /> Retornar a Home
+          <FaHome size={30} />
         </SidebarRoute>
       </SidebarBtnWrap>
       <SidebarWrapper>
