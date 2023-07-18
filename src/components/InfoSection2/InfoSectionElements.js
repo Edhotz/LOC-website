@@ -139,10 +139,10 @@ export const Article = styled.div`
       }
       @media screen and (max-width: 460px) {
         width: 220px;
-        height: 242.77px;
+        height: 250.77px;
         p {
           position: absolute;
-          top: 160px;
+          top: 140px;
           left: 30px;
           font-size: 9.5px;
           color: #ffffff;
@@ -150,7 +150,7 @@ export const Article = styled.div`
         h3 {
           position: absolute;
           width: 200px;
-          top: 120px;
+          top: 110px;
           left: 42px;
           color: #ffffff;
         }
