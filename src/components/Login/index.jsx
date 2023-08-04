@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Col, Form, Image, Input, Row, message } from "antd";
 import FormItem from "antd/es/form/FormItem";
 import { useHistory } from "react-router-dom";
@@ -6,17 +6,24 @@ import { useAuth } from "../../AuthProvider/useAuth";
 import { UserOutlined } from "@ant-design/icons";
 import { LockOutlined } from "@ant-design/icons";
 
+import Dots from "react-activity/dist/Dots";
+import "react-activity/dist/Dots.css";
+
 import BG from "../../videos/video.jpg";
 
 const Login = () => {
   const auth = useAuth();
   const history = useHistory();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   async function onFinish({ email, password }) {
+    setIsLoading(true);
     try {
       await auth.authenticate(email, password);
       history.push("/dashboard");
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
       message.error("Invalid email or password");
     }
@@ -77,8 +84,12 @@ const Login = () => {
             </FormItem>
 
             <FormItem wrapperCol={{ offset: 0, span: 10 }}>
-              <Button type="primary" htmlType="submit">
-                Sign In
+              <Button type="primary" htmlType="submit" disabled={isLoading}>
+                {isLoading ? (
+                  <Dots color="#727981" size={14} speed={1} animating={true} />
+                ) : (
+                  "Entrar"
+                )}
               </Button>
             </FormItem>
           </Form>

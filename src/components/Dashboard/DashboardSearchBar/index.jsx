@@ -14,16 +14,6 @@ const DashBoardSearchBar = () => {
         </Items>
 
         <Items>
-          <Space.Compact>
-            <Search
-              addonBefore="Pesquisa"
-              placeholder="Busque por alguma coisa"
-              allowClear
-            />
-          </Space.Compact>
-        </Items>
-
-        <Items>
           <SearchBarMenu />
         </Items>
       </Wrapper>

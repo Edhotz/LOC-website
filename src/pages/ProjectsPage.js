@@ -1,16 +1,16 @@
 import React from "react";
 import DashboardMenu from "../components/Dashboard/DashboardMenu";
 import HeaderBar from "../components/HeaderBar";
-import UserDataTable from "../components/UsersDataTable";
+import DataTableProjects from "../components/DataTableProjects-page";
 
-const UsersPage = () => {
+const ProjectsPage = () => {
   return (
     <>
       <DashboardMenu />
-      <HeaderBar page="Usuarios" />
-      <UserDataTable />
+      <HeaderBar page="Projetos" />
+      <DataTableProjects />
     </>
   );
 };
 
-export default UsersPage;
+export default ProjectsPage;

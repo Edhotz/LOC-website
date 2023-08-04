@@ -2,7 +2,7 @@ import React from "react";
 import DataTable from "./table";
 import { Container } from "./styles";
 
-const UserDataTable = () => {
+const DataTableCustomers = () => {
   return (
     <Container>
       <DataTable />
@@ -10,4 +10,4 @@ const UserDataTable = () => {
   );
 };
 
-export default UserDataTable;
+export default DataTableCustomers;

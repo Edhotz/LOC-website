@@ -1,15 +1,15 @@
 import React from "react";
 
-import { Menu } from "antd";
+import { Button, Menu } from "antd";
 import { FaUser } from "react-icons/fa";
 import { useAuth } from "../../../AuthProvider/useAuth";
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 
 const SearchBarMenu = () => {
   const user = useAuth();
+  const logout = useAuth();
 
-  const onClick = (e) => {
-    console.log("click ", e);
-  };
+  const history = useHistory();
 
   function getItem(label, key, icon, children, type) {
     return {
@@ -24,12 +24,23 @@ const SearchBarMenu = () => {
   const items = [
     getItem(user.email, "sub4", <FaUser size={22} />, [
       getItem("Editar Perfil"),
-      getItem("Sair", "10"),
+      getItem(
+        <Button
+          onClick={logout}
+          title="Sair"
+          style={{
+            border: "none",
+            color: "red",
+            background: "transparent",
+          }}
+        >
+          Sair
+        </Button>
+      ),
     ]),
   ];
   return (
     <Menu
-      onClick={onClick}
       style={{
         width: 256,
       }}

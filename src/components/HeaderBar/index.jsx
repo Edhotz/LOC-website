@@ -5,12 +5,12 @@ import SearchBarMenu from "../Dashboard/DashboardSearchBar/Menu";
 
 const { Search } = Input;
 
-const HeaderBar = () => {
+const HeaderBar = ({ page }) => {
   return (
     <Container>
       <Wrapper>
         <Items>
-          <H1>Usuarios</H1>
+          <H1>{page}</H1>
         </Items>
 
         <Items>

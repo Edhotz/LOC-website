@@ -16,13 +16,14 @@ export const Container = styled.div`
   padding: 50px;
 
   align-items: center;
+  justify-content: space-between;
 
   margin: 10px;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: 100px;
+  gap: 500px;
   align-items: center;
   justify-content: space-between;
 `;

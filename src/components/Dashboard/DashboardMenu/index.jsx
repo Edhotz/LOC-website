@@ -35,22 +35,22 @@ const DashboardMenu = () => {
 
         <Items>
           <MdTask size={32} color="#20a6da" />
-          <Text>Atividades</Text>
+          <Text href="/ativities">Atividades</Text>
         </Items>
 
         <Items>
           <AiFillProject size={32} color="#20a6da" />
-          <Text>Projetos</Text>
+          <Text href="/projects">Projetos</Text>
         </Items>
 
         <Items>
           <MdAddTask size={32} color="#20a6da" />
-          <Text>Tarefas</Text>
+          <Text href="/tasks">Tarefas</Text>
         </Items>
 
         <Items>
           <AiFillProfile size={32} color="#20a6da" />
-          <Text>Clientes</Text>
+          <Text href="/customers">Clientes</Text>
         </Items>
       </Wrapper>
     </Container>

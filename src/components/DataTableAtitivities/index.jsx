@@ -1,8 +1,8 @@
 import React from "react";
-import DataTable from "./table";
 import { Container } from "./styles";
+import DataTable from "./table";
 
-const UserDataTable = () => {
+const DataTableAtivities = () => {
   return (
     <Container>
       <DataTable />
@@ -10,4 +10,4 @@ const UserDataTable = () => {
   );
 };
 
-export default UserDataTable;
+export default DataTableAtivities;
