@@ -249,6 +249,7 @@ const DataTable = () => {
       }),
     };
   });
+
   return (
     <>
       <div
@@ -262,6 +263,7 @@ const DataTable = () => {
       >
         <Form
           name="basic"
+          encType="multpart/form-data"
           labelCol={{ span: 30 }}
           wrapperCol={{ span: 30 }}
           onFinish={handlePost}
@@ -270,6 +272,7 @@ const DataTable = () => {
             alignItems: "center",
             gap: 10,
             marginTop: 70,
+            marginLeft: 210,
           }}
         >
           <div>
@@ -296,10 +299,14 @@ const DataTable = () => {
                 <Input
                   style={{
                     padding: 15,
+                    width: 400,
+                    display: "flex",
                   }}
                   prefix={<MdImage />}
                   placeholder="Imagem"
                   size="large"
+                  type="file"
+                  name="image"
                 />
               </FormItem>
             </div>
@@ -312,6 +319,8 @@ const DataTable = () => {
                   prefix={<IoMdDocument />}
                   placeholder="documento"
                   size="large"
+                  type="file"
+                  name="document"
                 />
               </FormItem>
             </div>
@@ -320,10 +329,11 @@ const DataTable = () => {
             <Input
               size="large"
               style={{
-                width: 460,
-                height: 140,
-                padding: 10,
+                minWidth: 460,
+                height: 240,
+                textOverflow: "inherit",
                 alignItems: "start",
+                boxSizing: "border-box",
               }}
               prefix={<MdTextFields size={20} />}
               placeholder="Descrição"

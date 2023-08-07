@@ -48,10 +48,8 @@ const BottomTable = () => {
         summary={() => (
           <Table.Summary fixed>
             <Table.Summary.Row>
-              <Table.Summary.Cell index={0}>Summary</Table.Summary.Cell>
-              <Table.Summary.Cell index={1}>
-                This is a summary content
-              </Table.Summary.Cell>
+              <Table.Summary.Cell index={0}>Atividades</Table.Summary.Cell>
+              <Table.Summary.Cell index={1}>Mais Recentes</Table.Summary.Cell>
             </Table.Summary.Row>
           </Table.Summary>
         )}
