@@ -153,18 +153,6 @@ const DataTable = () => {
       editable: true,
     },
     {
-      title: "Imagem",
-      dataIndex: "image",
-      width: "40%",
-      editable: true,
-    },
-    {
-      title: "Documentos",
-      dataIndex: "document",
-      width: "40%",
-      editable: true,
-    },
-    {
       title: "Data",
       dataIndex: "created_at",
       width: "40%",
