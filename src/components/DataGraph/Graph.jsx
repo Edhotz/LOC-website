@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 import { Column } from "@ant-design/plots";
 import { API } from "../../services/api";
-import { number } from "zod";
 
 export const Graph = () => {
   const [projectsData, setProjectsData] = useState(null);
