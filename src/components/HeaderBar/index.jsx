@@ -22,10 +22,6 @@ const HeaderBar = ({ page }) => {
             />
           </Space.Compact>
         </Items>
-
-        <Items>
-          <SearchBarMenu />
-        </Items>
       </Wrapper>
     </Container>
   );

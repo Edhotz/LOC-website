@@ -1,137 +1,101 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-import { Alert, Button, Form, Input, Popconfirm, Table } from "antd";
+import React, { useEffect, useState } from "react";
+import {
+  Form,
+  Input,
+  InputNumber,
+  Popconfirm,
+  Table,
+  Typography,
+  Alert,
+  Button,
+} from "antd";
 import { API } from "../../services/api";
+
 import FormItem from "antd/es/form/FormItem";
 
 import { UserOutlined } from "@ant-design/icons";
 import { LockOutlined } from "@ant-design/icons";
 import { Dots } from "react-activity";
-import { MdEmail } from "react-icons/md";
+import {
+  MdEmail,
+  MdImage,
+  MdLink,
+  MdLocationOn,
+  MdTextFields,
+  MdTitle,
+} from "react-icons/md";
+import { useAuth } from "../../AuthProvider/useAuth";
+import { IoMdDocument } from "react-icons/io";
+import { AiFillProfile } from "react-icons/ai";
+import { FaKey, FaLocationArrow, FaPhone, FaUser } from "react-icons/fa";
 
-const EditableContext = React.createContext(null);
+const EditableCell = ({
+  editing,
+  dataIndex,
+  title,
+  inputType,
+  record,
+  index,
+  children,
+  ...restProps
+}) => {
+  const inputNode = inputType === "text" ? <InputNumber /> : <Input />;
 
-const EditableRow = ({ index, ...props }) => {
-  const [form] = Form.useForm();
   return (
-    <Form form={form} component={false}>
-      <EditableContext.Provider value={form}>
-        <tr {...props} />
-      </EditableContext.Provider>
-    </Form>
+    <td {...restProps}>
+      {editing ? (
+        <Form.Item
+          name={dataIndex}
+          style={{
+            margin: 0,
+          }}
+          rules={[
+            {
+              required: true,
+              message: `Please Input ${title}!`,
+            },
+          ]}
+        >
+          {inputNode}
+        </Form.Item>
+      ) : (
+        children
+      )}
+    </td>
   );
 };
 
-const EditableCell = ({
-  name,
-  email,
-  role,
-  editable,
-  children,
-  dataIndex,
-  record,
-  handleSave,
-  ...restProps
-}) => {
-  const [editing, setEditing] = useState(false);
-  const inputRef = useRef(null);
-  const form = useContext(EditableContext);
-
-  useEffect(() => {
-    if (editing) {
-      inputRef.current.focus();
-    }
-  }, []);
-
-  const toggleEdit = () => {
-    setEditing(!editing);
-    form.setFieldsValue({
-      [dataIndex]: record[dataIndex],
-    });
-  };
-
-  const save = async () => {
-    try {
-      const values = await form.validateFields();
-      toggleEdit();
-
-      const name = values.name;
-      const email = values.email;
-      const role = values.role;
-
-      const data = {
-        name,
-        email,
-        role,
-      };
-
-      const { status } = await API.patch(`/users/${record.id}`, data);
-
-      console.log(record.id, status);
-    } catch (errInfo) {
-      console.log("Save failed:", errInfo);
-    }
-  };
-
-  let childNode = children;
-
-  if (editable) {
-    childNode = editing ? (
-      <Form.Item
-        style={{
-          margin: 0,
-        }}
-        name={dataIndex}
-        rules={[
-          {
-            required: true,
-            message: "Este campo não pode ficar vazio",
-          },
-        ]}
-      >
-        <Input ref={inputRef} onPressEnter={save} onBlur={save} />
-      </Form.Item>
-    ) : (
-      <div
-        className="editable-cell-value-wrap"
-        style={{
-          paddingRight: 24,
-        }}
-        onClick={toggleEdit}
-      >
-        {children}
-      </div>
-    );
-  }
-  return <td {...restProps}>{childNode}</td>;
-};
-
 const DataTable = () => {
-  const [dataSource, setDataSource] = useState([]);
-
+  const [form] = Form.useForm();
+  const [data, setData] = useState([]);
+  const [editingKey, setEditingKey] = useState("");
+  const isEditing = (record) => record.key === editingKey;
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleFetch = async () => {
+  const user = useAuth();
+
+  const handleFecth = async () => {
     try {
       const { data } = await API.get("/users");
-      setDataSource(data);
-      console.log(data);
+
+      setData(data);
     } catch (error) {
       console.log(error);
     }
   };
 
   const handlePost = async ({ name, email, password }) => {
-    setIsLoading(true);
     try {
-      const { status } = await API.post("/users", {
+      setIsLoading(true);
+      const { status } = await API.post(`/users`, {
         name,
         email,
         password,
       });
-      <Alert message="Usuario Criado" type="success" />;
 
       if (status === 201) {
         setIsLoading(false);
+        <Alert message="Usuario Criado" type="success" />;
       }
 
       console.log(status);
@@ -142,40 +106,115 @@ const DataTable = () => {
     }
   };
 
-  useEffect(() => {
-    handleFetch();
-  }, [dataSource]);
-
-  const [count, setCount] = useState(2);
-
   const handleDelete = async (key) => {
-    const { data } = await API.delete(`/users/${key}`);
-
-    console.log(key, data);
+    await API.delete(`/users/${key}`);
   };
 
-  const defaultColumns = [
+  useEffect(() => {
+    handleFecth();
+  }, [data]);
+
+  const edit = (record) => {
+    form.setFieldsValue({
+      title: "",
+      description: "",
+      ...record,
+    });
+    setEditingKey(record.key);
+  };
+
+  const cancel = () => {
+    setEditingKey("");
+  };
+
+  const save = async (key) => {
+    try {
+      const row = await form.validateFields();
+
+      console.log(row);
+
+      const { name, email, role } = row;
+
+      const { status } = await API.patch(`/users/${key}`, {
+        name,
+        email,
+        role,
+      });
+
+      setData(data);
+      console.log(status);
+      setEditingKey("");
+    } catch (errInfo) {
+      console.log("Validate Failed:", errInfo);
+    }
+  };
+
+  const columns = [
     {
-      title: "name",
+      title: "Nome",
       dataIndex: "name",
-      width: "30%",
+      width: "25%",
       editable: true,
     },
     {
       title: "Email",
       dataIndex: "email",
+      width: "20%",
       editable: true,
     },
     {
-      title: "role",
+      title: "Acesso",
       dataIndex: "role",
+      width: "40%",
       editable: true,
     },
     {
-      title: "operation",
+      title: "Data de criação",
+      dataIndex: "created_at",
+      width: "50%",
+      editable: true,
+    },
+    {
+      title: "Editar",
+      dataIndex: "operation",
+      render: (_, record) => {
+        const editable = isEditing(record);
+
+        return editable ? (
+          <span
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <Typography.Link
+              onClick={() => save(record.id)}
+              style={{
+                marginRight: 8,
+              }}
+            >
+              Salvar
+            </Typography.Link>
+            <Popconfirm title="Quer realmente cancelar?" onConfirm={cancel}>
+              <a>Cancelar</a>
+            </Popconfirm>
+          </span>
+        ) : (
+          <Typography.Link
+            disabled={editingKey !== ""}
+            onClick={() => edit(record)}
+          >
+            Editar
+          </Typography.Link>
+        );
+      },
+    },
+
+    {
+      title: "Apagar",
       dataIndex: "operation",
       render: (_, record) =>
-        dataSource.length >= 1 ? (
+        data.length >= 1 ? (
           <Popconfirm
             title="Você realmente que apagar?"
             onConfirm={() => handleDelete(record.id)}
@@ -191,42 +230,25 @@ const DataTable = () => {
         ) : null,
     },
   ];
-
-  const handleAdd = () => {
-    const newData = {};
-    setDataSource([...dataSource, newData]);
-    setCount(count + 1);
-  };
-
-  const components = {
-    body: {
-      row: EditableRow,
-      cell: EditableCell,
-    },
-  };
-
-  const columns = defaultColumns.map((col) => {
+  const mergedColumns = columns.map((col) => {
     if (!col.editable) {
       return col;
     }
+
     return {
       ...col,
+
       onCell: (record) => ({
         record,
-        editable: col.editable,
+        inputType: col.dataIndex === "created_at" ? Date() : "number",
         dataIndex: col.dataIndex,
         title: col.title,
+        editing: isEditing(record),
       }),
     };
   });
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        gap: 10,
-      }}
-    >
+    <>
       <div
         style={{
           display: "flex",
@@ -247,37 +269,59 @@ const DataTable = () => {
             gap: 10,
           }}
         >
-          <FormItem name="name">
-            <Input
-              size="middle"
-              style={{
-                padding: 15,
-              }}
-              prefix={<UserOutlined />}
-              placeholder="username"
-            />
-          </FormItem>
-          <FormItem name="email">
-            <Input
-              size="middle"
-              style={{
-                padding: 15,
-              }}
-              prefix={<MdEmail size={20} />}
-              placeholder="Email"
-            />
-          </FormItem>
+          <div
+            style={{
+              display: "flex",
+              gap: 5,
+            }}
+          >
+            <FormItem name="name">
+              <Input
+                size="large"
+                style={{
+                  padding: 15,
+                }}
+                prefix={<FaUser />}
+                placeholder="Nome"
+              />
+            </FormItem>
+          </div>
 
-          <FormItem name="password">
-            <Input.Password
-              style={{
-                padding: 15,
-              }}
-              prefix={<LockOutlined />}
-              placeholder="Password"
-              size="middle"
-            />
-          </FormItem>
+          <div
+            style={{
+              display: "flex",
+              gap: 5,
+            }}
+          >
+            <FormItem name="email">
+              <Input
+                size="large"
+                style={{
+                  padding: 15,
+                }}
+                prefix={<MdEmail />}
+                placeholder="Email"
+              />
+            </FormItem>
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              gap: 5,
+            }}
+          >
+            <FormItem name="password">
+              <Input.Password
+                size="large"
+                style={{
+                  padding: 15,
+                }}
+                prefix={<FaKey />}
+                placeholder="Password"
+              />
+            </FormItem>
+          </div>
 
           <FormItem wrapperCol={{ offset: 0, span: 10 }}>
             <Button
@@ -299,14 +343,23 @@ const DataTable = () => {
         </Form>
       </div>
 
-      <Table
-        components={components}
-        rowClassName={() => "editable-row"}
-        bordered
-        dataSource={dataSource}
-        columns={columns}
-      />
-    </div>
+      <Form form={form} component={false}>
+        <Table
+          components={{
+            body: {
+              cell: EditableCell,
+            },
+          }}
+          bordered
+          dataSource={data}
+          columns={mergedColumns}
+          rowClassName="editable-row"
+          pagination={{
+            onChange: cancel,
+          }}
+        />
+      </Form>
+    </>
   );
 };
 export default DataTable;
