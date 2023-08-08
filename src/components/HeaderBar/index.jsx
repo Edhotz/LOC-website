@@ -13,14 +13,10 @@ const HeaderBar = ({ page }) => {
           <H1>{page}</H1>
         </Items>
 
+        <Items></Items>
+
         <Items>
-          <Space.Compact>
-            <Search
-              addonBefore="Pesquisa"
-              placeholder="Busque por alguma coisa"
-              allowClear
-            />
-          </Space.Compact>
+          <SearchBarMenu />
         </Items>
       </Wrapper>
     </Container>

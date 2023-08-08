@@ -22,7 +22,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: 100px;
+  gap: 250px;
   align-items: center;
   justify-content: space-between;
 `;

@@ -11,6 +11,17 @@ const SearchBarMenu = () => {
 
   const history = useHistory();
 
+  const auth = useAuth();
+
+  async function onFinish() {
+    try {
+      await auth.logout();
+      history.push("/login");
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   function getItem(label, key, icon, children, type) {
     return {
       key,
@@ -23,10 +34,9 @@ const SearchBarMenu = () => {
 
   const items = [
     getItem(user.email, "sub4", <FaUser size={22} />, [
-      getItem("Editar Perfil"),
       getItem(
         <Button
-          onClick={logout}
+          onClick={() => onFinish()}
           title="Sair"
           style={{
             border: "none",
@@ -34,7 +44,7 @@ const SearchBarMenu = () => {
             background: "transparent",
           }}
         >
-          Sair
+          Logout
         </Button>
       ),
     ]),
