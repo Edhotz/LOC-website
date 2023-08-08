@@ -1,24 +1,70 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { Column } from "@ant-design/plots";
+import { API } from "../../services/api";
+import { number } from "zod";
 
 export const Graph = () => {
+  const [projectsData, setProjectsData] = useState(null);
+  const [activitiesData, setActivitiesData] = useState(null);
+  const [tasksData, setTasksData] = useState(null);
+  const [customerData, setCustomerData] = useState(null);
+
+  const handleFecthProjects = async () => {
+    const { data } = await API.get("/projects");
+
+    const numberOfItems = data.length;
+
+    setProjectsData(numberOfItems);
+  };
+
+  const handleFecthActivities = async () => {
+    const { data } = await API.get("/activities");
+
+    const numberOfItems = data.length;
+
+    setActivitiesData(numberOfItems);
+  };
+
+  const handleFecthTasks = async () => {
+    const { data } = await API.get("/tasks");
+
+    const numberOfItems = data.length;
+
+    setTasksData(numberOfItems);
+  };
+
+  const handleFecthCustomers = async () => {
+    const { data } = await API.get("/activities");
+
+    const numberOfItems = data.length;
+
+    setCustomerData(numberOfItems);
+  };
+
+  useEffect(() => {
+    handleFecthProjects();
+    handleFecthActivities();
+    handleFecthCustomers();
+    handleFecthTasks();
+  }, []);
+
   const data = [
     {
       type: "Projetos",
-      sales: 38,
+      sales: projectsData,
     },
     {
       type: "Atividades",
-      sales: 52,
+      sales: activitiesData,
     },
     {
       type: "Tarefas",
-      sales: 61,
+      sales: tasksData,
     },
     {
       type: "Clientes",
-      sales: 145,
+      sales: customerData,
     },
   ];
   const config = {

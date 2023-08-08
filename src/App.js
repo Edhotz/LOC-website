@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Home } from "./pages";
 import { MarketingPage } from "./pages/MarketingPage";
 import { LoginPage } from "./pages/Login";
-import { AuthProvider } from "./AuthProvider";
 import DashboardPage from "./pages/Dashboard";
 import UsersPage from "./pages/UsersPage";
 import history from "./history";
@@ -11,7 +10,6 @@ import AtitivitiesPage from "./pages/AtitivitiesPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import TasksPage from "./pages/TasksPage";
 import CustomersPage from "./pages/CustomersPage";
-import { RequireAuth } from "./AuthProvider/RequireAuth";
 
 function App() {
   return (
