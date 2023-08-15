@@ -10,6 +10,9 @@ import AtitivitiesPage from "./pages/AtitivitiesPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import TasksPage from "./pages/TasksPage";
 import CustomersPage from "./pages/CustomersPage";
+import PdfPage from "./pages/PdfPage";
+import customersDashboard from "./pages/customersDashboard";
+import mainPage from "./pages/customersDashboard/main-page";
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
         <Route path="/projects" component={ProjectsPage} />
         <Route path="/tasks" component={TasksPage} />
         <Route path="/customers" component={CustomersPage} />
+        <Route path="/pdf" component={PdfPage} />
+        <Route path="/clients/login" component={customersDashboard} />
+        <Route path="/clients/main-page" component={mainPage} />
       </Switch>
     </Router>
   );
