@@ -11,11 +11,7 @@ const HeaderBar = ({ page }) => {
       <Wrapper>
         <Items>
           <H1>{page}</H1>
-        </Items>
 
-        <Items></Items>
-
-        <Items>
           <SearchBarMenu />
         </Items>
       </Wrapper>

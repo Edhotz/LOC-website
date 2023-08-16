@@ -22,24 +22,24 @@ const DocumentsTable = () => {
 
   const fixedColumns = [
     {
-      title: "titulo",
+      title: "Documentos",
       dataIndex: "title",
       fixed: true,
       width: 100,
-    },
-    {
-      title: "Descrição",
-      dataIndex: "description",
     },
   ];
 
   return (
     <>
       <Table
-        size="small"
+        size="middle"
         columns={fixedColumns}
         dataSource={data}
         pagination={true}
+        style={{
+          width: 670,
+          boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.3)",
+        }}
         scroll={{
           x: 200,
           y: 500,

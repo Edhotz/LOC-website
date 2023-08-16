@@ -1,33 +1,62 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 1000px;
-  height: 37.223px;
-  position: absolute;
-  top: 30px;
-  left: 400px;
+  display: flex;
+  width: 60%;
+  height: 12vh;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
 
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 5px 14px 0px rgba(0, 0, 0, 0.15);
 
-  display: flex;
+  margin: 40px;
+  margin-left: 400px;
 
-  padding: 50px;
+  @media screen and (max-width: 768px) {
+    width: 67%;
+    height: fit-content;
+    font-size: 12px;
+    margin: 70px;
+    flex-wrap: wrap;
+    padding: 5%;
+  }
 
-  align-items: center;
+  @media screen and (max-width: 480px) {
+    margin-left: 100px;
 
-  margin: 10px;
+    height: max-content;
+  }
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: 250px;
   align-items: center;
   justify-content: space-between;
+  box-sizing: border-box;
+  margin-left: 10px;
 `;
 
-export const Items = styled.div``;
+export const Items = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  gap: 20rem;
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: start;
+    gap: 2rem;
+  }
+
+  @media screen and (max-width: 480px) {
+    gap: 0rem;
+  }
+`;
 
 export const H1 = styled.h1`
   color: var(--gray-gray-700, #2d3748);
