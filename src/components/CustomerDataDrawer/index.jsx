@@ -3,8 +3,22 @@ import { Col, Divider, Drawer, List, Row } from "antd";
 import { FaUser } from "react-icons/fa";
 
 const DescriptionItem = ({ title, content }) => (
-  <div className="site-description-item-profile-wrapper">
-    <p className="site-description-item-profile-p-label">{title}:</p>
+  <div
+    className="site-description-item-profile-wrapper"
+    style={{
+      display: "flex",
+      alignItems: "center",
+    }}
+  >
+    <p
+      className="site-description-item-profile-p-label"
+      style={{
+        margin: 3,
+        marginLeft: 4,
+      }}
+    >
+      {title}:{" "}
+    </p>
     {content}
   </div>
 );
@@ -59,33 +73,32 @@ const CustomerDataDrawer = () => {
           className="site-description-item-profile-p"
           style={{
             marginBottom: 24,
+            fontSize: "20px",
+            fontWeight: 600,
           }}
         >
-          User Profile
+          Perfil de Cliente
         </p>
-        <p className="site-description-item-profile-p">Personal</p>
-        <Row>
+        <p
+          className="site-description-item-profile-p"
+          style={{ fontSize: "16px", fontWeight: 600 }}
+        >
+          Seus dados pessoais
+        </p>
+        <Row display="flex">
           <Col span={12}>
-            <DescriptionItem title="Full Name" content="Lily" />
+            <DescriptionItem title="Nome Completo" content="Lily" />
           </Col>
           <Col span={12}>
-            <DescriptionItem title="Account" content="AntDesign@example.com" />
-          </Col>
-        </Row>
-        <Row>
-          <Col span={12}>
-            <DescriptionItem title="City" content="HangZhou" />
-          </Col>
-          <Col span={12}>
-            <DescriptionItem title="Country" content="China🇨🇳" />
+            <DescriptionItem title="Conta" content="AntDesign@example.com" />
           </Col>
         </Row>
         <Row>
           <Col span={12}>
-            <DescriptionItem title="Birthday" content="February 2,1900" />
+            <DescriptionItem title="Cidade" content="Luanda" />
           </Col>
           <Col span={12}>
-            <DescriptionItem title="Website" content="-" />
+            <DescriptionItem title="Pais" content="Angola" />
           </Col>
         </Row>
         <Row>
@@ -96,34 +109,9 @@ const CustomerDataDrawer = () => {
             />
           </Col>
         </Row>
+
         <Divider />
-        <p className="site-description-item-profile-p">Company</p>
-        <Row>
-          <Col span={12}>
-            <DescriptionItem title="Position" content="Programmer" />
-          </Col>
-          <Col span={12}>
-            <DescriptionItem title="Responsibilities" content="Coding" />
-          </Col>
-        </Row>
-        <Row>
-          <Col span={12}>
-            <DescriptionItem title="Department" content="XTech" />
-          </Col>
-          <Col span={12}>
-            <DescriptionItem title="Supervisor" content={<a>Lin</a>} />
-          </Col>
-        </Row>
-        <Row>
-          <Col span={24}>
-            <DescriptionItem
-              title="Skills"
-              content="C / C + +, data structures, software engineering, operating systems, computer networks, databases, compiler theory, computer architecture, Microcomputer Principle and Interface Technology, Computer English, Java, ASP, etc."
-            />
-          </Col>
-        </Row>
-        <Divider />
-        <p className="site-description-item-profile-p">Contacts</p>
+        <p className="site-description-item-profile-p">Contactos</p>
         <Row>
           <Col span={12}>
             <DescriptionItem title="Email" content="AntDesign@example.com" />
@@ -133,16 +121,7 @@ const CustomerDataDrawer = () => {
           </Col>
         </Row>
         <Row>
-          <Col span={24}>
-            <DescriptionItem
-              title="Github"
-              content={
-                <a href="http://github.com/ant-design/ant-design/">
-                  github.com/ant-design/ant-design/
-                </a>
-              }
-            />
-          </Col>
+          <Col span={24}></Col>
         </Row>
       </Drawer>
     </>

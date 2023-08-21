@@ -19,6 +19,7 @@ import { Dots } from "react-activity";
 import { MdImage, MdLink, MdTextFields, MdTitle } from "react-icons/md";
 import { useAuth } from "../../AuthProvider/useAuth";
 import { IoMdDocument } from "react-icons/io";
+import TextArea from "antd/es/input/TextArea";
 
 const EditableCell = ({
   editing,
@@ -257,7 +258,7 @@ const DataTable = () => {
           display: "flex",
           width: 800,
           gap: 10,
-          alignItems: "center",
+          alignItems: "start",
           justifyContent: "center",
         }}
       >
@@ -269,10 +270,10 @@ const DataTable = () => {
           onFinish={handlePost}
           style={{
             display: "flex",
-            alignItems: "center",
+            alignItems: "start",
             gap: 10,
             marginTop: 70,
-            marginLeft: 210,
+            marginRight: 190,
           }}
         >
           <div>
@@ -280,7 +281,7 @@ const DataTable = () => {
               style={{
                 display: "flex",
                 gap: 5,
-                marginTop: -78,
+                marginTop: -85,
               }}
             >
               <FormItem name="title">
@@ -294,51 +295,21 @@ const DataTable = () => {
                 />
               </FormItem>
             </div>
-            <div>
-              <FormItem name="image">
-                <Input
-                  style={{
-                    padding: 15,
-                    width: 400,
-                    display: "flex",
-                  }}
-                  prefix={<MdImage />}
-                  placeholder="Imagem"
-                  size="large"
-                  type="file"
-                  name="image"
-                />
-              </FormItem>
-            </div>
-            <div>
-              <FormItem name="document">
-                <Input
-                  style={{
-                    padding: 15,
-                  }}
-                  prefix={<IoMdDocument />}
-                  placeholder="documento"
-                  size="large"
-                  type="file"
-                  name="document"
-                />
-              </FormItem>
-            </div>
+            <FormItem name="description">
+              <TextArea
+                size="large"
+                style={{
+                  minWidth: 460,
+                  height: 140,
+                  textOverflow: "inherit",
+                  alignItems: "start",
+                  boxSizing: "border-box",
+                }}
+                prefix={<MdTextFields size={20} />}
+                placeholder="Descrição"
+              />
+            </FormItem>
           </div>
-          <FormItem name="description">
-            <Input
-              size="large"
-              style={{
-                minWidth: 460,
-                height: 240,
-                textOverflow: "inherit",
-                alignItems: "start",
-                boxSizing: "border-box",
-              }}
-              prefix={<MdTextFields size={20} />}
-              placeholder="Descrição"
-            />
-          </FormItem>
 
           <FormItem wrapperCol={{ offset: 0, span: 10 }}>
             <Button
@@ -367,6 +338,19 @@ const DataTable = () => {
             body: {
               cell: EditableCell,
             },
+          }}
+          style={{
+            borderRadius: 15,
+            borderWidth: 1.5,
+            borderColor: "#FFF",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.02,
+            shadowRadius: 5.5,
+            elevation: 5,
           }}
           bordered
           dataSource={data}
