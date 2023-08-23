@@ -4,7 +4,6 @@ import Highlighter from "react-highlight-words";
 import { Button, Input, Space, Table } from "antd";
 import { API } from "../../services/api";
 
-
 const TableComponent = () => {
   const [searchText, setSearchText] = useState("");
   const [searchedColumn, setSearchedColumn] = useState("");
@@ -165,6 +164,15 @@ const TableComponent = () => {
     },
   ];
 
-  return <Table size="small" columns={columns} dataSource={group} />;
+  return (
+    <Table
+      size="small"
+      style={{
+        width: "80%",
+      }}
+      columns={columns}
+      dataSource={group}
+    />
+  );
 };
 export default TableComponent;

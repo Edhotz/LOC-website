@@ -16,13 +16,6 @@ const DashboardMenu = () => {
   return (
     <Container>
       <Wrapper>
-        <LogoImage src={logo} alt="Logo Image" width={100} height={50} />
-        <hr
-          style={{
-            margin: 20,
-            marginTop: -20,
-          }}
-        />
         <Items>
           <AiFillHome size={32} color="#20a6da" />
           <Text href="/dashboard">Dashboard</Text>

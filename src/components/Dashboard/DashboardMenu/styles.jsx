@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   position: fixed;
-  top: 40px;
+  top: 100px;
   width: 265px;
   height: 600px;
   flex-shrink: 0;
@@ -13,17 +13,19 @@ export const Container = styled.div`
   margin-left: 40px;
   margin-top: 40px;
 
-  border-radius: 20px;
   background: #fff;
-  box-shadow: 0px 5px 14px 0px rgba(0, 0, 0, 0.15);
 `;
 
 export const Wrapper = styled.ul`
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Items = styled.div`
-  width: 219.5px;
+  width: 300.5px;
   height: 54px;
   flex-shrink: 0;
 
@@ -59,6 +61,6 @@ export const Text = styled.a`
 export const LogoImage = styled.img`
   align-self: center;
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 0px;
   margin-bottom: 50px;
 `;

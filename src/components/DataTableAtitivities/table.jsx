@@ -18,6 +18,7 @@ import { LockOutlined } from "@ant-design/icons";
 import { Dots } from "react-activity";
 import { MdLink, MdTextFields } from "react-icons/md";
 import { useAuth } from "../../AuthProvider/useAuth";
+import CreateAtivitiesModal from "../CreateAtivitiesModal";
 
 const EditableCell = ({
   editing,
@@ -71,28 +72,6 @@ const DataTable = () => {
       setData(data);
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const handlePost = async ({ title, description, link }) => {
-    setIsLoading(true);
-    try {
-      const { status } = await API.post(`/activities/${user.id}`, {
-        title,
-        description,
-        link,
-      });
-
-      if (status === 201) {
-        setIsLoading(false);
-        <Alert message="Usuario Criado" type="success" />;
-      }
-
-      console.log(status);
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-      <Alert message="Não foi possivel criar um usuario" type="error" />;
     }
   };
 
@@ -251,81 +230,7 @@ const DataTable = () => {
           justifyContent: "center",
         }}
       >
-        <Form
-          name="basic"
-          labelCol={{ span: 30 }}
-          wrapperCol={{ span: 30 }}
-          onFinish={handlePost}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "flex",
-                gap: 5,
-              }}
-            >
-              <FormItem name="title">
-                <Input
-                  size="large"
-                  style={{
-                    padding: 15,
-                  }}
-                  prefix={<UserOutlined />}
-                  placeholder="Titulo"
-                />
-              </FormItem>
-            </div>
-            <div>
-              <FormItem name="link">
-                <Input
-                  style={{
-                    padding: 15,
-                  }}
-                  prefix={<MdLink />}
-                  placeholder="Link"
-                  size="large"
-                />
-              </FormItem>
-            </div>
-          </div>
-          <FormItem name="description">
-            <Input
-              size="large"
-              style={{
-                width: 460,
-                height: 140,
-                padding: 10,
-                alignItems: "start",
-              }}
-              prefix={<MdTextFields size={20} />}
-              placeholder="Descrição"
-            />
-          </FormItem>
-
-          <FormItem wrapperCol={{ offset: 0, span: 10 }}>
-            <Button
-              style={{
-                width: 140,
-                height: 50,
-                marginTop: 80,
-              }}
-              type="primary"
-              htmlType="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <Dots color="#727981" size={14} speed={1} animating={true} />
-              ) : (
-                "Criar"
-              )}
-            </Button>
-          </FormItem>
-        </Form>
+        <CreateAtivitiesModal />
       </div>
 
       <Form form={form} component={false}>

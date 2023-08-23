@@ -20,7 +20,7 @@ const Login = () => {
   async function onFinish({ email, password }) {
     setIsLoading(true);
     try {
-      await auth.authenticate(email, password);
+      await auth.authenticateCustomer(email, password);
       history.push("/clients/main-page");
     } catch (error) {
       setIsLoading(false);
@@ -31,11 +31,13 @@ const Login = () => {
 
   return (
     <Row
-      justify="center"
-      align="middle"
+      justify="space-between"
+      align="stretch"
       style={{
-        height: "100vh",
-        width: "100vw",
+        display: "flex",
+        height: "100%",
+        justifyContent: "space-between",
+        width: "100%",
         display: "flex",
       }}
     >
@@ -44,7 +46,7 @@ const Login = () => {
         style={{
           position: "absolute",
           top: "200px",
-          left: "50px",
+          right: "150px",
           zIndex: "999",
         }}
       >
@@ -102,9 +104,6 @@ const Login = () => {
         preview={false}
         width="60%"
         height="100%"
-        style={{
-          marginLeft: "320px",
-        }}
       />
     </Row>
   );

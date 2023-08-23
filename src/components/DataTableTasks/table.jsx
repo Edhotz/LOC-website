@@ -19,6 +19,7 @@ import { Dots } from "react-activity";
 import { MdImage, MdLink, MdTextFields, MdTitle } from "react-icons/md";
 import { useAuth } from "../../AuthProvider/useAuth";
 import { IoMdDocument } from "react-icons/io";
+import CreateTaskModal from "../CreateTaskModal";
 
 const EditableCell = ({
   editing,
@@ -85,7 +86,7 @@ const DataTable = () => {
 
       if (status === 201) {
         setIsLoading(false);
-        <Alert message="Usuario Criado" type="success" />;
+        <Alert message="Tarefa criada " type="success" />;
       }
 
       console.log(status);
@@ -242,66 +243,7 @@ const DataTable = () => {
           justifyContent: "center",
         }}
       >
-        <Form
-          name="basic"
-          labelCol={{ span: 30 }}
-          wrapperCol={{ span: 30 }}
-          onFinish={handlePost}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              gap: 5,
-            }}
-          >
-            <FormItem name="title">
-              <Input
-                size="large"
-                style={{
-                  padding: 15,
-                }}
-                prefix={<MdTitle />}
-                placeholder="Titulo"
-              />
-            </FormItem>
-          </div>
-
-          <FormItem name="description">
-            <Input
-              size="large"
-              style={{
-                width: 460,
-                padding: 15,
-                alignItems: "start",
-              }}
-              prefix={<MdTextFields size={20} />}
-              placeholder="Descrição"
-            />
-          </FormItem>
-
-          <FormItem wrapperCol={{ offset: 0, span: 10 }}>
-            <Button
-              style={{
-                width: 140,
-                height: 50,
-              }}
-              type="primary"
-              htmlType="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <Dots color="#727981" size={14} speed={1} animating={true} />
-              ) : (
-                "Criar"
-              )}
-            </Button>
-          </FormItem>
-        </Form>
+        <CreateTaskModal />
       </div>
 
       <Form form={form} component={false}>

@@ -20,6 +20,7 @@ import { MdImage, MdLink, MdTextFields, MdTitle } from "react-icons/md";
 import { useAuth } from "../../AuthProvider/useAuth";
 import { IoMdDocument } from "react-icons/io";
 import TextArea from "antd/es/input/TextArea";
+import CreateProjectModal from "../CreateProjectsModal";
 
 const EditableCell = ({
   editing,
@@ -159,24 +160,7 @@ const DataTable = () => {
       width: "20%",
       editable: true,
     },
-    {
-      title: "Imagem",
-      dataIndex: "image",
-      width: "40%",
-      editable: true,
-    },
-    {
-      title: "Documentos",
-      dataIndex: "document",
-      width: "40%",
-      editable: true,
-    },
-    {
-      title: "Data",
-      dataIndex: "created_at",
-      width: "40%",
-      editable: true,
-    },
+
     {
       title: "Editar",
       dataIndex: "operation",
@@ -262,74 +246,7 @@ const DataTable = () => {
           justifyContent: "center",
         }}
       >
-        <Form
-          name="basic"
-          encType="multpart/form-data"
-          labelCol={{ span: 30 }}
-          wrapperCol={{ span: 30 }}
-          onFinish={handlePost}
-          style={{
-            display: "flex",
-            alignItems: "start",
-            gap: 10,
-            marginTop: 70,
-            marginRight: 190,
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "flex",
-                gap: 5,
-                marginTop: -85,
-              }}
-            >
-              <FormItem name="title">
-                <Input
-                  size="large"
-                  style={{
-                    padding: 15,
-                  }}
-                  prefix={<MdTitle />}
-                  placeholder="Titulo"
-                />
-              </FormItem>
-            </div>
-            <FormItem name="description">
-              <TextArea
-                size="large"
-                style={{
-                  minWidth: 460,
-                  height: 140,
-                  textOverflow: "inherit",
-                  alignItems: "start",
-                  boxSizing: "border-box",
-                }}
-                prefix={<MdTextFields size={20} />}
-                placeholder="Descrição"
-              />
-            </FormItem>
-          </div>
-
-          <FormItem wrapperCol={{ offset: 0, span: 10 }}>
-            <Button
-              style={{
-                width: 140,
-                height: 50,
-                marginTop: 80,
-              }}
-              type="primary"
-              htmlType="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <Dots color="#727981" size={14} speed={1} animating={true} />
-              ) : (
-                "Criar"
-              )}
-            </Button>
-          </FormItem>
-        </Form>
+        <CreateProjectModal />
       </div>
 
       <Form form={form} component={false}>

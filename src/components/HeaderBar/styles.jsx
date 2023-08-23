@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  width: 60%;
+  width: 100%;
   height: 12vh;
   align-items: center;
   justify-content: center;
@@ -11,9 +11,6 @@ export const Container = styled.div`
   border-radius: 20px;
   background: #fff;
   box-shadow: 0px 5px 14px 0px rgba(0, 0, 0, 0.15);
-
-  margin: 40px;
-  margin-left: 400px;
 
   @media screen and (max-width: 768px) {
     width: 67%;
@@ -34,6 +31,7 @@ export const Container = styled.div`
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  gap: 20px;
   justify-content: space-between;
   box-sizing: border-box;
   margin-left: 10px;

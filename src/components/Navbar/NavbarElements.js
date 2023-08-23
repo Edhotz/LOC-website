@@ -30,9 +30,9 @@ export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
   height: 80px;
+  gap: 30px;
   z-index: 1;
   width: 100%;
-  padding: 0 24px;
   max-width: 1100px;
 `;
 
@@ -76,9 +76,10 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   height: 80px;
+  width: max-content;
   li {
     margin-top: 30px;
-    padding: 0px 10px;
+    margin-left: 40px;
   }
 `;
 
@@ -111,6 +112,35 @@ export const NavBtnLink = styled.a`
   display: flex;
   border-radius: 50px;
   background: #20a6da;
+  white-space: nowrap;
+  padding: 12px 22px;
+  color: #010606;
+  font-size: 16px;
+  outline: none;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+
+  p {
+    font-size: 1.2rem;
+    margin-left: 5px;
+  }
+
+  transition: all 0.1s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 0.2 ease-in-out;
+    background: #000;
+    color: #fff;
+  }
+`;
+
+export const NavBtnLoginLink = styled.a`
+  display: flex;
+  border-radius: 50px;
+  background: #f2f2f2;
   white-space: nowrap;
   padding: 12px 22px;
   color: #010606;

@@ -28,6 +28,7 @@ import { useAuth } from "../../AuthProvider/useAuth";
 import { IoMdDocument } from "react-icons/io";
 import { AiFillProfile } from "react-icons/ai";
 import { FaLocationArrow, FaPhone, FaUser } from "react-icons/fa";
+import CreateCustomerModal from "../CreateCustomerModal";
 
 const EditableCell = ({
   editing,
@@ -81,29 +82,6 @@ const DataTable = () => {
       setData(data);
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const handlePost = async ({ name, email, location, phone }) => {
-    try {
-      setIsLoading(true);
-      const { status } = await API.post(`/clients/${user.id}`, {
-        name,
-        email,
-        location,
-        phone,
-      });
-
-      if (status === 201) {
-        setIsLoading(false);
-        <Alert message="Usuario Criado" type="success" />;
-      }
-
-      console.log(status);
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-      <Alert message="Não foi possivel criar um usuario" type="error" />;
     }
   };
 
@@ -174,12 +152,6 @@ const DataTable = () => {
       title: "Telemovel",
       dataIndex: "phone",
       width: "60%",
-      editable: true,
-    },
-    {
-      title: "Data de criação",
-      dataIndex: "created_at",
-      width: "50%",
       editable: true,
     },
     {
@@ -266,101 +238,7 @@ const DataTable = () => {
           justifyContent: "center",
         }}
       >
-        <Form
-          name="basic"
-          labelCol={{ span: 30 }}
-          wrapperCol={{ span: 30 }}
-          onFinish={handlePost}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              gap: 5,
-            }}
-          >
-            <FormItem name="name">
-              <Input
-                size="large"
-                style={{
-                  padding: 15,
-                }}
-                prefix={<FaUser />}
-                placeholder="Nome"
-              />
-            </FormItem>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              gap: 5,
-            }}
-          >
-            <FormItem name="email">
-              <Input
-                size="large"
-                style={{
-                  padding: 15,
-                }}
-                prefix={<MdEmail />}
-                placeholder="Email"
-              />
-            </FormItem>
-          </div>
-
-          <FormItem name="location">
-            <Input
-              size="large"
-              style={{
-                padding: 15,
-                alignItems: "start",
-              }}
-              prefix={<MdLocationOn size={20} />}
-              placeholder="localização"
-            />
-          </FormItem>
-
-          <div
-            style={{
-              display: "flex",
-              gap: 5,
-            }}
-          >
-            <FormItem name="phone">
-              <Input
-                size="large"
-                style={{
-                  padding: 15,
-                }}
-                prefix={<FaPhone />}
-                placeholder="Telemovel"
-              />
-            </FormItem>
-          </div>
-
-          <FormItem wrapperCol={{ offset: 0, span: 10 }}>
-            <Button
-              style={{
-                width: 140,
-                height: 50,
-              }}
-              type="primary"
-              htmlType="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <Dots color="#727981" size={14} speed={1} animating={true} />
-              ) : (
-                "Criar"
-              )}
-            </Button>
-          </FormItem>
-        </Form>
+        <CreateCustomerModal />
       </div>
 
       <Form form={form} component={false}>

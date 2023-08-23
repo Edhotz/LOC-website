@@ -12,8 +12,8 @@ import TasksPage from "./pages/TasksPage";
 import CustomersPage from "./pages/CustomersPage";
 import PdfPage from "./pages/PdfPage";
 import customersDashboard from "./pages/customersDashboard";
-import mainPage from "./pages/customersDashboard/main-page";
 import { BgProvider } from "./styles";
+import MainPage from "./pages/customersDashboard/Main-page";
 
 function App() {
   return (
@@ -31,7 +31,7 @@ function App() {
           <Route path="/customers" component={CustomersPage} />
           <Route path="/pdf" component={PdfPage} />
           <Route path="/clients/login" component={customersDashboard} />
-          <Route path="/clients/main-page" component={mainPage} />
+          <Route path="/clients/main-page" component={MainPage} />
         </BgProvider>
       </Switch>
     </Router>

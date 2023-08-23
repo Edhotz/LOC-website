@@ -9,6 +9,7 @@ import {
   NavLinks,
   NavBtn,
   NavBtnLink,
+  NavBtnLoginLink,
 } from "./NavbarElements";
 import { FaBars } from "react-icons/fa";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -122,6 +123,12 @@ const Navbar = ({ toggle }) => {
                 <IoLogoWhatsapp size={30} />
                 <p>Mensagem</p>
               </NavBtnLink>
+            </NavBtn>
+
+            <NavBtn>
+              <NavBtnLoginLink href="/clients/login">
+                <p>Login</p>
+              </NavBtnLoginLink>
             </NavBtn>
           </NavbarContainer>
         </Nav>

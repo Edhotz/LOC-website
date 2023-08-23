@@ -52,7 +52,8 @@ const SearchBarMenu = () => {
   return (
     <Menu
       style={{
-        width: 256,
+        marginLeft: "10px",
+        width: 310,
       }}
       defaultSelectedKeys={["1"]}
       defaultOpenKeys={["sub1"]}

@@ -1,31 +1,20 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 1000px;
-  height: 37.223px;
-  position: absolute;
-  top: 30px;
-  left: 400px;
+  width: 100%;
+  height: 80px;
+  position: fixed;
 
-  border-radius: 20px;
   background: #fff;
   box-shadow: 0px 5px 14px 0px rgba(0, 0, 0, 0.15);
-
-  display: flex;
-
-  padding: 50px;
-
-  align-items: center;
-  justify-content: space-between;
-
-  margin: 10px;
+  z-index: -999;
 `;
 
 export const Wrapper = styled.div`
   display: flex;
-  gap: 500px;
   align-items: center;
-  justify-content: space-between;
+  margin-right: 300px;
+  justify-content: space-around;
 `;
 
 export const Items = styled.div``;

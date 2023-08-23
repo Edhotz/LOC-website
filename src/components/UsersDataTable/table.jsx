@@ -13,21 +13,11 @@ import { API } from "../../services/api";
 
 import FormItem from "antd/es/form/FormItem";
 
-import { UserOutlined } from "@ant-design/icons";
-import { LockOutlined } from "@ant-design/icons";
-import { Dots } from "react-activity";
-import {
-  MdEmail,
-  MdImage,
-  MdLink,
-  MdLocationOn,
-  MdTextFields,
-  MdTitle,
-} from "react-icons/md";
 import { useAuth } from "../../AuthProvider/useAuth";
 import { IoMdDocument } from "react-icons/io";
 import { AiFillProfile } from "react-icons/ai";
 import { FaKey, FaLocationArrow, FaPhone, FaUser } from "react-icons/fa";
+import CreateUserModal from "../CreateUserModal";
 
 const EditableCell = ({
   editing,
@@ -81,28 +71,6 @@ const DataTable = () => {
       setData(data);
     } catch (error) {
       console.log(error);
-    }
-  };
-
-  const handlePost = async ({ name, email, password }) => {
-    try {
-      setIsLoading(true);
-      const { status } = await API.post(`/users`, {
-        name,
-        email,
-        password,
-      });
-
-      if (status === 201) {
-        setIsLoading(false);
-        <Alert message="Usuario Criado" type="success" />;
-      }
-
-      console.log(status);
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-      <Alert message="Não foi possivel criar um usuario" type="error" />;
     }
   };
 
@@ -258,89 +226,7 @@ const DataTable = () => {
           justifyContent: "center",
         }}
       >
-        <Form
-          name="basic"
-          labelCol={{ span: 30 }}
-          wrapperCol={{ span: 30 }}
-          onFinish={handlePost}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: 10,
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              gap: 5,
-            }}
-          >
-            <FormItem name="name">
-              <Input
-                size="large"
-                style={{
-                  padding: 15,
-                }}
-                prefix={<FaUser />}
-                placeholder="Nome"
-              />
-            </FormItem>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              gap: 5,
-            }}
-          >
-            <FormItem name="email">
-              <Input
-                size="large"
-                style={{
-                  padding: 15,
-                }}
-                prefix={<MdEmail />}
-                placeholder="Email"
-              />
-            </FormItem>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              gap: 5,
-            }}
-          >
-            <FormItem name="password">
-              <Input.Password
-                size="large"
-                style={{
-                  padding: 15,
-                }}
-                prefix={<FaKey />}
-                placeholder="Password"
-              />
-            </FormItem>
-          </div>
-
-          <FormItem wrapperCol={{ offset: 0, span: 10 }}>
-            <Button
-              style={{
-                width: 140,
-                height: 50,
-              }}
-              type="primary"
-              htmlType="submit"
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <Dots color="#727981" size={14} speed={1} animating={true} />
-              ) : (
-                "Criar"
-              )}
-            </Button>
-          </FormItem>
-        </Form>
+        <CreateUserModal />
       </div>
 
       <Form form={form} component={false}>

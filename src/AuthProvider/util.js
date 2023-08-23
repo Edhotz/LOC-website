@@ -20,3 +20,15 @@ export async function LoginRequest(email, password) {
     return null;
   }
 }
+
+
+export async function LoginCustomerRequest(email, password) {
+  try {
+    const request = await API.post("/clients/login", { email, password });
+    return request.data;
+  } catch (error) {
+    console.log(error);
+    return null;
+  }
+}
+
