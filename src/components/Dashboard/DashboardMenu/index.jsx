@@ -4,12 +4,10 @@ import {
   AiFillProfile,
   AiFillProject,
   AiOutlineUser,
-  AiTwotoneCustomerService,
 } from "react-icons/ai";
 
-import { Container, Items, LogoImage, Text, Wrapper } from "./styles";
-
-import logo from "../../../images/logo.png";
+import { Container, Items, Text, Wrapper } from "./styles";
+import { BsFillHouseAddFill, BsHouseFill } from "react-icons/bs";
 import { MdAddTask, MdTask } from "react-icons/md";
 
 const DashboardMenu = () => {
@@ -44,6 +42,11 @@ const DashboardMenu = () => {
         <Items>
           <AiFillProfile size={32} color="#20a6da" />
           <Text href="/customers">Clientes</Text>
+        </Items>
+
+        <Items>
+          <BsHouseFill size={32} color="#20a6da" />
+          <Text href="/legalization">Legalização de imóveis</Text>
         </Items>
       </Wrapper>
     </Container>

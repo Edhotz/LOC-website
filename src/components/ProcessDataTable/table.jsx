@@ -7,17 +7,12 @@ import {
   Table,
   Typography,
   Alert,
-  Button,
 } from "antd";
 import { API } from "../../services/api";
 
-import FormItem from "antd/es/form/FormItem";
-
+import CreateProjectModal from "../CreateProjectsModal";
 import { useAuth } from "../../AuthProvider/useAuth";
-import { IoMdDocument } from "react-icons/io";
-import { AiFillProfile } from "react-icons/ai";
-import { FaKey, FaLocationArrow, FaPhone, FaUser } from "react-icons/fa";
-import CreateUserModal from "../CreateUserModal";
+import CreateProcessModal from "../CreateProcessModal";
 
 const EditableCell = ({
   editing,
@@ -66,7 +61,7 @@ const DataTable = () => {
 
   const handleFecth = async () => {
     try {
-      const { data } = await API.get("/users");
+      const { data } = await API.get("/projects");
 
       setData(data);
     } catch (error) {
@@ -74,8 +69,33 @@ const DataTable = () => {
     }
   };
 
+  const handlePost = async ({ title, description, image, document }) => {
+    try {
+      setIsLoading(true);
+      const { status } = await API.post(`/projects/${user.id}`, {
+        title,
+        description,
+        image,
+        document,
+      });
+
+      if (status === 201) {
+        setIsLoading(false);
+        <Alert message="Usuario Criado" type="success" />;
+      }
+
+      console.log(status);
+    } catch (error) {
+      setIsLoading(false);
+      console.log(error);
+      <Alert message="Não foi possivel criar um usuario" type="error" />;
+    }
+  };
+
   const handleDelete = async (key) => {
-    await API.delete(`/users/${key}`);
+    const { status } = await API.delete(`/projects/${user.id}/${key}`);
+
+    console.log(key, status);
   };
 
   useEffect(() => {
@@ -86,6 +106,7 @@ const DataTable = () => {
     form.setFieldsValue({
       title: "",
       description: "",
+      link: "",
       ...record,
     });
     setEditingKey(record.key);
@@ -101,12 +122,13 @@ const DataTable = () => {
 
       console.log(row);
 
-      const { name, email, role } = row;
+      const { title, description, image, document } = row;
 
-      const { status } = await API.patch(`/users/${key}`, {
-        name,
-        email,
-        role,
+      const { status } = await API.put(`/projects/${user.id}/${key.id}`, {
+        title,
+        description,
+        image,
+        document,
       });
 
       setData(data);
@@ -119,23 +141,18 @@ const DataTable = () => {
 
   const columns = [
     {
-      title: "Nome",
-      dataIndex: "name",
+      title: "Titulo",
+      dataIndex: "title",
       width: "25%",
       editable: true,
     },
     {
-      title: "Email",
-      dataIndex: "email",
+      title: "descrição",
+      dataIndex: "description",
       width: "20%",
       editable: true,
     },
-    {
-      title: "Acesso",
-      dataIndex: "role",
-      width: "40%",
-      editable: true,
-    },
+
     {
       title: "Editar",
       dataIndex: "operation",
@@ -150,7 +167,7 @@ const DataTable = () => {
             }}
           >
             <Typography.Link
-              onClick={() => save(record.id)}
+              onClick={() => save(record)}
               style={{
                 marginRight: 8,
               }}
@@ -209,6 +226,7 @@ const DataTable = () => {
       }),
     };
   });
+
   return (
     <>
       <div
@@ -216,11 +234,11 @@ const DataTable = () => {
           display: "flex",
           width: 800,
           gap: 10,
-          alignItems: "center",
+          alignItems: "start",
           justifyContent: "center",
         }}
       >
-        <CreateUserModal />
+        <CreateProcessModal />
       </div>
 
       <Form form={form} component={false}>
@@ -229,6 +247,19 @@ const DataTable = () => {
             body: {
               cell: EditableCell,
             },
+          }}
+          style={{
+            borderRadius: 15,
+            borderWidth: 1.5,
+            borderColor: "#FFF",
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 0,
+              height: 2,
+            },
+            shadowOpacity: 0.02,
+            shadowRadius: 5.5,
+            elevation: 5,
           }}
           bordered
           dataSource={data}

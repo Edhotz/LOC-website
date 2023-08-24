@@ -38,7 +38,7 @@ const Login = () => {
         height: "100%",
         justifyContent: "space-between",
         width: "100%",
-        display: "flex",
+        backgroundColor: "#fff",
       }}
     >
       <Col
