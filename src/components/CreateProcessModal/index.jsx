@@ -16,36 +16,49 @@ const CreateProcessModal = () => {
   const [customerId, setCustomerId] = useState("");
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("");
+  const [clients, setClients] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const showModal = () => {
     setOpen(true);
   };
 
+  async function handleFetch() {
+    try {
+      const { data } = await API.get("/clients");
+      setClients(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
   const onChange = (value) => {
     setCustomerId(value);
-    console.log(`selected ${value}`);
-  };
-  const onSearch = (value) => {
-    console.log("search:", value);
   };
 
-  const user = useAuth();
+  const onSearch = (value) => {};
+
+  const options = clients.map((client) => ({
+    value: client.id,
+    label: client.name,
+  }));
 
   const handlePost = async ({ name, description }) => {
     setIsLoading(true);
     try {
-      const { status } = await API.post(`/proceedings/${user.id}`, {
+      const { status } = await API.post(`/proceedings/${customerId}`, {
         name,
         description,
       });
 
       if (status === 201) {
         setIsLoading(false);
-        <Alert message="Usuario Criado" type="success" />;
+        console.log(status);
       }
-
-      console.log(status);
     } catch (error) {
       setIsLoading(false);
       console.log(error);
@@ -110,7 +123,19 @@ const CreateProcessModal = () => {
           </FormItem>
 
           <FormItem>
-            <SelectItem />
+            <Select
+              showSearch
+              placeholder="Select a person"
+              optionFilterProp="children"
+              onChange={onChange}
+              onSearch={onSearch}
+              filterOption={(input, option) =>
+                (option?.label ?? "")
+                  .toLowerCase()
+                  .includes(input.toLowerCase())
+              }
+              options={options}
+            />
           </FormItem>
           <FormItem name="description">
             <TextArea

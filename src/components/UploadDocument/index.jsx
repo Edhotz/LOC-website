@@ -4,10 +4,8 @@ import { Button, Upload } from "antd";
 import { useAuth } from "../../AuthProvider/useAuth";
 const fileList = [];
 
-const UploadDocument = () => {
-  const user = useAuth();
-
-  const url = `http://localhost:3333/document/upload/${user.id}`;
+const UploadDocument = ({ proceedingId }) => {
+  const url = `http://localhost:3333/document/upload/${proceedingId}`;
 
   return (
     <>

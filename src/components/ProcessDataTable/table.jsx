@@ -13,6 +13,7 @@ import { API } from "../../services/api";
 import CreateProjectModal from "../CreateProjectsModal";
 import { useAuth } from "../../AuthProvider/useAuth";
 import CreateProcessModal from "../CreateProcessModal";
+import CreateProcessDocumentSheet from "../CreateProcessDocumentSheet";
 
 const EditableCell = ({
   editing,
@@ -61,7 +62,7 @@ const DataTable = () => {
 
   const handleFecth = async () => {
     try {
-      const { data } = await API.get("/projects");
+      const { data } = await API.get("/proceedings");
 
       setData(data);
     } catch (error) {
@@ -93,9 +94,7 @@ const DataTable = () => {
   };
 
   const handleDelete = async (key) => {
-    const { status } = await API.delete(`/projects/${user.id}/${key}`);
-
-    console.log(key, status);
+    await API.delete(`/proceedings/${key}`);
   };
 
   useEffect(() => {
@@ -104,9 +103,11 @@ const DataTable = () => {
 
   const edit = (record) => {
     form.setFieldsValue({
-      title: "",
+      id: "",
+      name: "",
+      client_name: "",
+      status: "",
       description: "",
-      link: "",
       ...record,
     });
     setEditingKey(record.key);
@@ -120,19 +121,15 @@ const DataTable = () => {
     try {
       const row = await form.validateFields();
 
-      console.log(row);
+      const { name, description, status } = row;
 
-      const { title, description, image, document } = row;
-
-      const { status } = await API.put(`/projects/${user.id}/${key.id}`, {
-        title,
+      const { data } = await API.put(`/proceedings/${key.id}`, {
+        name,
+        status,
         description,
-        image,
-        document,
       });
 
       setData(data);
-      console.log(status);
       setEditingKey("");
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo);
@@ -141,16 +138,34 @@ const DataTable = () => {
 
   const columns = [
     {
-      title: "Titulo",
-      dataIndex: "title",
+      title: "Nome do Processo",
+      dataIndex: "name",
+      width: "20%",
+      editable: true,
+    },
+    {
+      title: "Nome do Cliente",
+      dataIndex: "client_name",
       width: "25%",
       editable: true,
     },
     {
-      title: "descrição",
+      title: "Status",
+      dataIndex: "status",
+      width: "25%",
+      editable: true,
+    },
+    {
+      title: "Descrição",
       dataIndex: "description",
       width: "20%",
       editable: true,
+    },
+    {
+      title: "Documentos",
+      dataIndex: "documents",
+      width: "20%",
+      editable: false,
     },
 
     {
@@ -232,13 +247,14 @@ const DataTable = () => {
       <div
         style={{
           display: "flex",
-          width: 800,
+          width: "100%",
           gap: 10,
-          alignItems: "start",
-          justifyContent: "center",
+          alignItems: "center",
+          justifyContent: "space-around",
         }}
       >
         <CreateProcessModal />
+        <CreateProcessDocumentSheet />
       </div>
 
       <Form form={form} component={false}>
