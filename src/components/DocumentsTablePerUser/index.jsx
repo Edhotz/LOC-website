@@ -62,7 +62,7 @@ const DataTable = () => {
 
   const handleFecth = async () => {
     try {
-      const { data } = await API.get("/proceedings");
+      const { data } = await API.get("/document");
 
       setData(data);
     } catch (error) {
@@ -136,10 +136,6 @@ const DataTable = () => {
     }
   };
 
-  const documentsLength = data.map((item) => item.document.length);
-
-  const documentsNumbers = documentsLength.length;
-
   const columns = [
     {
       title: "Nome do Processo",
@@ -151,18 +147,6 @@ const DataTable = () => {
       title: "Nome do Cliente",
       dataIndex: "client_name",
       width: "25%",
-      editable: true,
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-      width: "25%",
-      editable: true,
-    },
-    {
-      title: "Descrição",
-      dataIndex: "description",
-      width: "20%",
       editable: true,
     },
     {

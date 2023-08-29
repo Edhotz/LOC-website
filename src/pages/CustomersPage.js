@@ -5,7 +5,7 @@ import DashBoardSearchBar from "../components/Dashboard/DashboardSearchBar";
 const CustomersPage = () => {
   return (
     <div>
-      <DashBoardSearchBar />
+      <DashBoardSearchBar title="Clientes" />
       <DataTableCustomers />
     </div>
   );

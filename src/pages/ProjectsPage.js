@@ -7,7 +7,7 @@ import DashBoardSearchBar from "../components/Dashboard/DashboardSearchBar";
 const ProjectsPage = () => {
   return (
     <>
-      <DashBoardSearchBar />
+      <DashBoardSearchBar title="Projetos" />
       <DataTableProjects />
     </>
   );

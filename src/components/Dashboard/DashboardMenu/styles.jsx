@@ -25,7 +25,7 @@ export const Wrapper = styled.ul`
 `;
 
 export const Items = styled.div`
-  width: 300.5px;
+  width: 260.5px;
   height: 54px;
   flex-shrink: 0;
 
@@ -34,7 +34,7 @@ export const Items = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
 
   border-radius: 8px;
   background: var(--black-amp-white-white, #fff);

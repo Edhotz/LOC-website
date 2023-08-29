@@ -15,6 +15,7 @@ import customersDashboard from "./pages/customersDashboard";
 import { BgProvider } from "./styles";
 import MainPage from "./pages/customersDashboard/Main-page";
 import legalization from "./pages/Legalization";
+import assignProject from "./pages/AssignProjects";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="/tasks" component={TasksPage} />
           <Route path="/legalization" component={legalization} />
           <Route path="/customers" component={CustomersPage} />
+          <Route path="/assign" component={assignProject} />
           <Route path="/pdf" component={PdfPage} />
           <Route path="/clients/login" component={customersDashboard} />
           <Route path="/clients/main-page" component={MainPage} />

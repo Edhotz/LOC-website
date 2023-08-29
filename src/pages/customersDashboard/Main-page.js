@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import ProgressBar from "../../components/RingProgress";
-import DocumentsTable from "../../components/DocumentsTable";
 import Card from "antd/es/card/Card";
 import { Container, Wrapper } from "./styles";
 import HeaderBar from "../../components/HeaderBar";
@@ -14,14 +13,19 @@ import { API } from "../../services/api";
 
 const MainPage = () => {
   const [data, setData] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleFetch = async () => {
+    setIsLoading(true);
     try {
       const { data } = await API.get("/proceedings");
       setData(data);
-      console.log(data);
+      if (data) {
+        setIsLoading(false);
+      }
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
@@ -45,25 +49,36 @@ const MainPage = () => {
               boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.3)",
             }}
           >
-            <span style={{
-              display: "flex",
-              gap: 10
-            }}>
-            <h1>Nome: </h1>
-            <h1 style={{
-              fontWeight: 400
-            }}>{data[0].client_name}</h1>
-
+            <span
+              style={{
+                display: "flex",
+                gap: 10,
+              }}
+            >
+              <h1>Nome: </h1>
+              <h1
+                style={{
+                  fontWeight: 400,
+                }}
+              >
+                {isLoading ? "Carregando..." : data[0].client_name}
+              </h1>
             </span>
 
-            <span style={{
-              display: "flex",
-              gap: 10
-            }}>
-            <h1>Processo: </h1>
-            <h1 style={{
-              fontWeight: 400
-            }}>{data[0].description}</h1>
+            <span
+              style={{
+                display: "flex",
+                gap: 10,
+              }}
+            >
+              <h1>Processo: </h1>
+              <h1
+                style={{
+                  fontWeight: 400,
+                }}
+              >
+                {isLoading ? "Carregando..." : data[0].description}
+              </h1>
             </span>
 
             <Space
@@ -83,7 +98,6 @@ const MainPage = () => {
 
         <Wrapper>
           <ProceedingList />
-          <AnuncimentsList />
         </Wrapper>
       </Container>
     </>

@@ -7,7 +7,7 @@ import DashBoardSearchBar from "../components/Dashboard/DashboardSearchBar";
 const TasksPage = () => {
   return (
     <>
-      <DashBoardSearchBar />
+      <DashBoardSearchBar title="Tarefas" />
       <DataTableTasks />
     </>
   );

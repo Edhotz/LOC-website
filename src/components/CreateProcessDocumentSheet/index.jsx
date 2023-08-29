@@ -65,17 +65,15 @@ const CreateProcessDocumentSheet = () => {
         }}
         extra={
           <Space>
-            <Button onClick={onClose}>Cancel</Button>
-            <Button onClick={onClose} type="primary">
-              Submit
-            </Button>
+            <Button onClick={onClose}>Cancelar</Button>
+           
           </Space>
         }
       >
         <Form layout="vertical" hideRequiredMark>
           <Select
             showSearch
-            placeholder="Selecione um cliente"
+            placeholder="Selecione um processo"
             optionFilterProp="children"
             onChange={onChange}
             onSearch={onSearch}

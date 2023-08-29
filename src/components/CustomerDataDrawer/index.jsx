@@ -1,6 +1,9 @@
-import React, { useState } from "react";
-import { Col, Divider, Drawer, List, Row } from "antd";
+import React, { useEffect, useState } from "react";
+import { Button, Col, Divider, Drawer, List, Row } from "antd";
 import { FaUser } from "react-icons/fa";
+import { API } from "../../services/api";
+import { getUserLocalStorage } from "../../AuthProvider/util";
+import PdfViewer from "../PdfViewer";
 
 const DescriptionItem = ({ title, content }) => (
   <div
@@ -24,6 +27,26 @@ const DescriptionItem = ({ title, content }) => (
 );
 const CustomerDataDrawer = () => {
   const [open, setOpen] = useState(false);
+  const [showPdf, setShowPdf] = useState(false);
+
+  const user = getUserLocalStorage();
+
+  const [data, setData] = useState("");
+
+  const handleFetch = async () => {
+    try {
+      const response = await API.get("/document");
+      setData(response.data);
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    handleFetch();
+  }, []);
+
   const showDrawer = () => {
     setOpen(true);
   };
@@ -35,8 +58,8 @@ const CustomerDataDrawer = () => {
       <List
         dataSource={[
           {
-            id: 1,
-            name: "Lily",
+            id: user.id,
+            name: user.name,
           },
         ]}
         bordered
@@ -87,26 +110,18 @@ const CustomerDataDrawer = () => {
         </p>
         <Row display="flex">
           <Col span={12}>
-            <DescriptionItem title="Nome Completo" content="Lily" />
+            <DescriptionItem title="Nome Completo" content={user.name} />
           </Col>
           <Col span={12}>
-            <DescriptionItem title="Conta" content="AntDesign@example.com" />
+            <DescriptionItem title="Conta" content={user.email} />
           </Col>
         </Row>
         <Row>
           <Col span={12}>
-            <DescriptionItem title="Cidade" content="Luanda" />
+            <DescriptionItem title="Cidade" content={user.location} />
           </Col>
           <Col span={12}>
             <DescriptionItem title="Pais" content="Angola" />
-          </Col>
-        </Row>
-        <Row>
-          <Col span={24}>
-            <DescriptionItem
-              title="Message"
-              content="Make things as simple as possible but no simpler."
-            />
           </Col>
         </Row>
 
@@ -114,14 +129,29 @@ const CustomerDataDrawer = () => {
         <p className="site-description-item-profile-p">Contactos</p>
         <Row>
           <Col span={12}>
-            <DescriptionItem title="Email" content="AntDesign@example.com" />
+            <DescriptionItem title="Email" content={user.email} />
           </Col>
           <Col span={12}>
-            <DescriptionItem title="Phone Number" content="+86 181 0000 0000" />
+            <DescriptionItem title="Numero de Telefone" content={user.phone} />
           </Col>
         </Row>
-        <Row>
-          <Col span={24}></Col>
+        <Row
+          style={{
+            marginTop: 40,
+          }}
+        >
+          <Col span={50}>
+            <div className="PdfPage">
+              <PdfViewer
+                pdf={data.url}
+                onCancel={() => setShowPdf(false)}
+                visible={showPdf}
+              />
+              <Button onClick={() => setShowPdf(!showPdf)}>
+                Ver Documentos
+              </Button>
+            </div>
+          </Col>
         </Row>
       </Drawer>
     </>

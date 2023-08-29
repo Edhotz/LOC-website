@@ -113,7 +113,7 @@ export const NavBtnLink = styled.a`
   border-radius: 50px;
   background: #20a6da;
   white-space: nowrap;
-  padding: 12px 22px;
+  padding: 10px 18px;
   color: #010606;
   font-size: 16px;
   outline: none;
@@ -139,10 +139,10 @@ export const NavBtnLink = styled.a`
 
 export const NavBtnLoginLink = styled.a`
   display: flex;
-  border-radius: 50px;
+  border-radius: 40px;
   background: #f2f2f2;
   white-space: nowrap;
-  padding: 12px 22px;
+  padding: 12px 18px;
   color: #010606;
   font-size: 16px;
   outline: none;

@@ -1,5 +1,10 @@
 import React, { createContext, useEffect, useState } from "react";
-import { LoginCustomerRequest, LoginRequest, getUserLocalStorage, setUserLocalStorage } from "./util";
+import {
+  LoginCustomerRequest,
+  LoginRequest,
+  getUserLocalStorage,
+  setUserLocalStorage,
+} from "./util";
 
 export const AuthContext = createContext({});
 
@@ -21,18 +26,18 @@ export const AuthProvider = ({ children }) => {
 
     const payload = { token: response.token, email, id: user.id };
 
-    console.log(payload);
     setUser(payload);
     setUserLocalStorage(payload);
   }
 
   async function authenticateCustomer(email, password) {
     const response = await LoginCustomerRequest(email, password);
-    console.log(response)
 
     const { client } = response;
 
-    const payload = { token: response.token, email, id: client.id };
+    console.log(client);
+
+    const payload = { token: response.token, ...client };
 
     console.log(payload);
     setUser(payload);
@@ -45,7 +50,9 @@ export const AuthProvider = ({ children }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ ...user, authenticate, authenticateCustomer,  logout }}>
+    <AuthContext.Provider
+      value={{ ...user, authenticate, authenticateCustomer, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );

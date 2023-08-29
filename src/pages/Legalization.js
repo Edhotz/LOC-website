@@ -5,7 +5,7 @@ import ProcessDataTable from "../components/ProcessDataTable";
 const legalization = () => {
   return (
     <>
-      <DashBoardSearchBar />
+      <DashBoardSearchBar title="Legalização e Processos" />
       <ProcessDataTable />
     </>
   );

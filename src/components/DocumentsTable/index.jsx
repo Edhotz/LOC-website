@@ -8,7 +8,7 @@ const DocumentsTable = () => {
 
   const handleFetch = async () => {
     try {
-      const response = await API.get("/projects");
+      const response = await API.get("/documents");
       setData(response.data);
       console.log(response.data);
     } catch (error) {
@@ -22,8 +22,8 @@ const DocumentsTable = () => {
 
   const fixedColumns = [
     {
-      title: "Documentos",
-      dataIndex: "title",
+      title: "Url",
+      dataIndex: "url",
       fixed: true,
       width: 100,
     },

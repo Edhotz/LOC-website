@@ -14,6 +14,7 @@ import { API } from "../../services/api";
 import { useAuth } from "../../AuthProvider/useAuth";
 import CreateProcessModal from "../CreateProcessModal";
 import CreateProcessDocumentSheet from "../CreateProcessDocumentSheet";
+import AssignProjectModal from "../AssignProjectModal";
 
 const EditableCell = ({
   editing,
@@ -60,11 +61,12 @@ const DataTable = () => {
 
   const user = useAuth();
 
-  const handleFecth = async () => {
+  const handleFetch = async () => {
     try {
-      const { data } = await API.get("/proceedings");
+      const { data } = await API.get("/assign-project");
 
       setData(data);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -73,11 +75,9 @@ const DataTable = () => {
   const handlePost = async ({ title, description, image, document }) => {
     try {
       setIsLoading(true);
-      const { status } = await API.post(`/projects/${user.id}`, {
+      const { status } = await API.post(`/assign-project/${user.id}`, {
         title,
         description,
-        image,
-        document,
       });
 
       if (status === 201) {
@@ -94,19 +94,18 @@ const DataTable = () => {
   };
 
   const handleDelete = async (key) => {
-    await API.delete(`/proceedings/${key}`);
+    await API.delete(`/assign-project/${key}`);
   };
 
   useEffect(() => {
-    handleFecth();
+    handleFetch();
   }, [data]);
 
   const edit = (record) => {
     form.setFieldsValue({
       id: "",
-      name: "",
-      client_name: "",
-      status: "",
+      title: "",
+      user_email: "",
       description: "",
       ...record,
     });
@@ -121,12 +120,12 @@ const DataTable = () => {
     try {
       const row = await form.validateFields();
 
-      const { name, description, status } = row;
+      const { title, description, user_email } = row;
 
-      const { data } = await API.put(`/proceedings/${key.id}`, {
-        name,
-        status,
+      const { data } = await API.put(`/assign-project/${key.id}`, {
+        title,
         description,
+        user_email,
       });
 
       setData(data);
@@ -136,35 +135,26 @@ const DataTable = () => {
     }
   };
 
-  const documentsLength = data.map((item) => item.document.length);
-
-  const documentsNumbers = documentsLength.length;
-
   const columns = [
     {
-      title: "Nome do Processo",
-      dataIndex: "name",
+      title: "Titulo",
+      dataIndex: "title",
       width: "20%",
-      editable: true,
-    },
-    {
-      title: "Nome do Cliente",
-      dataIndex: "client_name",
-      width: "25%",
-      editable: true,
-    },
-    {
-      title: "Status",
-      dataIndex: "status",
-      width: "25%",
       editable: true,
     },
     {
       title: "Descrição",
       dataIndex: "description",
-      width: "20%",
+      width: "25%",
       editable: true,
     },
+    {
+      title: "Email do usuario",
+      dataIndex: "user_email",
+      width: "25%",
+      editable: true,
+    },
+
     {
       title: "Editar",
       dataIndex: "operation",
@@ -250,8 +240,7 @@ const DataTable = () => {
           justifyContent: "space-around",
         }}
       >
-        <CreateProcessModal />
-        <CreateProcessDocumentSheet />
+        <AssignProjectModal />
       </div>
 
       <Form form={form} component={false}>

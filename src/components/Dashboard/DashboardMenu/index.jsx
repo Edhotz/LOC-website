@@ -8,44 +8,102 @@ import {
 
 import { Container, Items, Text, Wrapper } from "./styles";
 import { BsFillHouseAddFill, BsHouseFill } from "react-icons/bs";
-import { MdAddTask, MdTask } from "react-icons/md";
+import {
+  MdAddTask,
+  MdAssignmentInd,
+  MdOutlineAssignmentReturn,
+  MdTask,
+} from "react-icons/md";
 
 const DashboardMenu = () => {
   return (
     <Container>
       <Wrapper>
         <Items>
-          <AiFillHome size={32} color="#20a6da" />
+          <AiFillHome
+            size={32}
+            color="#20a6da"
+            style={{
+              marginRight: 10,
+            }}
+          />
           <Text href="/dashboard">Dashboard</Text>
         </Items>
 
         <Items>
-          <AiOutlineUser size={32} color="#20a6da" />
+          <AiOutlineUser
+            size={32}
+            color="#20a6da"
+            style={{
+              marginRight: 20,
+            }}
+          />
           <Text href="/users">Usuarios</Text>
         </Items>
 
         <Items>
-          <MdTask size={32} color="#20a6da" />
+          <MdTask
+            size={32}
+            color="#20a6da"
+            style={{
+              marginRight: 10,
+            }}
+          />
           <Text href="/ativities">Atividades</Text>
         </Items>
 
         <Items>
-          <AiFillProject size={32} color="#20a6da" />
+          <AiFillProject
+            size={32}
+            color="#20a6da"
+            style={{
+              marginRight: 20,
+            }}
+          />
           <Text href="/projects">Projetos</Text>
         </Items>
 
         <Items>
-          <MdAddTask size={32} color="#20a6da" />
+          <MdAssignmentInd
+            size={32}
+            color="#20a6da"
+            style={{
+              marginLeft: 40,
+            }}
+          />
+          <Text href="/assign">Projetos Atribuidos</Text>
+        </Items>
+
+        <Items>
+          <MdAddTask
+            size={32}
+            color="#20a6da"
+            style={{
+              marginRight: 20,
+            }}
+          />
           <Text href="/tasks">Tarefas</Text>
         </Items>
 
         <Items>
-          <AiFillProfile size={32} color="#20a6da" />
+          <AiFillProfile
+            size={32}
+            color="#20a6da"
+            style={{
+              marginRight: 20,
+            }}
+          />
           <Text href="/customers">Clientes</Text>
         </Items>
 
         <Items>
-          <BsHouseFill size={32} color="#20a6da" />
+          <BsHouseFill
+            size={32}
+            color="#20a6da"
+            style={{
+              marginLeft: 50,
+            }}
+          />
           <Text href="/legalization">Legalização de imóveis</Text>
         </Items>
       </Wrapper>

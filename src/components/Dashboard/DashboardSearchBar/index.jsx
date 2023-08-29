@@ -1,13 +1,10 @@
 import React from "react";
 import { Container, H1, Items, Wrapper } from "./styles";
-import { Button, Input, Select, Space } from "antd";
-import SearchBarMenu from "./Menu";
+import { Input } from "antd";
 import MenuSideBar from "../../MenuSideBar";
 import NotificationSideBar from "../../NotificationSideBar";
 
-const { Search } = Input;
-
-const DashBoardSearchBar = () => {
+const DashBoardSearchBar = ({ title }) => {
   return (
     <Container>
       <Wrapper>
@@ -16,7 +13,7 @@ const DashBoardSearchBar = () => {
         </Items>
 
         <Items>
-          <H1>Dashboard</H1>
+          <H1>{title}</H1>
         </Items>
 
         <Items>
