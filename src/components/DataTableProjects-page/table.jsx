@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from "react";
 import {
   Form,
@@ -7,19 +8,10 @@ import {
   Table,
   Typography,
   Alert,
-  Button,
 } from "antd";
 import { API } from "../../services/api";
 
-import FormItem from "antd/es/form/FormItem";
-
-import { UserOutlined } from "@ant-design/icons";
-import { LockOutlined } from "@ant-design/icons";
-import { Dots } from "react-activity";
-import { MdImage, MdLink, MdTextFields, MdTitle } from "react-icons/md";
 import { useAuth } from "../../AuthProvider/useAuth";
-import { IoMdDocument } from "react-icons/io";
-import TextArea from "antd/es/input/TextArea";
 import CreateProjectModal from "../CreateProjectsModal";
 
 const EditableCell = ({
@@ -70,7 +62,6 @@ const DataTable = () => {
   const handleFecth = async () => {
     try {
       const { data } = await API.get("/projects");
-
       setData(data);
     } catch (error) {
       console.log(error);
@@ -91,7 +82,6 @@ const DataTable = () => {
         setIsLoading(false);
         <Alert message="Usuario Criado" type="success" />;
       }
-
       console.log(status);
     } catch (error) {
       setIsLoading(false);
@@ -102,7 +92,6 @@ const DataTable = () => {
 
   const handleDelete = async (key) => {
     const { status } = await API.delete(`/projects/${user.id}/${key}`);
-
     console.log(key, status);
   };
 
@@ -130,13 +119,11 @@ const DataTable = () => {
 
       console.log(row);
 
-      const { title, description, image, document } = row;
+      const { title, description } = row;
 
       const { status } = await API.put(`/projects/${user.id}/${key.id}`, {
         title,
         description,
-        image,
-        document,
       });
 
       setData(data);

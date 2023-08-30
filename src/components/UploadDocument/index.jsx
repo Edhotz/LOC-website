@@ -25,7 +25,7 @@ const UploadDocument = ({ proceedingId }) => {
     handleFetch();
   }, []);
 
-  const url = `http://localhost:3333/document/upload/${proceedingId}`;
+  const url = `https://solid-api-loc.onrender.com/document/upload/${proceedingId}`;
 
   return (
     <>
