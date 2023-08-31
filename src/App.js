@@ -16,6 +16,7 @@ import customersDashboard from "./pages/customersDashboard";
 import MainPage from "./pages/customersDashboard/Main-page";
 import legalization from "./pages/Legalization";
 import assignProject from "./pages/AssignProjects";
+import { PrivateRoute } from "./privateRoutes";
 
 function App() {
   return (
@@ -23,18 +24,18 @@ function App() {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/marketing" component={MarketingPage} />
+        <Route path="/admin/login" component={LoginPage} />
+        <Route path="/clients/login" component={customersDashboard} />
         <BgProvider>
-          <Route path="/admin/login" component={LoginPage} />
-          <Route path="/dashboard" component={DashboardPage} />
-          <Route path="/users" component={UsersPage} />
-          <Route path="/ativities" component={AtitivitiesPage} />
-          <Route path="/projects" component={ProjectsPage} />
-          <Route path="/tasks" component={TasksPage} />
-          <Route path="/legalization" component={legalization} />
-          <Route path="/customers" component={CustomersPage} />
-          <Route path="/assign" component={assignProject} />
-          <Route path="/clients/login" component={customersDashboard} />
-          <Route path="/clients/main-page" component={MainPage} />
+          <PrivateRoute path="/dashboard" component={DashboardPage} />
+          <PrivateRoute path="/users" component={UsersPage} />
+          <PrivateRoute path="/ativities" component={AtitivitiesPage} />
+          <PrivateRoute path="/projects" component={ProjectsPage} />
+          <PrivateRoute path="/tasks" component={TasksPage} />
+          <PrivateRoute path="/legalization" component={legalization} />
+          <PrivateRoute path="/customers" component={CustomersPage} />
+          <PrivateRoute path="/assign" component={assignProject} />
+          <PrivateRoute path="/clients/main-page" component={MainPage} />
         </BgProvider>
       </Switch>
     </Router>

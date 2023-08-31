@@ -43,44 +43,12 @@ const MainPage = () => {
             style={{
               display: "flex",
               width: 400,
-              height: 230,
+              height: 100,
               alignItems: "center",
               justifyContent: "center",
               boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.3)",
             }}
           >
-            <span
-              style={{
-                display: "flex",
-                gap: 10,
-              }}
-            >
-              <h1>Nome: </h1>
-              <h1
-                style={{
-                  fontWeight: 400,
-                }}
-              >
-                {isLoading ? "Carregando..." : data[0].client_name}
-              </h1>
-            </span>
-
-            <span
-              style={{
-                display: "flex",
-                gap: 10,
-              }}
-            >
-              <h1>Processo: </h1>
-              <h1
-                style={{
-                  fontWeight: 400,
-                }}
-              >
-                {isLoading ? "Carregando..." : data[0].description}
-              </h1>
-            </span>
-
             <Space
               style={{
                 display: "flex",

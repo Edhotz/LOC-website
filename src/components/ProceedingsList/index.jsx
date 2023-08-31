@@ -8,7 +8,7 @@ const ProceedingList = () => {
 
   const handleFetch = async () => {
     try {
-      const { data } = await API.get("/document");
+      const { data } = await API.get("/proceedings");
       setData(data);
       console.log(data);
     } catch (error) {
@@ -22,8 +22,8 @@ const ProceedingList = () => {
 
   const fixedColumns = [
     {
-      title: "Nome",
-      dataIndex: "url",
+      title: "Nome do processo",
+      dataIndex: "name",
       fixed: true,
       width: 100,
     },

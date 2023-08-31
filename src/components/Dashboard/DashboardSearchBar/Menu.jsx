@@ -16,7 +16,7 @@ const SearchBarMenu = () => {
   async function onFinish() {
     try {
       await auth.logout();
-      history.push("/login");
+      history.push("/clients/login");
     } catch (error) {
       console.log(error);
     }

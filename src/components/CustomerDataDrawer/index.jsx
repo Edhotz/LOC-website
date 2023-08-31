@@ -135,7 +135,7 @@ const CustomerDataDrawer = () => {
             <DescriptionItem title="Numero de Telefone" content={user.phone} />
           </Col>
         </Row>
-        <Row
+        {/*  <Row
           style={{
             marginTop: 40,
           }}
@@ -152,7 +152,7 @@ const CustomerDataDrawer = () => {
               </Button>
             </div>
           </Col>
-        </Row>
+        </Row> */}
       </Drawer>
     </>
   );
