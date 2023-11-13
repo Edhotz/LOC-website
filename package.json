@@ -4,9 +4,6 @@
   "private": true,
   "dependencies": {
     "@ant-design/plots": "^1.2.5",
-    "@mui/icons-material": "^5.14.16",
-    "@mui/joy": "^5.0.0-beta.2",
-    "@mui/styled-engine-sc": "^6.0.0-alpha.5",
     "@react-pdf-viewer/core": "^3.12.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
