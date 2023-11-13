@@ -1,4 +1,5 @@
 import "./App.css";
+
 import history from "./history";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { BgProvider } from "./styles";
@@ -17,6 +18,7 @@ import MainPage from "./pages/customersDashboard/Main-page";
 import legalization from "./pages/Legalization";
 import assignProject from "./pages/AssignProjects";
 import { PrivateRoute } from "./privateRoutes";
+import customerProfile from "./pages/customerProfile";
 
 function App() {
   return (
@@ -36,6 +38,7 @@ function App() {
           <PrivateRoute path="/customers" component={CustomersPage} />
           <PrivateRoute path="/assign" component={assignProject} />
           <PrivateRoute path="/clients/main-page" component={MainPage} />
+          <PrivateRoute path="/admin/customer-profile" component={customerProfile} />
         </BgProvider>
       </Switch>
     </Router>
