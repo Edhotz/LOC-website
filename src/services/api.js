@@ -2,7 +2,7 @@ import axios from "axios";
 import { getUserLocalStorage } from "../AuthProvider/util";
 
 export const API = axios.create({
-  baseURL: "https://solid-api-loc.onrender.com",
+  baseURL: "http://localhost:3030",
 });
 
 API.interceptors.request.use(

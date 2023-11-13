@@ -49,41 +49,10 @@ const DashboardMenu = () => {
               marginRight: 10,
             }}
           />
-          <Text href="/ativities">Atividades</Text>
+          <Text href="/ativities">Processos</Text>
         </Items>
 
-        <Items>
-          <AiFillProject
-            size={32}
-            color="#20a6da"
-            style={{
-              marginRight: 20,
-            }}
-          />
-          <Text href="/projects">Projetos</Text>
-        </Items>
 
-        <Items>
-          <MdAssignmentInd
-            size={32}
-            color="#20a6da"
-            style={{
-              marginLeft: 40,
-            }}
-          />
-          <Text href="/assign">Projetos Atribuidos</Text>
-        </Items>
-
-        <Items>
-          <MdAddTask
-            size={32}
-            color="#20a6da"
-            style={{
-              marginRight: 20,
-            }}
-          />
-          <Text href="/tasks">Tarefas</Text>
-        </Items>
 
         <Items>
           <AiFillProfile
@@ -96,16 +65,7 @@ const DashboardMenu = () => {
           <Text href="/customers">Clientes</Text>
         </Items>
 
-        <Items>
-          <BsHouseFill
-            size={32}
-            color="#20a6da"
-            style={{
-              marginLeft: 50,
-            }}
-          />
-          <Text href="/legalization">Legalização de imóveis</Text>
-        </Items>
+      
       </Wrapper>
     </Container>
   );
