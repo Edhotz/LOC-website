@@ -11,6 +11,7 @@ import {
   StatusIndicator,
   Table,
   Text,
+  TextInputField,
 } from "evergreen-ui";
 
 const ProceedingData = () => {
@@ -107,7 +108,33 @@ const ProceedingData = () => {
           isShown={isShown}
           title="Editar dados do processo"
           onCloseComplete={() => setIsShown(false)}
-        ></Dialog>
+        >
+          <TextInputField
+            label="Nome do processo"
+            hint="This is a hint."
+            placeholder="Insira o nome"
+          />
+
+          <TextInputField
+            label="Descrição do processo"
+            hint="This is a hint."
+            placeholder="Placeholder text"
+          />
+
+          <Text>Selecione o Status</Text>
+          <Pane>
+            <Select onChange={(event) => alert(event.target.value)}>
+              <option value="foo" selected>
+                Pendente
+              </option>
+              <option value="bar">Em_Curso</option>
+              <option value="bar">Finalizado</option>
+            </Select>
+          </Pane>
+          <Button marginTop="10px" color="Highlight">
+            Salvar
+          </Button>
+        </Dialog>
       </Pane>
 
       <Pane>
@@ -133,7 +160,33 @@ const ProceedingData = () => {
               isShown={isShownPhase}
               title="Nova Fase"
               onCloseComplete={() => setIsShownPhase(false)}
-            ></Dialog>
+            >
+              <TextInputField
+                label="Nome da fase"
+                hint="This is a hint."
+                placeholder="Insira o nome"
+              />
+
+              <TextInputField
+                label="Descrição da fase"
+                hint="This is a hint."
+                placeholder="descrição"
+              />
+
+              <Text>Selecione o Status</Text>
+              <Pane>
+                <Select onChange={(event) => alert(event.target.value)}>
+                  <option value="foo" selected>
+                    Pendente
+                  </option>
+                  <option value="bar">Em_Curso</option>
+                  <option value="bar">Finalizado</option>
+                </Select>
+              </Pane>
+              <Button marginTop="10px" color="Highlight">
+                Salvar
+              </Button>
+            </Dialog>
           </Table.Head>
           <Table.VirtualBody height={240}>
             {phaseData.map((phase) => (
