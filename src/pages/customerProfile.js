@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
 import DashBoardSearchBar from "../components/Dashboard/DashboardSearchBar";
-import { Button, Table, Avatar, Text } from "evergreen-ui";
+import {
+  Button,
+  Table,
+  Avatar,
+  Text,
+  Dialog,
+  TextInput,
+  FormField,
+} from "evergreen-ui";
 import { useHistory } from "react-router-dom";
 import { API } from "../services/api";
 
 const CustomerProfile = () => {
   const [data, setData] = useState("");
+  const [isShown, setIsShown] = useState(false);
 
   const router = useHistory();
 
@@ -70,7 +79,35 @@ const CustomerProfile = () => {
         </div>
       </div>
 
+      <Dialog
+        isShown={isShown}
+        title="Novo Processo"
+        onCloseComplete={() => setIsShown(false)}
+        confirmLabel="Custom Label"
+      >
+        <FormField flex>
+          <TextInput
+            label="Default text input field"
+            description="This is a description."
+            placeholder="Placeholder text"
+          />
+
+          <TextInput
+            label="Default text input field"
+            description="This is a description."
+            placeholder="Placeholder text"
+          />
+
+          <TextInput
+            label="Default text input field"
+            description="This is a description."
+            placeholder="Placeholder text"
+          />
+        </FormField>
+      </Dialog>
+
       <Table height={300} width={800} marginLeft="500px" marginTop="50px">
+        <Button onClick={() => setIsShown(true)}> Novo Processo</Button>
         <Table.Head>
           <Table.SearchHeaderCell />
           <Table.TextHeaderCell>Processos de {data.name}</Table.TextHeaderCell>
@@ -85,7 +122,7 @@ const CustomerProfile = () => {
             <Table.Row
               key={profile.id}
               isSelectable
-              onSelect={() => handleRouter("/admin/customer-profile")}
+              onSelect={() => handleRouter("/admin/proceeding-data")}
             >
               <Button>
                 <Table.TextCell>{profile.name}</Table.TextCell>

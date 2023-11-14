@@ -19,6 +19,7 @@ import legalization from "./pages/Legalization";
 import assignProject from "./pages/AssignProjects";
 import { PrivateRoute } from "./privateRoutes";
 import customerProfile from "./pages/customerProfile";
+import ProceedingData from "./pages/proceedingData";
 
 function App() {
   return (
@@ -38,7 +39,14 @@ function App() {
           <PrivateRoute path="/customers" component={CustomersPage} />
           <PrivateRoute path="/assign" component={assignProject} />
           <PrivateRoute path="/clients/main-page" component={MainPage} />
-          <PrivateRoute path="/admin/customer-profile" component={customerProfile} />
+          <PrivateRoute
+            path="/admin/customer-profile"
+            component={customerProfile}
+          />
+          <PrivateRoute
+            path="/admin/proceeding-data"
+            component={ProceedingData}
+          />
         </BgProvider>
       </Switch>
     </Router>
