@@ -1,11 +1,21 @@
 import React, { useEffect, useState } from "react";
 import DashBoardSearchBar from "../components/Dashboard/DashboardSearchBar";
-import { Button, Table, Avatar, Text } from "evergreen-ui";
+import {
+  Button,
+  Table,
+  Avatar,
+  Text,
+  Dialog,
+  TextInput,
+  FormField,
+} from "evergreen-ui";
 import { useHistory } from "react-router-dom";
 import { API } from "../services/api";
 
 const CustomerProfile = () => {
   const [data, setData] = useState("");
+  const [proceedingData, setProceedingData] = useState("");
+  const [isShown, setIsShown] = useState(false);
 
   const router = useHistory();
 
@@ -16,9 +26,13 @@ const CustomerProfile = () => {
   const HandleGet = async () => {
     try {
       const { data } = await API.get(
-        "/proceeding/bedab8d3-566a-4f7b-bad7-6b2233a94005"
+        "/client/bfb06893-baf2-4197-b4e7-5305062fde2b"
       );
       setData(data);
+
+      const { Proceeding } = data;
+      setProceedingData(Proceeding);
+
       console.log(data);
     } catch (error) {
       console.log(error);
@@ -70,7 +84,35 @@ const CustomerProfile = () => {
         </div>
       </div>
 
+      <Dialog
+        isShown={isShown}
+        title="Novo Processo"
+        onCloseComplete={() => setIsShown(false)}
+        confirmLabel="Custom Label"
+      >
+        <FormField flex>
+          <TextInput
+            label="Default text input field"
+            description="This is a description."
+            placeholder="Placeholder text"
+          />
+
+          <TextInput
+            label="Default text input field"
+            description="This is a description."
+            placeholder="Placeholder text"
+          />
+
+          <TextInput
+            label="Default text input field"
+            description="This is a description."
+            placeholder="Placeholder text"
+          />
+        </FormField>
+      </Dialog>
+
       <Table height={300} width={800} marginLeft="500px" marginTop="50px">
+        <Button onClick={() => setIsShown(true)}> Novo Processo</Button>
         <Table.Head>
           <Table.SearchHeaderCell />
           <Table.TextHeaderCell>Processos de {data.name}</Table.TextHeaderCell>
@@ -81,16 +123,18 @@ const CustomerProfile = () => {
           alignItems="center"
           justifyContent="center"
         >
-          {profiles.map((profile) => (
+          {proceedingData.map((proceeding) => (
             <Table.Row
-              key={profile.id}
+              key={proceeding.id}
               isSelectable
-              onSelect={() => handleRouter("/admin/customer-profile")}
+              onSelect={() =>
+                handleRouter(`/admin/proceeding-data/${proceeding.id}`)
+              }
+              alignItems="center"
             >
-              <Button>
-                <Table.TextCell>{profile.name}</Table.TextCell>
-              </Button>
-              <Table.TextCell>{profile.lastActivity}</Table.TextCell>
+              <Table.TextCell>{proceeding.name}</Table.TextCell>
+              <Table.TextCell>{proceeding.status}</Table.TextCell>
+              <Table.TextCell>{proceeding.description}</Table.TextCell>
             </Table.Row>
           ))}
         </Table.Body>
@@ -100,36 +144,3 @@ const CustomerProfile = () => {
 };
 
 export default CustomerProfile;
-
-const profiles = [
-  {
-    id: "1",
-    lastActivity: "a few seconds ago",
-    ltv: "$365",
-    name: "Cheryl Carter",
-  },
-  {
-    id: "2",
-    lastActivity: "a minute ago",
-    ltv: "$427",
-    name: "Heather Morales",
-  },
-  {
-    id: "3",
-    lastActivity: "3 minutes ago",
-    ltv: "$538",
-    name: "Sean Jackson",
-  },
-  {
-    id: "4",
-    lastActivity: "4 minutes ago",
-    ltv: "$171",
-    name: "Catherine Anderson",
-  },
-  {
-    id: "5",
-    lastActivity: "6 minutes ago",
-    ltv: "$222",
-    name: "Jack Phillips",
-  },
-];
