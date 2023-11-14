@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DashBoardSearchBar from "../components/Dashboard/DashboardSearchBar";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { API } from "../services/api";
 import {
   Button,
@@ -22,6 +22,23 @@ const ProceedingData = () => {
 
   const router = useHistory();
 
+  const urlParams = new URLSearchParams(window.location.pathname);
+
+  const urlPathString = urlParams + "";
+
+  console.log(urlPathString);
+
+  const regex = /\/alguma-rota\/([a-f\d-]+)$/;
+
+  const match = urlParams.match(regex);
+
+  if (match) {
+    const id = match[1];
+    console.log("ID extraído:", id);
+  } else {
+    console.log("ID não encontrado no pathname.");
+  }
+
   const handleRouter = async (url) => {
     await router.push(url);
   };
@@ -29,7 +46,7 @@ const ProceedingData = () => {
   const HandleGet = async () => {
     try {
       const { data } = await API.get(
-        "/proceeding/bedab8d3-566a-4f7b-bad7-6b2233a94005"
+        `/proceeding/bedab8d3-566a-4f7b-bad7-6b2233a94005`
       );
       setData(data);
 
