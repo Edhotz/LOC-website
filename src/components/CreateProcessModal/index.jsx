@@ -10,6 +10,7 @@ import { MdTextFields, MdTitle } from "react-icons/md";
 import TextArea from "antd/es/input/TextArea";
 import { useAuth } from "../../AuthProvider/useAuth";
 import { SelectItem } from "../SelectCustomer";
+import { useParams } from "react-router-dom";
 
 const CreateProcessModal = () => {
   const [open, setOpen] = useState(false);
@@ -23,9 +24,11 @@ const CreateProcessModal = () => {
     setOpen(true);
   };
 
+  const { id } = useParams();
+
   async function handleFetch() {
     try {
-      const { data } = await API.get("/clients");
+      const { data } = await API.get(`/clients/${id}`);
       setClients(data);
     } catch (error) {
       console.log(error);

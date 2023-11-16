@@ -15,12 +15,11 @@ import CreateProcessModal from "../components/CreateProcessModal";
 
 const CustomerProfile = () => {
   const [data, setData] = useState("");
-  const [proceedingData, setProceedingData] = useState("");
+  const [proceedingData, setProceedingData] = useState([]);
   const [isShown, setIsShown] = useState(false);
 
   const router = useHistory();
   const { id } = useParams();
-  console.log(id);
 
   const handleRouter = async (url) => {
     await router.push(url);
@@ -32,9 +31,8 @@ const CustomerProfile = () => {
       setData(data);
 
       const { Proceeding } = data;
+      console.log(Proceeding);
       setProceedingData(Proceeding);
-
-      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -85,18 +83,41 @@ const CustomerProfile = () => {
         </div>
       </div>
 
-      <Table height={300} width={800} marginLeft="500px" marginTop="50px">
-        <CreateProcessModal />
-        <Table.Head>
+      <Table height={300} width={800} marginLeft="400px" marginTop="50px">
+        <Table.Head
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          padding="10px"
+        >
           <Table.SearchHeaderCell />
           <Table.TextHeaderCell>Processos de {data.name}</Table.TextHeaderCell>
+          <CreateProcessModal />
         </Table.Head>
         <Table.Body
           height={240}
           width={800}
           alignItems="center"
           justifyContent="center"
-        ></Table.Body>
+        >
+          {proceedingData.length === 0
+            ? "Sem Dados"
+            : proceedingData.map((data) => (
+                <Table.Row
+                  key={data.id}
+                  isSelectable
+                  alignItems="center"
+                  onSelect={() =>
+                    handleRouter(`/admin/customer-profile/${data.id}`)
+                  }
+                >
+                  <Table.TextCell>{data.name}</Table.TextCell>
+
+                  <Table.TextCell>{data.status}</Table.TextCell>
+                  <Table.TextCell>{data.description}</Table.TextCell>
+                </Table.Row>
+              ))}
+        </Table.Body>
       </Table>
     </div>
   );
