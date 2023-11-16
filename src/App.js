@@ -40,7 +40,7 @@ function App() {
           <PrivateRoute path="/assign" component={assignProject} />
           <PrivateRoute path="/clients/main-page" component={MainPage} />
           <PrivateRoute
-            path="/admin/customer-profile"
+            path="/admin/customer-profile/:id"
             component={customerProfile}
           />
           <PrivateRoute

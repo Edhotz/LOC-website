@@ -9,8 +9,9 @@ import {
   TextInput,
   FormField,
 } from "evergreen-ui";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { API } from "../services/api";
+import CreateProcessModal from "../components/CreateProcessModal";
 
 const CustomerProfile = () => {
   const [data, setData] = useState("");
@@ -18,6 +19,8 @@ const CustomerProfile = () => {
   const [isShown, setIsShown] = useState(false);
 
   const router = useHistory();
+  const { id } = useParams();
+  console.log(id);
 
   const handleRouter = async (url) => {
     await router.push(url);
@@ -25,9 +28,7 @@ const CustomerProfile = () => {
 
   const HandleGet = async () => {
     try {
-      const { data } = await API.get(
-        "/client/bfb06893-baf2-4197-b4e7-5305062fde2b"
-      );
+      const { data } = await API.get(`/client/${id}`);
       setData(data);
 
       const { Proceeding } = data;
@@ -49,7 +50,7 @@ const CustomerProfile = () => {
       <div
         style={{
           display: "flex",
-          marginLeft: "500px",
+          marginLeft: "400px",
         }}
       >
         <div
@@ -84,35 +85,8 @@ const CustomerProfile = () => {
         </div>
       </div>
 
-      <Dialog
-        isShown={isShown}
-        title="Novo Processo"
-        onCloseComplete={() => setIsShown(false)}
-        confirmLabel="Custom Label"
-      >
-        <FormField flex>
-          <TextInput
-            label="Default text input field"
-            description="This is a description."
-            placeholder="Placeholder text"
-          />
-
-          <TextInput
-            label="Default text input field"
-            description="This is a description."
-            placeholder="Placeholder text"
-          />
-
-          <TextInput
-            label="Default text input field"
-            description="This is a description."
-            placeholder="Placeholder text"
-          />
-        </FormField>
-      </Dialog>
-
       <Table height={300} width={800} marginLeft="500px" marginTop="50px">
-        <Button onClick={() => setIsShown(true)}> Novo Processo</Button>
+        <CreateProcessModal />
         <Table.Head>
           <Table.SearchHeaderCell />
           <Table.TextHeaderCell>Processos de {data.name}</Table.TextHeaderCell>

@@ -56,6 +56,7 @@ export const ClientDataTable = () => {
         display="flex"
         alignItems="center"
         justifyContent="space-between"
+        padding="10px"
       >
         <Table.SearchHeaderCell />
         <Table.TextHeaderCell>Lista de clientes</Table.TextHeaderCell>
@@ -74,7 +75,9 @@ export const ClientDataTable = () => {
                 key={data.id}
                 isSelectable
                 alignItems="center"
-                onSelect={() => handleRouter("/admin/customer-profile")}
+                onSelect={() =>
+                  handleRouter(`/admin/customer-profile/${data.id}`)
+                }
               >
                 <Table.TextCell>{data.name}</Table.TextCell>
 

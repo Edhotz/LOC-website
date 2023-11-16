@@ -80,14 +80,7 @@ const CreateProcessModal = () => {
 
   return (
     <>
-      <Button
-        type="default"
-        onClick={showModal}
-        style={{
-          marginRight: 620,
-          marginBottom: 10,
-        }}
-      >
+      <Button type="default" onClick={showModal}>
         Criar novo processo
       </Button>
       <Modal
