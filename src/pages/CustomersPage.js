@@ -6,19 +6,22 @@ import DashBoardSearchBar from "../components/Dashboard/DashboardSearchBar";
 
 const CustomersPage = () => {
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      gap: "20px"
-    }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "20px",
+      }}
+    >
       <DashBoardSearchBar title="Clientes" />
 
-      <div style={{
-        marginTop: "200px",
-        marginLeft: "400px"
-      }}>
-      <ClientDataTable />
-
+      <div
+        style={{
+          marginTop: "200px",
+          marginLeft: "400px",
+        }}
+      >
+        <ClientDataTable />
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ import { MdTextFields, MdTitle } from "react-icons/md";
 import TextArea from "antd/es/input/TextArea";
 import { useAuth } from "../../AuthProvider/useAuth";
 import { FaLock, FaPhone, FaUser } from "react-icons/fa";
+import { useHistory } from "react-router-dom";
 
 const CreateCustomerModal = () => {
   const [open, setOpen] = useState(false);
@@ -21,6 +22,8 @@ const CreateCustomerModal = () => {
   const showModal = () => {
     setOpen(true);
   };
+
+  const history = useHistory();
 
   const user = useAuth();
 
@@ -34,11 +37,6 @@ const CreateCustomerModal = () => {
         phone,
         password,
       });
-
-      if (status === 201) {
-        setIsLoading(false);
-        <Alert message="Cliente Criado" type="success" />;
-      }
 
       console.log(status);
     } catch (error) {
@@ -62,14 +60,7 @@ const CreateCustomerModal = () => {
 
   return (
     <>
-      <Button
-        type="default"
-        onClick={showModal}
-        style={{
-          marginRight: 635,
-          marginBottom: 10,
-        }}
-      >
+      <Button type="default" onClick={showModal}>
         Criar novo cliente
       </Button>
       <Modal

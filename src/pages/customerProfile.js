@@ -122,22 +122,7 @@ const CustomerProfile = () => {
           width={800}
           alignItems="center"
           justifyContent="center"
-        >
-          {proceedingData.map((proceeding) => (
-            <Table.Row
-              key={proceeding.id}
-              isSelectable
-              onSelect={() =>
-                handleRouter(`/admin/proceeding-data/${proceeding.id}`)
-              }
-              alignItems="center"
-            >
-              <Table.TextCell>{proceeding.name}</Table.TextCell>
-              <Table.TextCell>{proceeding.status}</Table.TextCell>
-              <Table.TextCell>{proceeding.description}</Table.TextCell>
-            </Table.Row>
-          ))}
-        </Table.Body>
+        ></Table.Body>
       </Table>
     </div>
   );
