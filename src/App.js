@@ -44,7 +44,7 @@ function App() {
             component={customerProfile}
           />
           <PrivateRoute
-            path="/admin/proceeding-data"
+            path="/admin/proceeding-data/:id"
             component={ProceedingData}
           />
         </BgProvider>

@@ -18,12 +18,6 @@ export const HeroContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(0, 0, 0, 0.2) 0%,
-        rgba(0, 0, 0, 0.6) 100%
-      ),
-      linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
   }
 `;
 
@@ -65,6 +59,7 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background: transparent;
 `;
 
 export const HeroH1 = styled.h1`

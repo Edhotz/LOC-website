@@ -40,7 +40,7 @@ const CustomerProfile = () => {
 
   useEffect(() => {
     HandleGet();
-  }, []);
+  }, [data]);
 
   return (
     <div>
@@ -108,7 +108,7 @@ const CustomerProfile = () => {
                   isSelectable
                   alignItems="center"
                   onSelect={() =>
-                    handleRouter(`/admin/customer-profile/${data.id}`)
+                    handleRouter(`/admin/proceeding-data/${data.id}`)
                   }
                 >
                   <Table.TextCell>{data.name}</Table.TextCell>

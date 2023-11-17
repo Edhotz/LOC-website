@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Form, Input, Alert, Button, Modal, Select } from "antd";
 
 import { API } from "../../services/api";
@@ -8,8 +8,7 @@ import FormItem from "antd/es/form/FormItem";
 import { Dots } from "react-activity";
 import { MdTextFields, MdTitle } from "react-icons/md";
 import TextArea from "antd/es/input/TextArea";
-import { useAuth } from "../../AuthProvider/useAuth";
-import { SelectItem } from "../SelectCustomer";
+
 import { useParams } from "react-router-dom";
 
 const CreateProcessModal = () => {
@@ -26,19 +25,9 @@ const CreateProcessModal = () => {
 
   const { id } = useParams();
 
-  async function handleFetch() {
-    try {
-      const { data } = await API.get(`/clients/${id}`);
-      setClients(data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  console.log(id)
 
-  useEffect(() => {
-    handleFetch();
-  }, []);
-
+  
   const onChange = (value) => {
     setCustomerId(value);
   };
@@ -53,7 +42,7 @@ const CreateProcessModal = () => {
   const handlePost = async ({ name, description }) => {
     setIsLoading(true);
     try {
-      const { status } = await API.post(`/proceedings/${customerId}`, {
+      const { status } = await API.post(`/proceedings/${id}`, {
         name,
         description,
       });
@@ -118,21 +107,7 @@ const CreateProcessModal = () => {
             />
           </FormItem>
 
-          <FormItem>
-            <Select
-              showSearch
-              placeholder="Select a person"
-              optionFilterProp="children"
-              onChange={onChange}
-              onSearch={onSearch}
-              filterOption={(input, option) =>
-                (option?.label ?? "")
-                  .toLowerCase()
-                  .includes(input.toLowerCase())
-              }
-              options={options}
-            />
-          </FormItem>
+         
           <FormItem name="description">
             <TextArea
               size="large"
