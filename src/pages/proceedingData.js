@@ -6,6 +6,7 @@ import {
   Button,
   Dialog,
   Pane,
+  Popover,
   Select,
   StatusIndicator,
   Table,
@@ -18,12 +19,12 @@ const ProceedingData = () => {
   const [phaseData, setPhaseData] = useState([]);
   const [isShown, setIsShown] = useState(false);
   const [isShownPhase, setIsShownPhase] = useState(false);
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
 
   const router = useHistory();
 
   const { id } = useParams();
+
+  console.log(id);
 
   const handleRouter = async (url) => {
     await router.push(url);
@@ -34,24 +35,7 @@ const ProceedingData = () => {
       const { data } = await API.get(`/proceeding/${id}`);
       setData(data);
 
-      const { Phases } = data;
-
-      setPhaseData(Phases);
-
-      console.log(Phases);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handlePut = async () => {
-    try {
-      const { status } = await API.put(`/proceeding/${id}`, {
-        name,
-        description,
-      });
-
-      console.log(status);
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -63,11 +47,7 @@ const ProceedingData = () => {
 
   return (
     <>
-      <DashBoardSearchBar
-        title={`Dados do processo de ${
-          data.client === undefined ? "Processando..." : data.client.name
-        }`}
-      />
+      <DashBoardSearchBar title={`Dados do processo de ${data.client.name}`} />
 
       <Pane>
         <div
@@ -122,12 +102,18 @@ const ProceedingData = () => {
         >
           <TextInputField
             label="Nome do processo"
-            placeholder="Insira o nome do processo"
-            onChange={setName}
+            hint="This is a hint."
+            placeholder="Insira o nome"
+          />
+
+          <TextInputField
+            label="Descrição do processo"
+            hint="This is a hint."
+            placeholder="Placeholder text"
           />
 
           <Text>Selecione o Status</Text>
-          <Pane marginBottom="20px">
+          <Pane>
             <Select onChange={(event) => alert(event.target.value)}>
               <option value="foo" selected>
                 Pendente
@@ -136,14 +122,7 @@ const ProceedingData = () => {
               <option value="bar">Finalizado</option>
             </Select>
           </Pane>
-
-          <TextInputField
-            label="Descrição do processo"
-            placeholder="Insira a descrição do processo"
-            onChange={setDescription}
-          />
-
-          <Button marginTop="10px" color="Highlight" onClick={handlePut}>
+          <Button marginTop="10px" color="Highlight">
             Salvar
           </Button>
         </Dialog>
@@ -185,52 +164,55 @@ const ProceedingData = () => {
                 placeholder="descrição"
               />
 
+              <Text>Selecione o Status</Text>
+              <Pane>
+                <Select onChange={(event) => alert(event.target.value)}>
+                  <option value="foo" selected>
+                    Pendente
+                  </option>
+                  <option value="bar">Em_Curso</option>
+                  <option value="bar">Finalizado</option>
+                </Select>
+              </Pane>
               <Button marginTop="10px" color="Highlight">
                 Salvar
               </Button>
             </Dialog>
           </Table.Head>
-
           <Table.VirtualBody height={240}>
-            {phaseData === undefined
-              ? "Sem dados"
-              : phaseData.map((phase) => (
-                  <Table.Row key={phase.id} isSelectable>
-                    <Table.TextCell>{phase.name}</Table.TextCell>
-                    <Table.TextCell>{phase.description}</Table.TextCell>
-                    <Table.TextCell isNumber>
-                      {phase.status == "Pendente" ? (
-                        <StatusIndicator color="success">
-                          <Select
-                            onChange={(event) => alert(event.target.value)}
-                          >
-                            <option value="foo" selected>
-                              {phase.status}
-                            </option>
-                            <option value="bar">Em_Curso</option>
-                            <option value="bar">Finalizado</option>
-                          </Select>
-                        </StatusIndicator>
-                      ) : phase.status == "Em_curso" ? (
-                        <StatusIndicator color="blue">
-                          <Select
-                            onChange={(event) => alert(event.target.value)}
-                          >
-                            <option value="foo" selected>
-                              {phase.status}
-                            </option>
-                            <option value="bar">Em_curso</option>
-                            <option value="bar">Finalizado</option>
-                          </Select>
-                        </StatusIndicator>
-                      ) : (
-                        <StatusIndicator color="warning">
+            {phaseData.map((phase) => (
+              <Table.Row key={phase.id} isSelectable>
+                <Table.TextCell>{phase.name}</Table.TextCell>
+                <Table.TextCell>{phase.description}</Table.TextCell>
+                <Table.TextCell isNumber>
+                  {phase.status == "Pendente" ? (
+                    <StatusIndicator color="success">
+                      <Select onChange={(event) => alert(event.target.value)}>
+                        <option value="foo" selected>
                           {phase.status}
-                        </StatusIndicator>
-                      )}
-                    </Table.TextCell>
-                  </Table.Row>
-                ))}
+                        </option>
+                        <option value="bar">Em_Curso</option>
+                        <option value="bar">Finalizado</option>
+                      </Select>
+                    </StatusIndicator>
+                  ) : phase.status == "Em_curso" ? (
+                    <StatusIndicator color="blue">
+                      <Select onChange={(event) => alert(event.target.value)}>
+                        <option value="foo" selected>
+                          {phase.status}
+                        </option>
+                        <option value="bar">Em_curso</option>
+                        <option value="bar">Finalizado</option>
+                      </Select>
+                    </StatusIndicator>
+                  ) : (
+                    <StatusIndicator color="warning">
+                      {phase.status}
+                    </StatusIndicator>
+                  )}
+                </Table.TextCell>
+              </Table.Row>
+            ))}
           </Table.VirtualBody>
         </Table>
       </Pane>
