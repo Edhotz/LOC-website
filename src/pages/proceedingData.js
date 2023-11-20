@@ -1,30 +1,32 @@
 import React, { useEffect, useState } from "react";
 import DashBoardSearchBar from "../components/Dashboard/DashboardSearchBar";
+import UpdateProcessModal from "../components/UpdateProcessModal/";
 import { useHistory, useParams } from "react-router-dom";
 import { API } from "../services/api";
-import {
-  Button,
-  Dialog,
-  Pane,
-  Popover,
-  Select,
-  StatusIndicator,
-  Table,
-  Text,
-  TextInputField,
-} from "evergreen-ui";
+import { Pane, StatusIndicator, Table, Text } from "evergreen-ui";
+import { CreatePhaseModal } from "../components/CreatePhaseModal";
+import { Select, Space } from "antd";
+
+const statusData = ["Pendente", "Em_curso", "Finalizado"];
+const statusSelectedData = {
+  Pendente: "Pendente",
+  Em_Curso: "Em_curso",
+  Finalizado: "Finalizado",
+};
 
 const ProceedingData = () => {
+  const [cities, setCities] = useState(statusSelectedData[statusData[0]]);
   const [data, setData] = useState("");
   const [phaseData, setPhaseData] = useState([]);
-  const [isShown, setIsShown] = useState(false);
-  const [isShownPhase, setIsShownPhase] = useState(false);
+  const [phaseId, setPhaseId] = useState("");
+
+  const handleProvinceChange = (value) => {
+    setCities(statusSelectedData[value]);
+  };
 
   const router = useHistory();
 
   const { id } = useParams();
-
-  console.log(id);
 
   const handleRouter = async (url) => {
     await router.push(url);
@@ -35,11 +37,44 @@ const ProceedingData = () => {
       const { data } = await API.get(`/proceeding/${id}`);
       setData(data);
 
-      console.log(data);
+      const { Phases } = data;
+
+      setPhaseData(Phases);
     } catch (error) {
       console.log(error);
     }
   };
+
+  const options = phaseData.map((phase) => ({
+    value: phase.id,
+    label: phase.label,
+  }));
+
+  const onChange = (value) => {
+    console.log(`selected ${value}`);
+  };
+
+  const onSearch = (value) => {
+    console.log("search:", value);
+  };
+
+  console.log(cities);
+
+  const HandlePut = async () => {
+    try {
+      const updatePhase = await API.put(`/phase/${phaseId.id}`, {
+        name: phaseId.name,
+        description: phaseId.description,
+        status: cities,
+      });
+
+      console.log(updatePhase.config.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  HandlePut();
 
   useEffect(() => {
     HandleGet();
@@ -47,7 +82,11 @@ const ProceedingData = () => {
 
   return (
     <>
-      <DashBoardSearchBar title={`Dados do processo de ${data.client.name}`} />
+      <DashBoardSearchBar
+        title={`Dados do processo de ${
+          data.client == undefined ? "Processando..." : data.client.name
+        }`}
+      />
 
       <Pane>
         <div
@@ -86,46 +125,7 @@ const ProceedingData = () => {
             )}
           </Text>
         </div>
-        <Button
-          marginLeft="500px"
-          marginTop="10px"
-          color="Highlight"
-          onClick={() => setIsShown(true)}
-        >
-          Editar dados do Processo
-        </Button>
-
-        <Dialog
-          isShown={isShown}
-          title="Editar dados do processo"
-          onCloseComplete={() => setIsShown(false)}
-        >
-          <TextInputField
-            label="Nome do processo"
-            hint="This is a hint."
-            placeholder="Insira o nome"
-          />
-
-          <TextInputField
-            label="Descrição do processo"
-            hint="This is a hint."
-            placeholder="Placeholder text"
-          />
-
-          <Text>Selecione o Status</Text>
-          <Pane>
-            <Select onChange={(event) => alert(event.target.value)}>
-              <option value="foo" selected>
-                Pendente
-              </option>
-              <option value="bar">Em_Curso</option>
-              <option value="bar">Finalizado</option>
-            </Select>
-          </Pane>
-          <Button marginTop="10px" color="Highlight">
-            Salvar
-          </Button>
-        </Dialog>
+        <UpdateProcessModal />
       </Pane>
 
       <Pane>
@@ -138,78 +138,34 @@ const ProceedingData = () => {
             padding="10px"
           >
             <Table.TextHeaderCell>Fases</Table.TextHeaderCell>
-            <Button
-              marginLeft="500px"
-              marginTop="10px"
-              color="Highlight"
-              onClick={() => setIsShownPhase(true)}
-            >
-              Nova Fase
-            </Button>
 
-            <Dialog
-              isShown={isShownPhase}
-              title="Nova Fase"
-              onCloseComplete={() => setIsShownPhase(false)}
-            >
-              <TextInputField
-                label="Nome da fase"
-                hint="This is a hint."
-                placeholder="Insira o nome"
-              />
-
-              <TextInputField
-                label="Descrição da fase"
-                hint="This is a hint."
-                placeholder="descrição"
-              />
-
-              <Text>Selecione o Status</Text>
-              <Pane>
-                <Select onChange={(event) => alert(event.target.value)}>
-                  <option value="foo" selected>
-                    Pendente
-                  </option>
-                  <option value="bar">Em_Curso</option>
-                  <option value="bar">Finalizado</option>
-                </Select>
-              </Pane>
-              <Button marginTop="10px" color="Highlight">
-                Salvar
-              </Button>
-            </Dialog>
+            <CreatePhaseModal procedding_id={id} />
           </Table.Head>
           <Table.VirtualBody height={240}>
             {phaseData.map((phase) => (
-              <Table.Row key={phase.id} isSelectable>
+              <Table.Row
+                key={phase.id}
+                isSelectable
+                onSelect={() => setPhaseId(phase)}
+              >
                 <Table.TextCell>{phase.name}</Table.TextCell>
                 <Table.TextCell>{phase.description}</Table.TextCell>
                 <Table.TextCell isNumber>
-                  {phase.status == "Pendente" ? (
-                    <StatusIndicator color="success">
-                      <Select onChange={(event) => alert(event.target.value)}>
-                        <option value="foo" selected>
-                          {phase.status}
-                        </option>
-                        <option value="bar">Em_Curso</option>
-                        <option value="bar">Finalizado</option>
-                      </Select>
-                    </StatusIndicator>
-                  ) : phase.status == "Em_curso" ? (
-                    <StatusIndicator color="blue">
-                      <Select onChange={(event) => alert(event.target.value)}>
-                        <option value="foo" selected>
-                          {phase.status}
-                        </option>
-                        <option value="bar">Em_curso</option>
-                        <option value="bar">Finalizado</option>
-                      </Select>
-                    </StatusIndicator>
-                  ) : (
-                    <StatusIndicator color="warning">
-                      {phase.status}
-                    </StatusIndicator>
-                  )}
+                  <StatusIndicator color="success">
+                    <Space wrap>
+                      <Select
+                        defaultValue={statusData[0]}
+                        style={{
+                          width: 120,
+                        }}
+                        onChange={handleProvinceChange}
+                        options={statusData.map((data) => ({
+                          label: data,
+                          value: data,
+                        }))}
+                      />
+                    </Space>
+                  </StatusIndicator>
                 </Table.TextCell>
               </Table.Row>
             ))}

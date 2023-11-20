@@ -11,7 +11,7 @@ import TextArea from "antd/es/input/TextArea";
 
 import { useParams } from "react-router-dom";
 
-const UpdateProcessModal = () => {
+const CreatePhaseModal = () => {
   const [open, setOpen] = useState(false);
   const [customerId, setCustomerId] = useState("");
   const [confirmLoading, setConfirmLoading] = useState(false);
@@ -29,22 +29,16 @@ const UpdateProcessModal = () => {
     setCustomerId(value);
   };
 
-  const onSearch = (value) => {};
-
-  const options = clients.map((client) => ({
-    value: client.id,
-    label: client.name,
-  }));
-
   const handlePost = async ({ name, description }) => {
     setIsLoading(true);
     try {
       const { status } = await API.post(`/phase/${id}`, {
         name,
         description,
+        proceeding_id: id,
       });
 
-      if (status === 201) {
+      if (status === 200) {
         setIsLoading(false);
         console.log(status);
       }
@@ -70,10 +64,10 @@ const UpdateProcessModal = () => {
   return (
     <>
       <Button type="default" onClick={showModal}>
-        Editar Dados
+        Criar novo processo
       </Button>
       <Modal
-        title="Novo Etapa"
+        title="Novo Processo"
         open={open}
         onOk={handleOk}
         confirmLoading={confirmLoading}
@@ -100,7 +94,7 @@ const UpdateProcessModal = () => {
                 padding: 15,
               }}
               prefix={<MdTitle />}
-              placeholder="Nome da Etapa"
+              placeholder="Nome da etapa"
             />
           </FormItem>
 
@@ -115,7 +109,7 @@ const UpdateProcessModal = () => {
                 boxSizing: "border-box",
               }}
               prefix={<MdTextFields size={20} />}
-              placeholder="Descrição da Etapa"
+              placeholder="Descrição da etapa"
             />
           </FormItem>
 
@@ -145,4 +139,4 @@ const UpdateProcessModal = () => {
     </>
   );
 };
-export default UpdateProcessModal;
+export { CreatePhaseModal };

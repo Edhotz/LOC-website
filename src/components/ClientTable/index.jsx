@@ -20,7 +20,6 @@ export const ClientDataTable = () => {
     try {
       const { data } = await API.get("/clients");
 
-      console.log(data);
       setData(data);
     } catch (error) {
       console.log(error);
@@ -47,7 +46,7 @@ export const ClientDataTable = () => {
   };
 
   useEffect(() => {
-    handleGet();
+    handleGet(data);
   }, []);
 
   return (
