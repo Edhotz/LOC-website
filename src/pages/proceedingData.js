@@ -150,22 +150,40 @@ const ProceedingData = () => {
               >
                 <Table.TextCell>{phase.name}</Table.TextCell>
                 <Table.TextCell>{phase.description}</Table.TextCell>
-                <Table.TextCell isNumber>
-                  <StatusIndicator color="success">
-                    <Space wrap>
-                      <Select
-                        defaultValue={phase.status}
-                        style={{
-                          width: 120,
-                        }}
-                        onChange={handleProvinceChange}
-                        options={statusData.map((data) => ({
-                          label: data,
-                          value: data,
-                        }))}
-                      />
-                    </Space>
-                  </StatusIndicator>
+                <Table.TextCell>
+                  {phase.status == "Pendente" ? (
+                    <StatusIndicator color="warning">
+                      <Space wrap>
+                        <Select
+                          defaultValue={phase.status}
+                          style={{
+                            width: 120,
+                          }}
+                          onChange={handleProvinceChange}
+                          options={statusData.map((data) => ({
+                            label: data,
+                            value: data,
+                          }))}
+                        />
+                      </Space>
+                    </StatusIndicator>
+                  ) : (
+                    <StatusIndicator color="success">
+                      <Space wrap>
+                        <Select
+                          defaultValue={phase.status}
+                          style={{
+                            width: 120,
+                          }}
+                          onChange={handleProvinceChange}
+                          options={statusData.map((data) => ({
+                            label: data,
+                            value: data,
+                          }))}
+                        />
+                      </Space>
+                    </StatusIndicator>
+                  )}
                 </Table.TextCell>
               </Table.Row>
             ))}
