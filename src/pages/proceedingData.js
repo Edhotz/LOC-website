@@ -10,7 +10,7 @@ import { Select, Space } from "antd";
 const statusData = ["Pendente", "Em_curso", "Finalizado"];
 const statusSelectedData = {
   Pendente: "Pendente",
-  Em_Curso: "Em_curso",
+  Em_curso: "Em_curso",
   Finalizado: "Finalizado",
 };
 
@@ -154,7 +154,7 @@ const ProceedingData = () => {
                   <StatusIndicator color="success">
                     <Space wrap>
                       <Select
-                        defaultValue={statusData[0]}
+                        defaultValue={phase.status}
                         style={{
                           width: 120,
                         }}
