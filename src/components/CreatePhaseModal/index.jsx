@@ -64,7 +64,7 @@ const CreatePhaseModal = () => {
   return (
     <>
       <Button type="default" onClick={showModal}>
-        Criar novo processo
+        Criar nova Fase
       </Button>
       <Modal
         title="Novo Processo"

@@ -95,7 +95,7 @@ const ProceedingData = () => {
             flexDirection: "column",
             gap: "3px",
             marginLeft: "500px",
-            marginTop: "200px",
+            marginTop: "160px",
           }}
         >
           <Text size={500} fontFamily="Poppins">
@@ -124,12 +124,14 @@ const ProceedingData = () => {
               </StatusIndicator>
             )}
           </Text>
+          <div>
+            <UpdateProcessModal />
+          </div>
         </div>
-        <UpdateProcessModal />
       </Pane>
 
       <Pane>
-        <Table width={800} marginLeft="500px" marginTop="50px">
+        <Table width={800} marginLeft="500px" marginTop="20px">
           <Table.Head
             display="flex"
             flexDirection="row"

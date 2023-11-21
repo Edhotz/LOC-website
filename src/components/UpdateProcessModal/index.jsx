@@ -24,12 +24,11 @@ const UpdateProcessModal = () => {
   };
 
   const { id } = useParams();
+  console.log(id);
 
   const onChange = (value) => {
     setCustomerId(value);
   };
-
-  const onSearch = (value) => {};
 
   const options = clients.map((client) => ({
     value: client.id,
@@ -39,7 +38,7 @@ const UpdateProcessModal = () => {
   const handlePost = async ({ name, description }) => {
     setIsLoading(true);
     try {
-      const { status } = await API.post(`/phase/${id}`, {
+      const { status } = await API.put(`/proceedings/${id}`, {
         name,
         description,
       });
@@ -69,11 +68,11 @@ const UpdateProcessModal = () => {
 
   return (
     <>
-      <Button type="default" onClick={showModal}>
+      <Button type="primary" onClick={showModal}>
         Editar Dados
       </Button>
       <Modal
-        title="Novo Etapa"
+        title="Editar dados do processo"
         open={open}
         onOk={handleOk}
         confirmLoading={confirmLoading}
@@ -100,7 +99,7 @@ const UpdateProcessModal = () => {
                 padding: 15,
               }}
               prefix={<MdTitle />}
-              placeholder="Nome da Etapa"
+              placeholder="Nome do processo"
             />
           </FormItem>
 
@@ -115,7 +114,7 @@ const UpdateProcessModal = () => {
                 boxSizing: "border-box",
               }}
               prefix={<MdTextFields size={20} />}
-              placeholder="Descrição da Etapa"
+              placeholder="Descrição do processo"
             />
           </FormItem>
 
