@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import { Form, Input, Alert, Button, Modal, Select } from "antd";
 
 import { API } from "../../services/api";
@@ -10,6 +10,7 @@ import { MdTextFields, MdTitle } from "react-icons/md";
 import TextArea from "antd/es/input/TextArea";
 
 import { useParams } from "react-router-dom";
+import { toaster } from "evergreen-ui";
 
 const CreateProcessModal = () => {
   const [open, setOpen] = useState(false);
@@ -25,19 +26,9 @@ const CreateProcessModal = () => {
 
   const { id } = useParams();
 
-  console.log(id)
-
-  
   const onChange = (value) => {
     setCustomerId(value);
   };
-
-  const onSearch = (value) => {};
-
-  const options = clients.map((client) => ({
-    value: client.id,
-    label: client.name,
-  }));
 
   const handlePost = async ({ name, description }) => {
     setIsLoading(true);
@@ -47,14 +38,15 @@ const CreateProcessModal = () => {
         description,
       });
 
-      if (status === 201) {
+      if (status === 200) {
         setIsLoading(false);
+        toaster.success("sucesso ao criar processo");
         console.log(status);
       }
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      <Alert message="Não foi possivel criar um usuario" type="error" />;
+      toaster.danger("Erro ao criar processo");
     }
   };
 
@@ -84,7 +76,6 @@ const CreateProcessModal = () => {
       >
         <Form
           name="basic"
-          encType="multpart/form-data"
           labelCol={{ span: 30 }}
           wrapperCol={{ span: 30 }}
           onFinish={handlePost}
@@ -107,7 +98,6 @@ const CreateProcessModal = () => {
             />
           </FormItem>
 
-         
           <FormItem name="description">
             <TextArea
               size="large"

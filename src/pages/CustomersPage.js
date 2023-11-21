@@ -17,8 +17,8 @@ const CustomersPage = () => {
 
       <div
         style={{
-          marginTop: "200px",
-          marginLeft: "400px",
+          marginTop: "170px",
+          marginLeft: "440px",
         }}
       >
         <ClientDataTable />

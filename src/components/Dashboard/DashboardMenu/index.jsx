@@ -42,19 +42,6 @@ const DashboardMenu = () => {
         </Items>
 
         <Items>
-          <MdTask
-            size={32}
-            color="#20a6da"
-            style={{
-              marginRight: 10,
-            }}
-          />
-          <Text href="/ativities">Processos</Text>
-        </Items>
-
-
-
-        <Items>
           <AiFillProfile
             size={32}
             color="#20a6da"
@@ -64,8 +51,6 @@ const DashboardMenu = () => {
           />
           <Text href="/customers">Clientes</Text>
         </Items>
-
-      
       </Wrapper>
     </Container>
   );

@@ -31,7 +31,6 @@ const CustomerProfile = () => {
       setData(data);
 
       const { Proceeding } = data;
-      console.log(Proceeding);
       setProceedingData(Proceeding);
     } catch (error) {
       console.log(error);
@@ -40,7 +39,7 @@ const CustomerProfile = () => {
 
   useEffect(() => {
     HandleGet();
-  }, [data]);
+  }, []);
 
   return (
     <div>
@@ -56,7 +55,7 @@ const CustomerProfile = () => {
             display: "flex",
             alignItems: "center",
             gap: "10px",
-            marginTop: "200px",
+            marginTop: "160px",
           }}
         >
           <Avatar color="blue" name={data.name} size={100} />
@@ -90,7 +89,6 @@ const CustomerProfile = () => {
           justifyContent="space-between"
           padding="10px"
         >
-          <Table.SearchHeaderCell />
           <Table.TextHeaderCell>Processos de {data.name}</Table.TextHeaderCell>
           <CreateProcessModal />
         </Table.Head>

@@ -5,6 +5,7 @@ import { API } from "../../services/api";
 import Form from "antd/es/form/Form";
 import { Input } from "antd";
 import CreateCustomerModal from "../CreateCustomerModal";
+
 export const ClientDataTable = () => {
   const [data, setData] = useState([]);
   const [name, setName] = useState("");
@@ -47,7 +48,7 @@ export const ClientDataTable = () => {
 
   useEffect(() => {
     handleGet(data);
-  }, []);
+  }, [data]);
 
   return (
     <Table height={300} width={800}>
@@ -57,7 +58,6 @@ export const ClientDataTable = () => {
         justifyContent="space-between"
         padding="10px"
       >
-        <Table.SearchHeaderCell />
         <Table.TextHeaderCell>Lista de clientes</Table.TextHeaderCell>
         <CreateCustomerModal />
       </Table.Head>

@@ -78,7 +78,7 @@ const ProceedingData = () => {
 
   useEffect(() => {
     HandleGet();
-  }, []);
+  }, [data]);
 
   return (
     <>
