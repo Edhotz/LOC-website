@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Card, Col, Form, Image, Input, Row, message } from "antd";
 import FormItem from "antd/es/form/FormItem";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useAuth } from "../../AuthProvider/useAuth";
 import { UserOutlined } from "@ant-design/icons";
 import { LockOutlined } from "@ant-design/icons";
@@ -10,10 +10,13 @@ import Dots from "react-activity/dist/Dots";
 import "react-activity/dist/Dots.css";
 
 import BG from "../../images/loginbg.jpg";
+import { toaster } from "evergreen-ui";
 
 const Login = () => {
   const auth = useAuth();
   const history = useHistory();
+
+  console.log(auth.id);
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,7 +24,8 @@ const Login = () => {
     setIsLoading(true);
     try {
       await auth.authenticateCustomer(email, password);
-      history.push("/clients/main-page");
+      history.push(`/clients/main-page/${auth.id}`);
+      toaster.success("Bem vindo");
     } catch (error) {
       setIsLoading(false);
       console.log(error);

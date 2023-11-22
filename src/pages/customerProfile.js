@@ -39,7 +39,7 @@ const CustomerProfile = () => {
 
   useEffect(() => {
     HandleGet();
-  }, []);
+  }, [data]);
 
   return (
     <div>

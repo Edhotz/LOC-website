@@ -141,7 +141,7 @@ const ProceedingData = () => {
           >
             <Table.TextHeaderCell>Fases</Table.TextHeaderCell>
 
-            <CreatePhaseModal procedding_id={id} />
+            <CreatePhaseModal />
           </Table.Head>
           <Table.VirtualBody height={240}>
             {phaseData.map((phase) => (

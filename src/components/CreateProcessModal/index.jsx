@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Input, Alert, Button, Modal, Select } from "antd";
+import { Form, Input, Alert, Button, Modal } from "antd";
 
 import { API } from "../../services/api";
 
@@ -7,28 +7,24 @@ import FormItem from "antd/es/form/FormItem";
 
 import { Dots } from "react-activity";
 import { MdTextFields, MdTitle } from "react-icons/md";
+import { FaKey, FaLocationArrow, FaPhone, FaUser } from "react-icons/fa";
 import TextArea from "antd/es/input/TextArea";
-
-import { useParams } from "react-router-dom";
+import { useAuth } from "../../AuthProvider/useAuth";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { toaster } from "evergreen-ui";
 
 const CreateProcessModal = () => {
   const [open, setOpen] = useState(false);
-  const [customerId, setCustomerId] = useState("");
   const [confirmLoading, setConfirmLoading] = useState(false);
   const [modalText, setModalText] = useState("");
-  const [clients, setClients] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
   const showModal = () => {
     setOpen(true);
   };
 
-  const { id } = useParams();
+  const user = useAuth();
 
-  const onChange = (value) => {
-    setCustomerId(value);
-  };
+  const { id } = useParams();
 
   const handlePost = async ({ name, description }) => {
     setIsLoading(true);
@@ -40,13 +36,14 @@ const CreateProcessModal = () => {
 
       if (status === 200) {
         setIsLoading(false);
-        toaster.success("sucesso ao criar processo");
-        console.log(status);
+        toaster.success("Processo criado");
       }
+
+      console.log(status);
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      toaster.danger("Erro ao criar processo");
+      toaster.danger("Erro ao criar usuario");
     }
   };
 
@@ -64,11 +61,18 @@ const CreateProcessModal = () => {
 
   return (
     <>
-      <Button type="default" onClick={showModal}>
+      <Button
+        type="default"
+        onClick={showModal}
+        style={{
+          marginRight: 620,
+          marginBottom: 10,
+        }}
+      >
         Criar novo processo
       </Button>
       <Modal
-        title="Novo Processo"
+        title="Novo processo"
         open={open}
         onOk={handleOk}
         confirmLoading={confirmLoading}
@@ -76,6 +80,7 @@ const CreateProcessModal = () => {
       >
         <Form
           name="basic"
+          encType="multpart/form-data"
           labelCol={{ span: 30 }}
           wrapperCol={{ span: 30 }}
           onFinish={handlePost}
@@ -97,7 +102,6 @@ const CreateProcessModal = () => {
               placeholder="Nome do processo"
             />
           </FormItem>
-
           <FormItem name="description">
             <TextArea
               size="large"

@@ -38,7 +38,7 @@ function App() {
           <PrivateRoute path="/legalization" component={legalization} />
           <PrivateRoute path="/customers" component={CustomersPage} />
           <PrivateRoute path="/assign" component={assignProject} />
-          <PrivateRoute path="/clients/main-page" component={MainPage} />
+          <PrivateRoute path="/clients/main-page/:id" component={MainPage} />
           <PrivateRoute
             path="/admin/customer-profile/:id"
             component={customerProfile}

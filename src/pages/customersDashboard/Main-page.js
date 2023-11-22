@@ -10,15 +10,23 @@ import CustomerAvatar from "../../components/CustomerAvatar";
 import { Space } from "antd";
 import ProceedingList from "../../components/ProceedingsList";
 import { API } from "../../services/api";
+import { useParams } from "react-router-dom";
+import { useAuth } from "../../AuthProvider/useAuth";
 
 const MainPage = () => {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const { id } = useParams;
+
+  const auth = useAuth();
+
+  console.log(auth.id);
+
   const handleFetch = async () => {
     setIsLoading(true);
     try {
-      const { data } = await API.get("/proceedings");
+      const { data } = await API.get(`/proceeding/${auth.id}`);
       setData(data);
       if (data) {
         setIsLoading(false);

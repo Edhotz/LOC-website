@@ -67,7 +67,7 @@ const CreatePhaseModal = () => {
         Criar nova Fase
       </Button>
       <Modal
-        title="Novo Processo"
+        title="Nova Etapa"
         open={open}
         onOk={handleOk}
         confirmLoading={confirmLoading}
