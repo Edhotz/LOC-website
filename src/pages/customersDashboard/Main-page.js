@@ -7,7 +7,7 @@ import CustomerDataDrawer from "../../components/CustomerDataDrawer";
 import CustomerAddDocuments from "../../components/CustomerAddDocuments";
 import AnuncimentsList from "../../components/AnuncimentsList";
 import CustomerAvatar from "../../components/CustomerAvatar";
-import { Space } from "antd";
+import { Col, Row, Space, Des, Descriptionscriptions, h1, Divider } from "antd";
 import ProceedingList from "../../components/ProceedingsList";
 import { API } from "../../services/api";
 import { useParams } from "react-router-dom";
@@ -33,6 +33,8 @@ const MainPage = () => {
         setIsLoading(false);
       }
 
+      console.log(data);
+
       const { Proceeding } = data;
 
       setProceedingData(Proceeding);
@@ -51,7 +53,51 @@ const MainPage = () => {
       <HeaderBar page="Perfil de Cliente" />
       <Container>
         <Wrapper>
-          <Avatar color="blue" name={data.name} size={100} />
+          <Space
+            style={{
+              gap: "30px",
+            }}
+          >
+            <Avatar color="blue" name={data.name} size={100} />
+            <Space
+              display="flex"
+              style={{
+                flexDirection: "column",
+                alignItems: "start",
+                textAlign: "start",
+                gap: "-5px",
+              }}
+            >
+              <h3
+                style={{
+                  fontWeight: "normal",
+                }}
+              >
+                Nome: {data.name}
+              </h3>
+              <h3
+                style={{
+                  fontWeight: "normal",
+                }}
+              >
+                Email: {data.email}
+              </h3>
+              <h3
+                style={{
+                  fontWeight: "normal",
+                }}
+              >
+                Telemovel: {data.phone}
+              </h3>
+              <h3
+                style={{
+                  fontWeight: "normal",
+                }}
+              >
+                Localização: {data.location}
+              </h3>
+            </Space>
+          </Space>
           <Card
             style={{
               display: "flex",
