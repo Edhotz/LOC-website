@@ -16,21 +16,25 @@ import { useAuth } from "../../AuthProvider/useAuth";
 const MainPage = () => {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  const { id } = useParams;
+  const [proceedingData, setProceedingData] = useState([]);
 
   const auth = useAuth();
 
-  console.log(auth.id);
+  const { id } = useParams();
 
   const handleFetch = async () => {
     setIsLoading(true);
     try {
-      const { data } = await API.get(`/proceeding/${auth.id}`);
+      const { data } = await API.get(`/client/${id}`);
       setData(data);
+
       if (data) {
         setIsLoading(false);
       }
+
+      const { Proceeding } = data;
+
+      setProceedingData(Proceeding);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
@@ -65,15 +69,13 @@ const MainPage = () => {
               }}
             >
               <h1>Progresso:</h1>
-              <ProgressBar />
+              <ProgressBar proceedingId={proceedingData} />
             </Space>
           </Card>
-          <CustomerDataDrawer />
-          <CustomerAddDocuments />
         </Wrapper>
 
         <Wrapper>
-          <ProceedingList />
+          <ProceedingList dataProps={proceedingData} />
         </Wrapper>
       </Container>
     </>

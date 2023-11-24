@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { Progress } from "antd";
 import { API } from "../../services/api";
+import { useAuth } from "../../AuthProvider/useAuth";
 
-const App = () => {
+const App = ({ proceedingId }) => {
   const [data, setData] = useState("");
+
+  const auth = useAuth();
 
   const handleFetch = async () => {
     try {
-      const response = await API.get("/document");
+      const response = await API.get(`/proceeding/${proceedingId}`);
       setData(response.data);
       console.log(response.data);
     } catch (error) {

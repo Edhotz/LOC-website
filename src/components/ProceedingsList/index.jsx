@@ -2,15 +2,24 @@ import React, { useEffect, useState } from "react";
 import { Table } from "antd";
 import { API } from "../../services/api";
 import { useAuth } from "../../AuthProvider/useAuth";
+import { useParams } from "react-router-dom";
 
-const ProceedingList = () => {
+const ProceedingList = ({ dataProps }) => {
   const [data, setData] = useState("");
+
+  const auth = useAuth();
+
+  const { id } = useParams();
+
+  console.log(dataProps);
 
   const handleFetch = async () => {
     try {
-      const { data } = await API.get("/proceedings");
+      const { data } = await API.get(`/client/${auth.id}`);
       setData(data);
-      console.log(data);
+
+      const { Proceeding } = data;
+      console.log(Proceeding);
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +43,7 @@ const ProceedingList = () => {
       <Table
         size="middle"
         columns={fixedColumns}
-        dataSource={data}
+        dataSource={dataProps}
         pagination={true}
         style={{
           width: 670,

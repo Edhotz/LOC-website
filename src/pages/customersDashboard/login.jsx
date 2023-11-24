@@ -13,18 +13,16 @@ import BG from "../../images/loginbg.jpg";
 import { toaster } from "evergreen-ui";
 
 const Login = () => {
-  const auth = useAuth();
+  const { id, authenticateCustomer } = useAuth();
   const history = useHistory();
-
-  console.log(auth.id);
 
   const [isLoading, setIsLoading] = useState(false);
 
   async function onFinish({ email, password }) {
     setIsLoading(true);
     try {
-      await auth.authenticateCustomer(email, password);
-      history.push(`/clients/main-page/${auth.id}`);
+      await authenticateCustomer(email, password);
+      history.push(`/clients/main-page/${id}`);
       toaster.success("Bem vindo");
     } catch (error) {
       setIsLoading(false);
