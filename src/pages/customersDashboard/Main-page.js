@@ -12,6 +12,7 @@ import ProceedingList from "../../components/ProceedingsList";
 import { API } from "../../services/api";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../AuthProvider/useAuth";
+import { Avatar } from "evergreen-ui";
 
 const MainPage = () => {
   const [data, setData] = useState("");
@@ -50,7 +51,7 @@ const MainPage = () => {
       <HeaderBar page="Perfil de Cliente" />
       <Container>
         <Wrapper>
-          <CustomerAvatar />
+          <Avatar color="blue" name={data.name} size={100} />
           <Card
             style={{
               display: "flex",
