@@ -56,6 +56,7 @@ const MainPage = () => {
           <Space
             style={{
               gap: "30px",
+              marginRight: "100px",
             }}
           >
             <Avatar color="blue" name={data.name} size={100} />
@@ -65,7 +66,6 @@ const MainPage = () => {
                 flexDirection: "column",
                 alignItems: "start",
                 textAlign: "start",
-                gap: "-5px",
               }}
             >
               <h3
@@ -119,9 +119,6 @@ const MainPage = () => {
               <ProgressBar proceedingId={proceedingData} />
             </Space>
           </Card>
-        </Wrapper>
-
-        <Wrapper>
           <ProceedingList dataProps={proceedingData} />
         </Wrapper>
       </Container>

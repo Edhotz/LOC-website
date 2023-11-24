@@ -35,8 +35,6 @@ export const AuthProvider = ({ children }) => {
 
     const { client } = response;
 
-    console.log(client);
-
     const payload = { token: response.token, ...client };
 
     console.log(payload);

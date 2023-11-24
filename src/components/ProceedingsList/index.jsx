@@ -36,6 +36,12 @@ const ProceedingList = ({ dataProps }) => {
       fixed: true,
       width: 100,
     },
+    {
+      title: "Status",
+      dataIndex: "status",
+      fixed: true,
+      width: 100,
+    },
   ];
 
   return (
@@ -48,6 +54,7 @@ const ProceedingList = ({ dataProps }) => {
         style={{
           width: 670,
           boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.3)",
+          marginLeft: "270px",
         }}
         scroll={{
           x: 200,

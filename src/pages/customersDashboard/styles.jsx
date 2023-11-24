@@ -9,7 +9,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: -100px;
-  margin-left: 105px;
+  margin-left: 10px;
 `;
 
 export const Wrapper = styled.div`
@@ -17,6 +17,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-right: 300px;
   gap: 20px;
-  margin-left: 4rem;
 `;
