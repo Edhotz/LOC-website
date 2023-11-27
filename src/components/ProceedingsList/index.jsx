@@ -11,15 +11,12 @@ const ProceedingList = ({ dataProps }) => {
 
   const { id } = useParams();
 
-  console.log(dataProps);
-
   const handleFetch = async () => {
     try {
       const { data } = await API.get(`/client/${auth.id}`);
       setData(data);
 
       const { Proceeding } = data;
-      console.log(Proceeding);
     } catch (error) {
       console.log(error);
     }

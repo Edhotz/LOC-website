@@ -22,12 +22,18 @@ const Login = () => {
     setIsLoading(true);
     try {
       await authenticateCustomer(email, password);
-      history.push(`/clients/main-page/${id}`);
-      toaster.success("Bem vindo");
+
+      if (id === undefined) {
+        setIsLoading(false);
+        return toaster.notify("Erro ao processar, tente novamente");
+      } else if (id != undefined) {
+        history.push(`/clients/main-page/${id}`);
+        toaster.success("Bem vindo");
+      }
     } catch (error) {
       setIsLoading(false);
       console.log(error);
-      message.error("Invalid email or password");
+      toaster.danger("Credenciais Invalidas");
     }
   }
 

@@ -32,9 +32,6 @@ const MainPage = () => {
       if (data) {
         setIsLoading(false);
       }
-
-      console.log(data);
-
       const { Proceeding } = data;
 
       setProceedingData(Proceeding);
@@ -46,7 +43,7 @@ const MainPage = () => {
 
   useEffect(() => {
     handleFetch();
-  }, []);
+  }, [data]);
 
   return (
     <>
