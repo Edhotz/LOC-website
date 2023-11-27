@@ -8,9 +8,11 @@ const App = ({ proceedingId }) => {
 
   const auth = useAuth();
 
+  console.log(proceedingId);
+
   const handleFetch = async () => {
     try {
-      const response = await API.get(`/proceeding/${proceedingId}`);
+      const response = await API.get(`/proceeding/${proceedingId[0].id}`);
       setData(response.data);
       console.log(response.data);
     } catch (error) {

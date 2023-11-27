@@ -12,12 +12,23 @@ import ProceedingList from "../../components/ProceedingsList";
 import { API } from "../../services/api";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../AuthProvider/useAuth";
-import { Avatar } from "evergreen-ui";
+import {
+  Avatar,
+  EditIcon,
+  EyeOnIcon,
+  IconButton,
+  Paragraph,
+  Table,
+  Text,
+  Tooltip,
+} from "evergreen-ui";
+import ListPhasePopover from "../../components/ListPhasePopover/screen";
 
 const MainPage = () => {
   const [data, setData] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [proceedingData, setProceedingData] = useState([]);
+  const [proceedingId, setProceedingId] = useState("");
 
   const auth = useAuth();
 
@@ -113,10 +124,46 @@ const MainPage = () => {
               }}
             >
               <h1>Progresso:</h1>
-              <ProgressBar proceedingId={proceedingData} />
+              <ProgressBar proceedingId={proceedingId} />
             </Space>
           </Card>
-          <ProceedingList dataProps={proceedingData} />
+          <Table height={300} width={800} alignSelf="center" marginLeft="400px">
+            <Table.Head
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              padding="10px"
+            >
+              <Table.TextHeaderCell>Lista de Processos</Table.TextHeaderCell>
+            </Table.Head>
+            <Table.Body
+              height={240}
+              width={800}
+              alignItems="center"
+              justifyContent="center"
+            >
+              {proceedingData.length === 0
+                ? "Sem Dados"
+                : proceedingData.map((data) => (
+                    <Table.Row
+                      key={data.id}
+                      isSelectable
+                      alignItems="center"
+                      onSelect={() => ""}
+                    >
+                      <Table.TextCell>{data.name}</Table.TextCell>
+
+                      <Table.TextCell>{data.description}</Table.TextCell>
+                      <Table.TextCell>{data.status}</Table.TextCell>
+                      <Table.TextCell>
+                        <Tooltip content="Edit title">
+                          <ListPhasePopover id={data.id} />
+                        </Tooltip>
+                      </Table.TextCell>
+                    </Table.Row>
+                  ))}
+            </Table.Body>
+          </Table>
         </Wrapper>
       </Container>
     </>
