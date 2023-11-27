@@ -82,14 +82,13 @@ const CustomerProfile = () => {
         </div>
       </div>
 
-      <Table height={300} width={800} marginLeft="400px" marginTop="50px">
+      <Table height={400} width={800} marginLeft="400px" marginTop="50px">
         <Table.Head
           display="flex"
           alignItems="center"
           justifyContent="space-between"
-          padding="10px"
         >
-          <Table.TextHeaderCell>Processos de {data.name}</Table.TextHeaderCell>
+          <Table.TextHeaderCell>Processo de {data.name}</Table.TextHeaderCell>
           <CreateProcessModal />
         </Table.Head>
         <Table.Body
