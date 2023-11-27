@@ -3,11 +3,7 @@ import { Container } from "./styles";
 import { Graph } from "./Graph";
 
 const DataGraph = () => {
-  return (
-    <Container>
-      <Graph />
-    </Container>
-  );
+  return <Graph />;
 };
 
 export default DataGraph;

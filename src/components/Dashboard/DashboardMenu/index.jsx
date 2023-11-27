@@ -20,17 +20,6 @@ const DashboardMenu = () => {
     <Container>
       <Wrapper>
         <Items>
-          <AiFillHome
-            size={32}
-            color="#20a6da"
-            style={{
-              marginRight: 10,
-            }}
-          />
-          <Text href="/dashboard">Dashboard</Text>
-        </Items>
-
-        <Items>
           <AiOutlineUser
             size={32}
             color="#20a6da"

@@ -8,9 +8,14 @@ const Dashboard = () => {
   return (
     <>
       <DashBoardSearchBar title="Dashboard" />
-      <DataTable />
-      <DataGraph />
-      <BottomDataTable />
+      <div
+        style={{
+          display: "flex",
+        }}
+      >
+        <DataTable />
+        <DataGraph />
+      </div>
     </>
   );
 };

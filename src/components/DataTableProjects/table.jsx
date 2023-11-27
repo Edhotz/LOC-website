@@ -13,7 +13,7 @@ const TableComponent = () => {
 
   const handleFetch = async () => {
     try {
-      const response = await API.get("/projects");
+      const response = await API.get("/clients");
       setGroup(response.data);
       console.log(response.data);
     } catch (error) {
@@ -141,26 +141,24 @@ const TableComponent = () => {
 
   const columns = [
     {
-      title: "Titulo",
-      dataIndex: "title",
-      key: "title",
+      title: "Nome",
+      dataIndex: "name",
+      key: "name",
       width: "30%",
-      ...getColumnSearchProps("title"),
+      ...getColumnSearchProps("name"),
     },
     {
-      title: "Descrição",
-      dataIndex: "description",
-      key: "description",
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
       width: "20%",
-      ...getColumnSearchProps("description"),
+      ...getColumnSearchProps("email"),
     },
     {
-      title: "Criado em",
-      dataIndex: "created_at",
-      key: "created_at",
-      ...getColumnSearchProps("created_at"),
-      sorter: (a, b) => a.address.length - b.address.length,
-      sortDirections: ["descend", "ascend"],
+      title: "Telemovel",
+      dataIndex: "phone",
+      key: "phone",
+      ...getColumnSearchProps("phone"),
     },
   ];
 

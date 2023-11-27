@@ -9,7 +9,7 @@ export const Graph = () => {
   const [customerData, setCustomerData] = useState(null);
 
   const handleFecthProjects = async () => {
-    const { data } = await API.get("/projects");
+    const { data } = await API.get("/proceedings");
 
     const numberOfItems = data.length;
 
@@ -17,7 +17,7 @@ export const Graph = () => {
   };
 
   const handleFecthActivities = async () => {
-    const { data } = await API.get("/activities");
+    const { data } = await API.get("/proceedings");
 
     const numberOfItems = data.length;
 
@@ -25,7 +25,7 @@ export const Graph = () => {
   };
 
   const handleFecthTasks = async () => {
-    const { data } = await API.get("/tasks");
+    const { data } = await API.get("/clients");
 
     const numberOfItems = data.length;
 
@@ -33,7 +33,7 @@ export const Graph = () => {
   };
 
   const handleFecthCustomers = async () => {
-    const { data } = await API.get("/activities");
+    const { data } = await API.get("/phases");
 
     const numberOfItems = data.length;
 
@@ -49,20 +49,16 @@ export const Graph = () => {
 
   const data = [
     {
-      type: "Projetos",
+      type: "Processos",
       sales: projectsData,
     },
     {
-      type: "Atividades",
+      type: "Clientes",
       sales: activitiesData,
     },
     {
-      type: "Tarefas",
+      type: "Fases",
       sales: tasksData,
-    },
-    {
-      type: "Clientes",
-      sales: customerData,
     },
   ];
   const config = {

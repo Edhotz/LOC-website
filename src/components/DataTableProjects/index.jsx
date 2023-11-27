@@ -3,11 +3,7 @@ import TableComponent from "./table";
 import { Container } from "./styles";
 
 const DataTable = () => {
-  return (
-    <Container>
-      <TableComponent />
-    </Container>
-  );
+  return <TableComponent />;
 };
 
 export default DataTable;

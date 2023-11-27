@@ -21,7 +21,7 @@ const Login = () => {
     setIsLoading(true);
     try {
       await auth.authenticate(email, password);
-      history.push("/dashboard");
+      history.push("/customers");
     } catch (error) {
       setIsLoading(false);
       console.log(error);
