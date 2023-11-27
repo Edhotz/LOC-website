@@ -1,4 +1,4 @@
-import { Button, Popover, Space } from "antd";
+import { Button, Popover, Progress, Space } from "antd";
 import { Heading, Text } from "evergreen-ui";
 import React, { useEffect, useState } from "react";
 import { API } from "../../services/api";
@@ -27,7 +27,18 @@ const ListPhasePopover = ({ id }) => {
 
   const content = (
     <div>
-      <Heading> {compute}%</Heading>
+      <Progress
+        percent={compute}
+        status="normal"
+        style={{
+          marginTop: 8,
+          width: 280,
+        }}
+        strokeColor={{
+          from: "#f2f2f2",
+          to: "#108ee9",
+        }}
+      />
     </div>
   );
 

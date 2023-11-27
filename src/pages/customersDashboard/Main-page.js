@@ -34,6 +34,11 @@ const MainPage = () => {
 
   const { id } = useParams();
 
+  const screenWidth = window.innerWidth;
+  const screenHeight = window.height;
+
+  console.log(screenWidth, screenHeight);
+
   const handleFetch = async () => {
     setIsLoading(true);
     try {
@@ -106,28 +111,13 @@ const MainPage = () => {
               </h3>
             </Space>
           </Space>
-          <Card
-            style={{
-              display: "flex",
-              width: 400,
-              height: 100,
-              alignItems: "center",
-              justifyContent: "center",
-              boxShadow: "5px 5px 15px rgba(0, 0, 0, 0.3)",
-            }}
+          <Table
+            height={100 - screenHeight}
+            width={screenWidth - 800}
+            alignSelf="center"
+            marginLeft="400px"
+            marginTop="30px"
           >
-            <Space
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <h1>Progresso:</h1>
-              <ProgressBar proceedingId={proceedingId} />
-            </Space>
-          </Card>
-          <Table height={300} width={800} alignSelf="center" marginLeft="400px">
             <Table.Head
               display="flex"
               alignItems="center"
@@ -137,8 +127,8 @@ const MainPage = () => {
               <Table.TextHeaderCell>Lista de Processos</Table.TextHeaderCell>
             </Table.Head>
             <Table.Body
-              height={240}
-              width={800}
+              height={100 - screenHeight}
+              width={300 - screenWidth}
               alignItems="center"
               justifyContent="center"
             >
