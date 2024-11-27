@@ -1,25 +1,33 @@
-"use client"
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion"
-import { useRouter } from "next/navigation"
-import GridPattern from "@/components/ui/grid-pattern"
-import { cn } from "@/lib/utils"
-import PulsatingButton from "@/components/ui/pulsating-button"
-import { ServicesDialog } from "@/components/services-dialog"
-import BlurFade from "@/components/ui/blur-fade"
-import { designImage, enterprisepersonImage, flagImage, headerImage, HygieneImage, legalizationImage, locLogo } from "@/lib/constants"
-import { ServicesCard } from "@/components/services-cards"
-import { ContactModal } from "@/components/contact-modal"
+} from "@/components/ui/accordion";
+import { useRouter } from "next/navigation";
+import GridPattern from "@/components/ui/grid-pattern";
+import { cn } from "@/lib/utils";
+import PulsatingButton from "@/components/ui/pulsating-button";
+import { ServicesDialog } from "@/components/services-dialog";
+import BlurFade from "@/components/ui/blur-fade";
+import {
+  designImage,
+  enterprisepersonImage,
+  flagImage,
+  headerImage,
+  HygieneImage,
+  legalizationImage,
+  locLogo,
+} from "@/lib/constants";
+import { ServicesCard } from "@/components/services-cards";
+import { ContactModal } from "@/components/contact-modal";
 
 export default function Component() {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <div className="flex min-h-screen flex-col">
       <GridPattern
@@ -28,18 +36,13 @@ export default function Component() {
         x={-1}
         y={-1}
         className={cn(
-          "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] ",
+          "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] "
         )}
       />
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-8">
         <div className="container flex h-14 items-center justify-between">
           <Link className="font-semibold p-2" href="/">
-            <Image
-              src={locLogo}
-              width={90}
-              height={70}
-              alt="Loc logo"
-            />
+            <Image src={locLogo} width={90} height={70} alt="Loc logo" />
           </Link>
           <nav className="hidden md:flex gap-6">
             <Link className="text-sm hover:underline" href="#services">
@@ -52,7 +55,9 @@ export default function Component() {
               A Empresa
             </Link>
           </nav>
-          <PulsatingButton onClick={() => router.push("contact")}>Entre em contacto</PulsatingButton>
+          <PulsatingButton onClick={() => router.push("contact")}>
+            Entre em contacto
+          </PulsatingButton>
         </div>
       </header>
       <main className="flex-1 p-10 flex flex-col">
@@ -65,7 +70,9 @@ export default function Component() {
                     Luanda Office Center
                   </div>
                   <h1 className="text-2xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl">
-                    UM NOVO CONCEITO DE PRESTACAO DE SERVIÇOS ESSENCIAIS PARA O SUCESSO PROFISSIONAL, PESSOAL E PARA O DESENVOLVIMENTO SUSTENTÁVEL
+                    UM NOVO CONCEITO DE PRESTACAO DE SERVIÇOS ESSENCIAIS PARA O
+                    SUCESSO PROFISSIONAL, PESSOAL E PARA O DESENVOLVIMENTO
+                    SUSTENTÁVEL
                   </h1>
                 </div>
               </div>
@@ -91,7 +98,8 @@ export default function Component() {
                 NOSSOS SERVICOS
               </h2>
               <p className="text-muted-foreground">
-                Serviços personalizados para atender as necessidades essenciais da sua empresa
+                Serviços personalizados para atender as necessidades essenciais
+                da sua empresa
               </p>
             </div>
             <ServicesCard />
@@ -105,7 +113,9 @@ export default function Component() {
                   ALGUNS DE OUTROS SERVICOS QUE PRESTAMOS
                 </h2>
                 <p className="mt-2 text-muted-foreground">
-                  Ao colaborar em cada projeto, identificamos quais competências são necessárias e depois reunimos as melhores pessoas para criar algo verdadeiramente extraordinário.
+                  Ao colaborar em cada projeto, identificamos quais competências
+                  são necessárias e depois reunimos as melhores pessoas para
+                  criar algo verdadeiramente extraordinário.
                 </p>
               </div>
               <div>
@@ -113,19 +123,24 @@ export default function Component() {
                   {[
                     {
                       title: "Higiene e seguranca no trabalho",
-                      content: "Prevenção é a melhor solução. Conheça nossas ferramentas e treinamentos para proteger sua equipe.",
+                      content:
+                        "Prevenção é a melhor solução. Conheça nossas ferramentas e treinamentos para proteger sua equipe.",
                     },
                     {
                       title: "Design Grafico",
-                      content: "Design gráfico que transforma ideias em realidade. Crie uma identidade visual impactante e memorável para o seu negócio.",
+                      content:
+                        "Design gráfico que transforma ideias em realidade. Crie uma identidade visual impactante e memorável para o seu negócio.",
                     },
                     {
                       title: "Desenvolvimento de Software",
-                      content: "Nós desenvolvemos soluções de software personalizadas para impulsionar o crescimento do seu negócio. Desde a concepção até a implementação, nossa equipe de especialistas trabalha lado a lado com você para criar softwares eficientes e inovadores.",
+                      content:
+                        "Nós desenvolvemos soluções de software personalizadas para impulsionar o crescimento do seu negócio. Desde a concepção até a implementação, nossa equipe de especialistas trabalha lado a lado com você para criar softwares eficientes e inovadores.",
                     },
                   ].map((item) => (
                     <AccordionItem key={item.title} value={item.title}>
-                      <AccordionTrigger className="text-2xl">{item.title}</AccordionTrigger>
+                      <AccordionTrigger className="text-2xl">
+                        {item.title}
+                      </AccordionTrigger>
                       <AccordionContent>{item.content}</AccordionContent>
                     </AccordionItem>
                   ))}
@@ -164,16 +179,17 @@ export default function Component() {
               </div>
               <div>
                 <p className="text-muted-foreground">
-                  Registrada Pela Sociedade de direito Angolano Invesparso, a Luanda Office Center é uma empresa orientada para o mercado empresarial angolano, que cria e implementa soluções que visam potencializar as vendas e a notariedade de imagem das empresas
+                  Registrada Pela Sociedade de direito Angolano Invesparso, a
+                  Luanda Office Center é uma empresa orientada para o mercado
+                  empresarial angolano, que cria e implementa soluções que visam
+                  potencializar as vendas e a notariedade de imagem das empresas
                 </p>
               </div>
             </div>
-
           </div>
         </section>
-      </main >
+      </main>
       <footer className="border-t bg-black text-white p-5">
-
         <div className="container py-24 md:py-32">
           <div className="grid gap-8 md:grid-cols-2">
             <div className="flex flex-col gap-4">
@@ -200,7 +216,9 @@ export default function Component() {
             </div>
           </div>
           <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-gray-800 pt-8 md:flex-row">
-            <div className="text-sm text-gray-400">Luanda Office Center @{new Date().getFullYear()}</div>
+            <div className="text-sm text-gray-400">
+              Luanda Office Center @{new Date().getFullYear()}
+            </div>
             <div className="flex gap-4">
               {["Linkedin", "Instagram", "Facebook"].map((social) => (
                 <Link
@@ -215,6 +233,6 @@ export default function Component() {
           </div>
         </div>
       </footer>
-    </div >
-  )
+    </div>
+  );
 }
