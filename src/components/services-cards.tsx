@@ -4,6 +4,14 @@ import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
+type CardData = {
+  category: string;
+  title: string;
+  description: string;
+  src: string;
+  content: JSX.Element;
+};
+
 export function ServicesCard() {
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} layout={true} />
@@ -16,7 +24,7 @@ export function ServicesCard() {
   );
 }
 
-const generateDescription = (category) => {
+const generateDescription = (category: string): string => {
   switch (category) {
     case "Legalizacoes de imoveis":
       return "Obtenha todas as informações necessárias para regularizar o seu imóvel de forma prática e eficiente.";
@@ -33,7 +41,12 @@ const generateDescription = (category) => {
   }
 };
 
-const DummyContent = ({ description, image }) => {
+type DummyContentProps = {
+  description: string;
+  image: string;
+};
+
+const DummyContent: React.FC<DummyContentProps> = ({ description, image }) => {
   return (
     <div className="bg-[#F5F5F7] rounded-3xl mb-4">
       <p className="text-neutral-600 text-base md:text-2xl font-sans max-w-3xl mx-auto p-4">
@@ -42,15 +55,15 @@ const DummyContent = ({ description, image }) => {
       <Image
         src={image}
         alt="Content image"
-        height="500"
-        width="500"
+        height={500}
+        width={500}
         className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
       />
     </div>
   );
 };
 
-const data = [
+const data: CardData[] = [
   {
     category: "Legalizacoes de imoveis",
     title: "Saiba mais sobre legalizacoes de imoveis",
