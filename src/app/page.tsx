@@ -55,9 +55,6 @@ export default function Component() {
               A Empresa
             </Link>
           </nav>
-          <PulsatingButton onClick={() => router.push("contact")}>
-            Entre em contacto
-          </PulsatingButton>
         </div>
       </header>
       <main className="flex-1 p-10 flex flex-col">
