@@ -149,26 +149,7 @@ export default function Component() {
             </div>
           </div>
         </section>
-        <section className="border-t py-24 md:py-32" id="partners">
-          <div className="container">
-            <h2 className="mb-12 text-center text-lg font-semibold">
-              EMPRESAS PARCEIRAS
-            </h2>
-            <div className="grid grid-cols-2 gap-8 md:grid-cols-5">
-              {Array.from({ length: 5 }).map((_, i) => (
-                <div key={i} className="flex items-center justify-center">
-                  <Image
-                    alt="Partner logo"
-                    className="aspect-[2/1] object-contain"
-                    height={50}
-                    src={locLogo}
-                    width={100}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+
         <section className="border-t py-24 md:py-32">
           <div className="container" id="about">
             <div className="grid gap-8 md:grid-cols-2">
